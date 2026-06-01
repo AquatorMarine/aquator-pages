@@ -394,7 +394,14 @@ async function generateChangelogData(tasksBySection, monthName, year) {
     .map(
       ([section, tasks]) =>
         `## ${section}\n${tasks
-          .map((t) => `- **${t.name}**: ${t.description}`)
+          .map(
+            (t) =>
+              `- **${t.name}**: ${
+                t.description && t.description.trim()
+                  ? t.description.trim()
+                  : "(no description provided — infer the user-facing change from the task title)"
+              }`
+          )
           .join("\n")}`
     )
     .join("\n\n");
@@ -403,13 +410,22 @@ async function generateChangelogData(tasksBySection, monthName, year) {
 
 You convert completed engineering tasks into a concise, user-facing changelog for ${monthName} ${year}, returned as STRUCTURED DATA via the emit_changelog tool.
 
-GROUNDING (most important — accuracy over completeness):
-- Describe ONLY what is directly supported by a task's name and description.
-- Never invent features, capabilities, numbers, percentages, dates, or product names.
-- If a task is ambiguous, internal, or has no clear end-user impact, OMIT it entirely.
+GROUNDING (accuracy over completeness):
+- Describe ONLY what is supported by a task's name/description. Never invent
+  features, numbers, percentages, dates, or product names.
+- Many tasks have NO description. In that case, write a short, plausible
+  user-facing sentence based on the task TITLE alone — do NOT output a
+  placeholder.
+- If a task is internal/admin/infra/refactor or too vague to describe in user
+  terms even from its title, OMIT it entirely.
 - Do not merge unrelated tasks into a single item, and do not embellish.
-- Prefer 3 accurate items over 8 padded ones. Fewer, true, specific.
-- Internal/admin/infra/refactor tasks with no user-visible effect → drop them.
+- Prefer fewer, accurate items over padded ones.
+
+ABSOLUTELY FORBIDDEN:
+- Never output placeholder text such as "<UNKNOWN>", "UNKNOWN", "N/A", "TBD",
+  "TODO", "none", or empty strings in ANY field. Every field must be real,
+  human-readable copy. If you cannot write a real description for a task, drop
+  that task instead of emitting a placeholder.
 
 CLASSIFICATION (entry "type"):
 - "feature"     — capabilities users could not do before.
@@ -503,14 +519,63 @@ ${taskSummary}`;
     throw new Error("Anthropic returned no structured changelog content.");
   }
 
-  const data = toolUse.input;
-  const validTypes = new Set(["feature", "improvement", "fix"]);
-  data.entries = (data.entries || []).filter(
-    (e) => e && validTypes.has(e.type) && e.title && e.what
-  );
-
+  const data = sanitizeChangelogData(toolUse.input, monthName, year);
   console.log(`   Generated ${data.entries.length} changelog entries`);
   return data;
+}
+
+// ─── Content sanitation — never let placeholders reach the page ───────
+// The model is told to derive copy from the task title when a description is
+// missing, but as a hard safety net we strip placeholders here and fall back
+// to a title-based sentence so "<UNKNOWN>", "N/A", empty, etc. can never ship.
+const PLACEHOLDER_RE =
+  /^\s*<?\s*(unknown|n\/?a|tbd|todo|none|null|undefined|pending|placeholder|\.{2,}|-{1,})\s*>?\s*$/i;
+
+function cleanText(s) {
+  if (s == null) return "";
+  const t = String(s).replace(/\s+/g, " ").trim();
+  if (!t) return "";
+  if (PLACEHOLDER_RE.test(t)) return "";
+  if (/unknown/i.test(t)) return ""; // catches "<UNKNOWN>" embedded anywhere
+  return t;
+}
+
+function fallbackWhat(type, title) {
+  if (type === "fix") return `An issue with ${title} has been resolved.`;
+  if (type === "improvement") return `${title} has been improved.`;
+  return `${title} is now available.`;
+}
+
+function sanitizeChangelogData(data, monthName, year) {
+  data = data || {};
+  const validTypes = new Set(["feature", "improvement", "fix"]);
+
+  const entries = (data.entries || [])
+    .map((e) => {
+      if (!e || !validTypes.has(e.type)) return null;
+      const title = cleanText(e.title);
+      if (!title) return null; // no usable title → drop the entry entirely
+      const module = cleanText(e.module) || "Platform";
+      const what = cleanText(e.what) || fallbackWhat(e.type, title);
+      const use = cleanText(e.use); // optional
+      return { type: e.type, module, title, what, use: use || undefined };
+    })
+    .filter(Boolean);
+
+  const titles = entries.map((e) => e.title);
+  const headline =
+    cleanText(data.headline) ||
+    titles.slice(0, 4).join("; ") ||
+    `${monthName} ${year} update`;
+  const summary =
+    cleanText(data.summary) ||
+    (titles.length
+      ? `This release brings ${titles.length} update${
+          titles.length > 1 ? "s" : ""
+        }: ${titles.join(", ")}.`
+      : `Updates shipped in ${monthName} ${year}.`);
+
+  return { headline, summary, entries };
 }
 
 // ─── Assemble the exact <article class="release"> markup ──────────────
@@ -795,6 +860,16 @@ async function createGitHubPR(meta, articleHtml) {
     );
   }
 
+  // Idempotency guard: if this branch already carries the month (e.g. a
+  // previous run committed it), do NOT insert it again — that would duplicate
+  // the release on the branch.
+  if (meta.ym && existingContent.includes(`data-iso="${meta.ym}-`)) {
+    throw new Error(
+      `"${branchName}" already contains a ${meta.monthName} ${meta.year} release ` +
+        `(data-iso="${meta.ym}-…"). Delete that branch to regenerate cleanly, then re-run.`
+    );
+  }
+
   // 4. Additively insert the new release (never rewrites existing entries)
   const updatedContent = applyAdditions(existingContent, meta, articleHtml);
 
@@ -987,6 +1062,7 @@ async function main() {
     const meta = {
       monthName,
       year,
+      ym,
       iso,
       displayDate,
       version,
@@ -1036,4 +1112,5 @@ module.exports = {
   applyAdditions,
   computeVersionAndPlacement,
   getDateRange,
+  sanitizeChangelogData,
 };
