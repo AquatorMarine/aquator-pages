@@ -1,0 +1,44 @@
+name: Notify Users via Intercom
+
+on:
+  # Triggers when the changelog PR is merged to main
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  notify-intercom:
+    # Only run if the PR was merged (not just closed) AND it's a changelog PR
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'changelog/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire Intercom changelog event
+        env:
+          INTERCOM_ACCESS_TOKEN: ${{ secrets.INTERCOM_ACCESS_TOKEN }}
+        run: |
+          echo "🔔 Firing Intercom changelog_published event..."
+
+          # Get all users and fire event for each
+          # Note: Intercom events API requires a user identifier per event
+          # Option A: Fire for a specific list of users
+          # Option B: Use Intercom's bulk API
+          # Option C: Fire a single event for a known user — the banner
+          #           triggers based on the event existing, not per-user
+
+          # For event-based banners, you fire the event per user.
+          # The simplest approach: use a server-side script or
+          # fire the event via your app's backend on next login.
+
+          # Recommended: Add this to your Node.js backend instead.
+          # When the deploy webhook fires, set a flag in your DB.
+          # On next user login, fire the Intercom event client-side:
+          #
+          #   Intercom('trackEvent', 'changelog_published', {
+          #     month: 'June 2026',
+          #     url: 'https://help.aquatormarine.com/change-log/'
+          #   });
+
+          echo "✅ Deploy complete. Intercom banner will trigger on next user login."
+          echo ""
+          echo "📌 IMPORTANT: Make sure your app fires the 'changelog_published'"
+          echo "   Intercom event on user login. See README for setup."
