@@ -416,10 +416,21 @@ GROUNDING (accuracy over completeness):
 - Many tasks have NO description. In that case, write a short, plausible
   user-facing sentence based on the task TITLE alone — do NOT output a
   placeholder.
-- If a task is internal/admin/infra/refactor or too vague to describe in user
-  terms even from its title, OMIT it entirely.
 - Do not merge unrelated tasks into a single item, and do not embellish.
 - Prefer fewer, accurate items over padded ones.
+
+EXCLUDE — only user-facing changes belong in the changelog. OMIT a task entirely
+when a customer would not notice or benefit from it in the product, including:
+- Internal/admin-only changes, internal tooling, or back-office workflows.
+- Refactors, code cleanup, renames, or restructuring with no behavior change.
+- Infrastructure, DevOps, CI/CD, build, deployment, or dependency upgrades.
+- Database migrations, logging, monitoring, or perf work with no visible effect.
+- Tests, QA automation, or test-data changes.
+- Documentation, internal notes, research/spikes, or planning tasks.
+- Reverted, no-op, or duplicate work, or anything too vague to describe in user
+  terms even from its title.
+The test for every task: "Would a customer notice or benefit from this in the
+product?" If no — or if you are unsure — OMIT it.
 
 ABSOLUTELY FORBIDDEN:
 - Never output placeholder text such as "<UNKNOWN>", "UNKNOWN", "N/A", "TBD",
