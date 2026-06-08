@@ -214,6 +214,34 @@
           padding: 20px 20px 44px;
         }
       }
+      .hc-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--sans);
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 6px 13px 6px 9px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        margin: 0 0 14px 4px;
+        cursor: pointer;
+        transition: 0.14s;
+      }
+      .hc-back:hover {
+        color: var(--orange);
+        border-color: var(--orange);
+        background: var(--orange-tint);
+      }
+      .hc-back svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
+
       .crumb {
         font-size: 12px;
         color: var(--muted);
@@ -501,6 +529,199 @@
       .faq .faq-a p {
         margin: 0;
         max-width: none;
+      }
+
+      /* ── Interactive plan picker ── */
+      .aq-picker {
+        max-width: 760px;
+        margin: 8px 0 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 18px;
+        align-items: flex-end;
+      }
+      .aq-field {
+        flex: 1 1 240px;
+        min-width: 200px;
+      }
+      .aq-field.bill {
+        flex: 0 1 200px;
+      }
+      .aq-picker label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--orange-2);
+        margin-bottom: 6px;
+      }
+      .aq-select {
+        width: 100%;
+        font-family: var(--sans);
+        font-size: 14px;
+        color: var(--ink);
+        background-color: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 38px 10px 13px;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ff6500' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 13px center;
+        transition: 0.14s;
+      }
+      .aq-select:focus {
+        outline: none;
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px var(--orange-tint);
+      }
+      .aq-detail {
+        margin-top: 14px;
+      }
+      .aq-empty {
+        max-width: 760px;
+        border: 1px dashed var(--line);
+        border-radius: 10px;
+        padding: 18px 16px;
+        color: var(--muted);
+        font-size: 13.5px;
+        background: var(--surface-alt);
+      }
+      .aq-card {
+        max-width: 760px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(47, 43, 61, 0.05);
+      }
+      .aq-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
+        padding: 14px 16px;
+        background: var(--ink);
+        color: #fff;
+      }
+      .aq-head .aq-name {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 1;
+      }
+      .aq-head .aq-fam {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+      .aq-head .aq-price {
+        margin-left: auto;
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--orange-light);
+        white-space: nowrap;
+      }
+      .aq-head .aq-price small {
+        font-size: 12px;
+        font-weight: 500;
+        opacity: 0.85;
+      }
+      .aq-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 22px;
+        padding: 11px 16px;
+        border-bottom: 1px solid var(--line-soft);
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .aq-meta b {
+        color: var(--ink);
+      }
+      .aq-note {
+        padding: 10px 16px;
+        font-size: 13px;
+        color: var(--text);
+        background: var(--surface-alt);
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .aq-sub {
+        padding: 12px 16px 2px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--orange-2);
+      }
+      .aq-addons {
+        list-style: none;
+        margin: 0;
+        padding: 4px 8px 10px;
+      }
+      .aq-addon {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 8px;
+        border-top: 1px solid var(--line-soft);
+      }
+      .aq-addon:first-child {
+        border-top: none;
+      }
+      .aq-addon .aq-mname {
+        font-weight: 600;
+        color: var(--ink);
+        flex: none;
+        min-width: 116px;
+      }
+      .aq-addon .aq-mdesc {
+        font-size: 12px;
+        color: var(--muted);
+        flex: 1;
+        min-width: 120px;
+      }
+      .aq-addon .aq-stat {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        white-space: nowrap;
+      }
+      .aq-addon .aq-pr {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .aq-addon .aq-pr small {
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .aq-addon a.aq-link {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--orange);
+        text-decoration: none;
+      }
+      .aq-addon a.aq-link:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 620px) {
+        .aq-addon {
+          flex-wrap: wrap;
+          gap: 4px 10px;
+        }
+        .aq-addon .aq-mdesc {
+          flex-basis: 100%;
+          order: 3;
+        }
+        .aq-addon .aq-stat {
+          margin-left: auto;
+        }
       }
 
       .rail-right {
