@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>In/Out Board &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="In/Out Board help: add and edit people, set In/Out status, Manual vs Geo Fence mode, filters, settings and export."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">In/Out Board</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">In/Out Board <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">The In/Out Board tracks who is currently on or off the yacht &mdash; crew, guests and contractors &mdash; by toggling each person&rsquo;s In/Out status. It supports adding and editing people, inline comments, column/display configuration, exporting a board report, and a lockable kiosk screen for self check-in.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Go to <strong>Home &rarr; Applications &rarr; In/Out Board &rarr; Board</strong> (the <strong>In/Out Board</strong> item under the IN/OUT BOARD section in the sidebar). The board opens empty with <strong>&ldquo;No Rows To Show&rdquo;</strong> until you add at least one person.</p>\n\n<h2 id=\"know\">Two things to understand first</h2>\n<ul class=\"bul\">\n<li><strong>Manual vs Geo Fence mode</strong> determines whether you can flip the Status toggle by hand at all &mdash; see <strong>Status &amp; Modes</strong>.</li>\n<li><strong>Two layers of filtering</strong> (a User State filter and a department Filter) can both hide rows &mdash; see <strong>Filters &amp; Views</strong>.</li>\n</ul>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can crew, guests and contractors all go on the same board?</summary><div class=\"faq-a\"><p>Yes. When you add a person you assign a <strong>Department</strong> &mdash; Crew, Guests or Contractors &mdash; and the board&rsquo;s <strong>Filter</strong> lets you view them all together or one group at a time.</p></div></details>\n<details><summary>Why does the board show &ldquo;No Rows To Show&rdquo;?</summary><div class=\"faq-a\"><p>Either no one has been added yet, or a filter is hiding everyone. Add people via <strong>Users</strong>, and check both filter layers (see <strong>Filters &amp; Views</strong>).</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "people",
+            "name": "People",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">People are the rows on the board. Add crew, guests and contractors, edit their details, comment inline, and deactivate or delete them.</p>\n\n<h2 id=\"add\">Add a person</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Have the person&rsquo;s <strong>first name, last name, email, department</strong> and <strong>position</strong> ready &mdash; these five fields are required and Save stays inactive until all are filled.</p></div>\n<ol class=\"steps\">\n<li>On <strong>Board</strong>, click <strong>Users</strong> (top right).</li>\n<li>In the Add dialog, fill in <strong>First Name, Last Name</strong> and <strong>Email</strong>.</li>\n<li>Choose a <strong>Department</strong>: Crew, Guests or Contractors.</li>\n<li>Enter a <strong>Position</strong>.</li>\n<li>Optionally add <strong>ID Number, Phone</strong> (with country code), a <strong>Comment</strong> and a <strong>Profile</strong> image.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>A green <strong>&ldquo;User created&rdquo;</strong> confirmation appears and the person shows as a new row with their avatar, a Status toggle, name, comment area and an actions menu.</p>\n<div class=\"callout note\"><div class=\"co-h\">A required field is flagged?</div><p>One of the five required fields (First Name, Last Name, Email, Department, Position) is blank &mdash; fill it in. The Save button stays inactive until all required fields are completed.</p></div>\n\n<h2 id=\"edit\">Edit a person</h2>\n<ol class=\"steps\">\n<li>On the person&rsquo;s row, click the <strong>&#8942;</strong> menu under <strong>Actions</strong> and choose <strong>Edit</strong>.</li>\n<li>Update any field &mdash; the dialog carries the same fields as Add.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The dialog closes and the row reflects your changes. The same required-field rules apply.</p>\n\n<h2 id=\"comment\">Add or edit a comment</h2>\n<ol class=\"steps\">\n<li>In the person&rsquo;s <strong>Comment</strong> column, click <strong>+ Add Comment</strong>.</li>\n<li>Type your note in the inline field.</li>\n<li>Click the <strong>save (disk)</strong> icon to keep it, or the <strong>&times;</strong> icon to cancel.</li>\n</ol>\n<p>The comment saves inline on the row; reopen it the same way to change it.</p>\n\n<h2 id=\"deactivate\">Deactivate vs Delete</h2>\n<p>Each row&rsquo;s <strong>&#8942;</strong> Actions menu offers three options:</p>\n<table class=\"ftab\"><thead><tr><th>Action</th><th>What it does</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Deactivate</td><td>Takes the person off the active board <strong>without</strong> permanently removing their record &mdash; use for someone who has left but whose history you want to keep.</td></tr>\n<tr><td class=\"t-name\">Edit</td><td>Opens their details for changes.</td></tr>\n<tr><td class=\"t-name\">Delete</td><td>Permanently removes the entry &mdash; use only when the record is no longer needed.</td></tr>\n</tbody></table>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can crew, guests and contractors all go on the same board?</summary><div class=\"faq-a\"><p>Yes &mdash; assign each person a <strong>Department</strong> (Crew, Guests, Contractors), then use the board <strong>Filter</strong> to view all together or one group at a time.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "status",
+            "name": "Status &amp; Modes",
+            "icon": "badge",
+            "body": "\n<p class=\"lead\">A person&rsquo;s In/Out status shows whether they&rsquo;re on or off the yacht. How it&rsquo;s set depends on whether the board is in Manual or Geo Fence mode.</p>\n\n<h2 id=\"set\">Set someone&rsquo;s In/Out status</h2>\n<ol class=\"steps\">\n<li>On <strong>Board</strong>, find the person&rsquo;s row.</li>\n<li>Click the <strong>Status</strong> toggle in their row.</li>\n</ol>\n<p>The toggle flips colour to show the new state &mdash; <span class=\"chip okchip\">green = In</span> , <span class=\"chip badchip\">red = Out</span>. The change saves immediately; there&rsquo;s no separate save step.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Toggle won&rsquo;t switch?</div><p>The board may be in <strong>Geo Fence</strong> mode rather than <strong>Manual</strong> &mdash; in Geo Fence mode status is driven automatically. Use the header <strong>Manual/Geo Fence</strong> toggle (left of Report) or <strong>Settings &rarr; In/Out Mode</strong> to switch back to Manual.</p></div>\n\n<h2 id=\"modes\">Manual vs Geo Fence mode</h2>\n<p>This is the single most important setting to understand, because it determines whether you can flip the Status toggle by hand at all.</p>\n<ul class=\"bul\">\n<li><strong>Manual</strong> (the default) &mdash; each person&rsquo;s status is set by clicking the Status toggle on their row (or via the kiosk/screen-lock check-in). Nothing happens automatically.</li>\n<li><strong>Geo Fence</strong> &mdash; status is tied to <strong>location</strong>: people are marked In or Out automatically based on whether they&rsquo;re inside the defined boundary. The manual toggle is not the primary driver here.</li>\n</ul>\n<p>Switch between them in two places, which stay in sync: the <strong>In/Out Mode</strong> radio in <strong>Settings</strong> (Manual / Geo Fence), or the quick toggle in the header to the left of the <strong>Report</strong> button.</p>\n"
+          },
+          {
+            "id": "filters",
+            "name": "Filters &amp; Views",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">There are two layers of filtering on the board, and they&rsquo;re easy to confuse &mdash; if the board looks emptier than expected, check both.</p>\n\n<h2 id=\"layers\">The two filter layers</h2>\n<ul class=\"bul\">\n<li><strong>Filters button</strong> (top left) &mdash; opens a <strong>Filter By</strong> panel with a <strong>User State</strong> filter that narrows by current In/Out state (who is In vs Out). Use <strong>Clear All</strong> to reset.</li>\n<li><strong>Filter setting in Settings</strong> (All / Crew / Guests / Contractors) &mdash; controls which <strong>department</strong> the board shows by default.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Board emptier than expected?</div><p>A <strong>User State</strong> filter or a department <strong>Filter</strong> may be hiding rows that actually exist. Check both.</p></div>\n\n<h2 id=\"views\">View mode</h2>\n<p>From <strong>Settings &rarr; View Mode</strong>, display the board as a <strong>List</strong> or a <strong>Grid</strong>.</p>\n"
+          },
+          {
+            "id": "settings",
+            "name": "Settings &amp; Export",
+            "icon": "scale",
+            "body": "\n<p class=\"lead\">The Settings panel controls how the board looks and behaves; Export produces a board report.</p>\n\n<h2 id=\"settings\">Board settings explained</h2>\n<p>The <strong>Settings</strong> button (top right) opens one panel with these sections:</p>\n<ul class=\"bul\">\n<li><strong>General Settings &rarr; Yacht Details</strong> &mdash; set a <strong>Logo</strong> and a <strong>Name</strong> for the board (e.g. &ldquo;Account A&rdquo;).</li>\n<li><strong>Table Fields</strong> &mdash; checkboxes to show/hide columns: Profile, First Name, Last Name, Email, ID, Department, Position, Phone, <strong>Last In</strong>, <strong>Last Out</strong>. (Last In / Last Out are available here even though they&rsquo;re hidden by default.)</li>\n<li><strong>View Mode</strong> &mdash; List or Grid.</li>\n<li><strong>Filter</strong> &mdash; default audience: All, Crew, Guests or Contractors.</li>\n<li><strong>In/Out Mode</strong> &mdash; Manual or Geo Fence (see <strong>Status &amp; Modes</strong>).</li>\n<li><strong>Date/Time Format</strong> &mdash; Date Format (e.g. MM/DD/YYYY), Time Format (12 or 24 hours) and Time Zone (Auto or Manual).</li>\n<li><strong>Screen Lock</strong> &mdash; the kiosk/lock screen: <strong>Clock</strong> (Show/Hidden), <strong>QR Registration</strong> (Show/Hidden &mdash; controls whether people can self-register via QR code), and <strong>Set Password</strong> to protect the lock screen using a Password, Pin or Account credential.</li>\n<li><strong>Sync Users</strong> &mdash; a <strong>Sync Now</strong> button to pull the latest user list into the board.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Remember to Save</div><p>Click <strong>Save</strong> in the Settings panel to apply changes &mdash; <strong>Cancel</strong> discards them.</p></div>\n\n<h2 id=\"export\">Export the board report</h2>\n<ol class=\"steps\">\n<li>On <strong>Board</strong>, click <strong>Export</strong> (top right).</li>\n<li>Under <strong>IO Board Report</strong>, choose the format: the <strong>PDF</strong> icon or the <strong>spreadsheet</strong> (Excel/grid) icon.</li>\n</ol>\n<p>The board report is generated in the chosen format for download.</p>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

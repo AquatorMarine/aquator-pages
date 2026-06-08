@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>New Builds &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="New Builds help: Project Tracker, To Do, Calendar, Gantt, Scrum Board and Project Finance for a build project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">New Builds</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">New Builds <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Plan, track, schedule, and budget a new-build (or major refit) project &mdash; from the task tracker and to-do list through the calendar, Gantt chart, scrum board, and project finance.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Everything sits under the <strong>NEW BUILDS</strong> group in the left sidebar. The module breadcrumb is <strong>Home &rsaquo; Applications &rsaquo; New Builds &rsaquo; [page]</strong>.</p>\n\n<h2 id=\"inside\">The seven pages</h2>\n<ul class=\"bul\">\n<li><strong>To Do</strong> &mdash; a lightweight personal/team checklist.</li>\n<li><strong>Project Tracker</strong> &mdash; the core task register where build tasks are created, assigned and tracked.</li>\n<li><strong>Calendar</strong> &mdash; scheduled tasks in day/week/month/year views.</li>\n<li><strong>Project Planner</strong> &mdash; a planner-style task list with upload support.</li>\n<li><strong>Gantt Chart</strong> &mdash; tasks on a timeline.</li>\n<li><strong>Scrum Board</strong> &mdash; a kanban board for workflow stages.</li>\n<li><strong>Project Finance</strong> &mdash; each project&rsquo;s budget, expenses and vendors.</li>\n</ul>\n\n<h2 id=\"linked\">How tasks are linked across pages</h2>\n<p>A task created in the <strong>Project Tracker</strong> is not isolated to that page. When you give it a <strong>start and end date</strong>, it automatically appears as an event on the <strong>Calendar</strong> and feeds the <strong>Gantt Chart</strong>, <strong>Yacht/Project Planner</strong> and <strong>Project Finance</strong> views &mdash; no extra work needed.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Delete is project-wide</div><p>Deleting a Project Tracker task also removes the associated task from the <strong>Calendar, Yacht Planner, Gantt Chart</strong> and <strong>Project Finance</strong>. A delete is a project-wide removal, not a tidy-up of one list.</p></div>\n<div class=\"callout tip\"><div class=\"co-h\">If a task looks &ldquo;missing&rdquo;</div><p>If a task seems gone from the Project Tracker but still shows on the Calendar, check your view/filter rather than re-creating it.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why did my task appear on the Calendar/Gantt when I only added it in the Project Tracker?</summary><div class=\"faq-a\"><p>Tasks with start and end dates are shared across the Calendar, Gantt Chart, Yacht Planner and Project Finance.</p></div></details>\n<details><summary>If I delete a task, does it disappear everywhere?</summary><div class=\"faq-a\"><p>Yes &mdash; deleting a Project Tracker task also removes it from the Calendar, Yacht Planner, Gantt Chart and Project Finance.</p></div></details>\n<details><summary>Is the To Do list the same as the Project Tracker?</summary><div class=\"faq-a\"><p>No. The <strong>To Do</strong> page is a simple checklist; the <strong>Project Tracker</strong> is the full, linked task register.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "tracker",
+            "name": "Project Tracker",
+            "icon": "contract",
+            "body": "\n<p class=\"lead\">The Project Tracker is the core task register for the build &mdash; create, assign, edit, status and delete tasks here, and view them in several layouts. Tasks with dates flow to the Calendar, Gantt and Finance.</p>\n\n<h2 id=\"add\">Add a task</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Only a <strong>Title</strong> is needed to save. To make a task useful elsewhere, give it a <strong>Start Date</strong> and <strong>End Date</strong> (so it appears on the Calendar and Gantt) and set a <strong>Department</strong> and <strong>Assign To User</strong>.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>New Builds &rsaquo; Project Tracker</strong> and click <strong>Add</strong> (top-right).</li>\n<li>Enter a <strong>Title</strong> and, optionally, an <strong>ID</strong>.</li>\n<li>Fill in <strong>Description</strong> and <strong>Shipyard Requirements</strong> (rich-text) if needed.</li>\n<li>Add <strong>Sub Tasks</strong> with <strong>+ Add Sub Task</strong> if the task breaks down.</li>\n<li>Set <strong>Start Date</strong> and <strong>End Date</strong>.</li>\n<li>Choose <strong>Assign To User</strong> and/or <strong>Assign To Participant</strong>.</li>\n<li>Set <strong>Priority</strong> (None, Low, Medium, High) and <strong>Department</strong>.</li>\n<li>Optionally set <strong>Progress</strong>, pick <strong>Categories</strong>, and attach <strong>Images / Files</strong>.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>A toast reads <strong>&ldquo;Item added&rdquo;</strong> and the task appears at the top of the list with Status <span class=\"chip neutralchip\">Open</span>. If you set dates, it also appears on the Calendar and Gantt.</p>\n<div class=\"callout note\"><div class=\"co-h\">Good to know</div><p>The <strong>Categories</strong> label shows in orange but the task still saves without it &mdash; that&rsquo;s styling, not a required-field error. Tasks without dates won&rsquo;t render as calendar events. Attachments: PNG, JPG, PDF, DOC, XLS, max 100&nbsp;MB.</p></div>\n\n<h2 id=\"status\">Change a task&rsquo;s status</h2>\n<ol class=\"steps\">\n<li>In the <strong>Status</strong> column, click the chevron next to the current status (e.g. Open).</li>\n<li>Pick the new status: Open, On Hold, In Progress, Done, Approved or Rejected.</li>\n</ol>\n<p>The status updates inline without opening the edit form. You can also change it from the split/detail view, where the same statuses appear as clickable buttons.</p>\n\n<h2 id=\"edit\">Edit a task</h2>\n<ol class=\"steps\">\n<li>Scroll the table right until the <strong>Actions</strong> column (far right) is visible.</li>\n<li>Click the three-dot (<strong>&#8942;</strong>) menu on the task&rsquo;s row and choose <strong>Edit</strong> (or <strong>View</strong> for read-only).</li>\n<li>Update any fields &mdash; the Edit panel adds two controls not shown when adding: a <strong>Schedule</strong> option and a <strong>Time tracking</strong> section (<strong>Add</strong>).</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>A toast reads <strong>&ldquo;Item edited&rdquo;</strong> and changes flow through to the linked Calendar and Gantt views.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Clicking the title doesn&rsquo;t open it</div><p>Single- and double-clicking a task title only selects/highlights the row. Open a task via the <strong>&#8942; Actions</strong> menu &rarr; <strong>Edit</strong> (or <strong>View</strong>).</p></div>\n\n<h2 id=\"delete\">Delete a task</h2>\n<div class=\"callout warn\"><div class=\"co-h\">Deleting is project-wide</div><p>The confirmation states that deleting also removes the task from the <strong>Calendar, Yacht Planner, Gantt Chart</strong> and <strong>Project Finance</strong>. Make sure you intend to remove it everywhere.</p></div>\n<ol class=\"steps\">\n<li>Open the <strong>&#8942;</strong> menu on the task&rsquo;s row (Actions column) and choose <strong>Delete</strong>.</li>\n<li>Read the <strong>Confirm Delete</strong> message, then click <strong>Delete</strong> (or <strong>Cancel</strong> to keep it).</li>\n</ol>\n\n<h2 id=\"views\">Views &mdash; table, split, calendar, timeline</h2>\n<p>Four view toggles sit in the toolbar (top centre):</p>\n<ul class=\"bul\">\n<li><strong>Table</strong> &mdash; the default spreadsheet grid with sortable columns (Title, ID, Start/End Date, Assign To User, Priority, Status, Department, Actions).</li>\n<li><strong>Split / detail</strong> &mdash; a task list on the left (with <strong>To Do</strong> and <strong>Done</strong> tabs and a Sort By control) and full task detail on the right, including status buttons, dates, priority, department and progress.</li>\n<li><strong>Calendar</strong> and <strong>Timeline</strong> &mdash; calendar and timeline layouts of the same tasks.</li>\n</ul>\n<p>In split view, overdue tasks show an <strong>Overdue</strong> label and each card shows who it was <strong>Requested By</strong>; the detail panel has quick icons to open the calendar, edit, delete and download.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I change a task&rsquo;s status without opening it?</summary><div class=\"faq-a\"><p>Yes &mdash; click the chevron in the <strong>Status</strong> column and pick a status (Open, On Hold, In Progress, Done, Approved, Rejected).</p></div></details>\n<details><summary>Why won&rsquo;t double-clicking a task open it?</summary><div class=\"faq-a\"><p>Clicking the title only selects the row. Open a task via the <strong>&#8942; Actions</strong> menu &rarr; <strong>View</strong> or <strong>Edit</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "todo",
+            "name": "To Do",
+            "icon": "receipt",
+            "body": "\n<p class=\"lead\">The To Do page is a lightweight checklist for personal or team items &mdash; separate from the Project Tracker.</p>\n\n<h2 id=\"use\">Use the To Do list</h2>\n<ol class=\"steps\">\n<li>Go to <strong>New Builds &rsaquo; To Do</strong> and click <strong>Add</strong> (top-right).</li>\n<li>In the <strong>Add Task</strong> dialog, set a priority (e.g. Low), enter a <strong>Title</strong> and <strong>Description</strong>, optionally use the date and label icons, then click <strong>Add Task</strong>.</li>\n<li>Tick the checkbox beside any item to mark it complete &mdash; completed items show with a strikethrough.</li>\n</ol>\n<p>Use the <strong>Search tasks&hellip;</strong> box to find items and <strong>Filters</strong> to narrow the list. Each item has a <strong>&#8942;</strong> menu for further actions.</p>\n<div class=\"callout note\"><div class=\"co-h\">Separate from the Project Tracker</div><p>The To Do page is a simple checklist and does <strong>not</strong> feed the Calendar / Gantt / Finance the way Project Tracker tasks do.</p></div>\n"
+          },
+          {
+            "id": "finance",
+            "name": "Project Finance",
+            "icon": "cash",
+            "body": "\n<p class=\"lead\">Project Finance tracks each build project&rsquo;s budget, expenses and vendors, with a financial dashboard per project.</p>\n\n<h2 id=\"view\">View a project&rsquo;s budget and expenses</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>A finance project must already exist. The <strong>Projects</strong> list shows each project&rsquo;s <strong>Name, Project Date, Yacht, Budget, Balance</strong> and an Actions column.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>New Builds &rsaquo; Project Finance</strong> and find the project.</li>\n<li>Click the <strong>&#8942;</strong> menu in the Actions column and choose <strong>View</strong> (other options: Fill, Edit, Delete, Export).</li>\n</ol>\n<p>The <strong>Project Details</strong> view opens, showing Name, Yacht, Project Date, Budget and Vendors count, plus charts: <strong>Expenses by date</strong>, <strong>Expenses By Category</strong>, and a <strong>Budget vs Total Expenses</strong> donut (percentage of budget spent).</p>\n<div class=\"callout note\"><div class=\"co-h\">Good to know</div><p>Use <strong>Fill</strong> to enter spend against the project and <strong>Export</strong> to download the figures. Currency is set <strong>per project</strong>, so two projects can display in different symbols (e.g. $ vs &euro;).</p></div>\n"
+          },
+          {
+            "id": "schedule",
+            "name": "Calendar, Gantt &amp; Scrum",
+            "icon": "calendar",
+            "body": "\n<p class=\"lead\">Beyond the Project Tracker, four pages visualize and schedule the same build tasks. Project Tracker tasks with dates appear in these automatically.</p>\n\n<h2 id=\"calendar\">Calendar</h2>\n<p><strong>New Builds &rsaquo; Calendar</strong> shows scheduled tasks in <strong>Day, Week, WorkWeek, Month, Year, Agenda</strong> and <strong>Timeline/Grid</strong> views, with a UTC clock and <strong>New Event</strong> / <strong>New Recurring Event</strong> buttons, plus <strong>Today, Print, Export</strong>.</p>\n\n<h2 id=\"gantt\">Gantt Chart</h2>\n<p><strong>New Builds &rsaquo; Gantt Chart</strong> plots tasks on a timeline with <strong>Add, Expand all, Collapse all, Previous/Next timespan</strong> and <strong>Excel/CSV export</strong>. An empty chart shows <strong>&ldquo;No records to display.&rdquo;</strong></p>\n\n<h2 id=\"scrum\">Scrum Board</h2>\n<p><strong>New Builds &rsaquo; Scrum Board</strong> is a kanban board with columns <strong>Task, In Progress, Open, Review, Completed, Purchase</strong> &mdash; each collapsible and showing an item count. Use <strong>Add</strong> to create cards, <strong>Settings</strong> to configure, and <strong>Save</strong> to persist changes.</p>\n\n<h2 id=\"planner\">Project Planner</h2>\n<p><strong>New Builds &rsaquo; Project Planner</strong> is a planner-style task list with columns <strong>Title, Due Date, Assign To, Priority, Status, Progress, Price, Type</strong>, plus <strong>Add, Upload, Export</strong> and saved-view controls.</p>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

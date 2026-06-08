@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charter &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Charter help: Charter Details, Task Tracker, Payment Details &amp; APA, Guest Profiles and the Calendar."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Charter</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Charter <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Plan, schedule, and run charters end-to-end &mdash; bookings, guests, money (APA &amp; payments), tasks, the scheduling calendar, and charter documents.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open from <strong>Home &rsaquo; Applications &rsaquo; Charter</strong>, then pick a view from the Charter sidebar.</p>\n\n<h2 id=\"inside\">What&rsquo;s inside</h2>\n<p>The Charter module&rsquo;s core areas, all under <strong>Charter</strong>:</p>\n<ul class=\"bul\">\n<li><strong>Calendar</strong> &mdash; the scheduling hub for charters and activities.</li>\n<li><strong>Task Tracker</strong> &mdash; the task grid, with inline editing, filters and saved views.</li>\n<li><strong>Charter Details</strong> &mdash; create and list charters (bookings).</li>\n<li><strong>Payment Details</strong> &mdash; the fee structure per charter (charter, fuel, APA fees).</li>\n<li><strong>APA</strong> &mdash; the guest&rsquo;s pre-paid spending allowance and remaining balance.</li>\n<li><strong>Guest Profiles</strong> &mdash; guests, the IMO passenger list and exports.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Subcollection: Smart Documents</div><p><strong>Smart Documents</strong> (Editor + Templates) lives under Charter and supplies the contracts you select on a charter. <strong>Passage Planning</strong> (Passage Preparation, Plan, Log, Power Usage, Fuel Management) also sits under the Charter sidebar but is operationally distinct and documented separately.</p></div>\n\n<h2 id=\"order\">A natural order of work</h2>\n<ul class=\"bul\">\n<li>Add guests in <strong>Guest Profiles</strong> &mdash; they become selectable on a charter.</li>\n<li>Create the booking in <strong>Charter Details</strong> (a guest and a contract are required).</li>\n<li>Schedule on the <strong>Calendar</strong> and run the work through <strong>Task Tracker</strong>.</li>\n<li>Track the money in <strong>Payment Details</strong> and <strong>APA</strong>.</li>\n</ul>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why do some screens say &ldquo;No Rows To Show&rdquo;?</summary><div class=\"faq-a\"><p>Payment Details, APA and Guest Profiles populate as charters and guests are set up. An empty grid means nothing has been created yet (or a filter is applied).</p></div></details>\n<details><summary>Where do contracts come from?</summary><div class=\"faq-a\"><p>From <strong>Smart Documents</strong> &mdash; the Contract field on a charter is a dropdown sourced there.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "details",
+            "name": "Charter Details",
+            "icon": "contract",
+            "body": "\n<p class=\"lead\">Charter Details is where you create a booking and see every charter as a row. A charter needs an existing <strong>guest</strong> and a <strong>contract</strong> before it can be saved.</p>\n\n<h2 id=\"add\">Add a charter</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>The <strong>Primary Guest</strong> must already exist in <strong>Guest Profiles</strong> (it&rsquo;s a dropdown, not free text), and have a <strong>Contract</strong> ready &mdash; it&rsquo;s required and selected from Smart Documents.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Charter &rsaquo; Charter Details</strong> and click <strong>Add</strong> (top right).</li>\n<li>Enter the <strong>Charter Name</strong>.</li>\n<li>Choose a <strong>Type</strong> (see below for what each means).</li>\n<li>Select the <strong>Primary Guest Name</strong> from the dropdown.</li>\n<li>Set <strong>Charter Start Date</strong> and <strong>Charter End Date</strong> &mdash; <strong>Number Of Days</strong> calculates automatically and is read-only.</li>\n<li>Fill in <strong>Pick Up Location</strong> and <strong>Drop Off Location</strong>.</li>\n<li>Set <strong>Status</strong>, <strong>Central Agent</strong> and <strong>Currency</strong>.</li>\n<li>Add any <strong>Notes</strong>, select the required <strong>Contract</strong>, and optionally attach files under <strong>Images / Files</strong>.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The charter appears as a new row in the list (Name, date range, Type, Guest, Pick Up, Drop Off, Status, Central Agent).</p>\n<div class=\"callout note\"><div class=\"co-h\">Good to know</div><p>If the guest you want isn&rsquo;t in the <strong>Primary Guest Name</strong> dropdown, add them in <strong>Guest Profiles</strong> first. <strong>Number Of Days</strong> is derived from the dates &mdash; set both dates rather than editing it. A <strong>Contract</strong> selection is mandatory before saving.</p></div>\n\n<h2 id=\"types\">How charter types work</h2>\n<p>The <strong>Type</strong> drives how a charter is categorized and how fees, the calendar and reporting treat it &mdash; a misclassified trip can surface in the wrong place later.</p>\n<table class=\"ftab\"><thead><tr><th>Type</th><th>What it means</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Charter</td><td>A standard paid booking.</td></tr>\n<tr><td class=\"t-name\">Owner</td><td>The owner using the vessel, rather than a paying guest.</td></tr>\n<tr><td class=\"t-name\">Yacht Only (Half Day / Full Day)</td><td>The vessel without the full provisioning package, split into half- and full-day options.</td></tr>\n<tr><td class=\"t-name\">All Inclusive (Half Day / Full Day / All Inclusive)</td><td>Bundles provisioning and services, with half-day, full-day and a general option.</td></tr>\n<tr><td class=\"t-name\">Transfer</td><td>Point-to-point repositioning with guests aboard.</td></tr>\n</tbody></table>\n"
+          },
+          {
+            "id": "tasks",
+            "name": "Task Tracker",
+            "icon": "badge",
+            "body": "\n<p class=\"lead\">Task Tracker is a grid of charter tasks you can add, edit inline, filter and save into views. Everything here lives under <strong>Charter &rsaquo; Task Tracker</strong>.</p>\n\n<h2 id=\"add\">Add a task</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Know who you&rsquo;re assigning to &mdash; <strong>Assign To User</strong> lists crew members and supports multiple assignees (each shows as a removable chip).</p></div>\n<ol class=\"steps\">\n<li>In <strong>Task Tracker</strong>, click <strong>Add</strong>.</li>\n<li>Enter a <strong>Title</strong> (and optionally an <strong>ID</strong>).</li>\n<li>Optionally click <strong>+ Add Sub Task</strong> to break the task down.</li>\n<li>Set a <strong>Due Date</strong> (date + time) &mdash; once set, a <strong>Schedule</strong> field appears for recurrence.</li>\n<li>Choose one or more users under <strong>Assign To User</strong>.</li>\n<li>Set <strong>Priority</strong> (None, Low, Medium, High) and <strong>Department</strong> (Accounting, Admin, Bridge, Crew, Deck, Engineering, Interior, Galley and more).</li>\n<li>Add a <strong>Description</strong> and any <strong>Images / Files</strong> (PNG, JPG, PDF, DOC, XLS &middot; max 100&nbsp;MB).</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The task appears in the grid with its ID, Due Date, Assignee, Priority and Status.</p>\n<div class=\"callout note\"><div class=\"co-h\">Due Date is required</div><p>If the Due Date field shows a red border, set it before continuing &mdash; the form needs a due date to save.</p></div>\n\n<h2 id=\"status\">Update a status (and other inline edits)</h2>\n<ol class=\"steps\">\n<li>Find the task row in the grid.</li>\n<li>In the <strong>Status</strong> column, click the dropdown chevron on that row.</li>\n<li>Pick the new status: Open, On Hold, In Progress, Done, Approved or Rejected.</li>\n</ol>\n<p>A <strong>Processing&hellip;</strong> indicator briefly appears and the change saves automatically &mdash; no separate save button. The change persists on refresh.</p>\n<div class=\"callout tip\"><div class=\"co-h\">Tip</div><p>Let the <strong>Processing&hellip;</strong> indicator finish before navigating away, so the edit is committed.</p></div>\n\n<h2 id=\"recurring\">Recurring schedules</h2>\n<p>The <strong>Schedule</strong> field appears only after a <strong>Due Date</strong> is set. It controls whether the task repeats: <strong>None, Daily, Weekly, Monthly</strong> or <strong>Yearly</strong>. &ldquo;None&rdquo; makes it a one-off; the others regenerate the task on that cadence relative to the due date. No Schedule field means no due date is set yet &mdash; it&rsquo;s hidden until then.</p>\n\n<h2 id=\"filter\">Filter and save a view</h2>\n<ol class=\"steps\">\n<li>Click <strong>Filters</strong>.</li>\n<li>Under <strong>Filter By</strong>, choose any of: Assign To User, Due Date, Priority, Department, Status.</li>\n<li>Apply your selections &mdash; an active filter shows a count badge and the banner reads <strong>Active View</strong> with the number applied.</li>\n<li>Click <strong>Save View</strong> to keep this filter set, or <strong>Clear All</strong> to reset.</li>\n</ol>\n<p>The grid filters to matching tasks. You can also switch layouts using the table / split / calendar view icons next to Filters.</p>\n<div class=\"callout note\"><div class=\"co-h\">List looks incomplete?</div><p>You likely have an <strong>Active View</strong> filter applied (e.g. a Status filter). Click <strong>Clear All</strong> to see everything.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why doesn&rsquo;t the Schedule field show?</summary><div class=\"faq-a\"><p>It only appears after a Due Date is set. Set the due date and the Schedule (recurrence) field appears.</p></div></details>\n<details><summary>Do I need to click Save after an inline status change?</summary><div class=\"faq-a\"><p>No &mdash; inline edits auto-save once the <strong>Processing&hellip;</strong> indicator finishes.</p></div></details>\n<details><summary>Can a task have more than one assignee?</summary><div class=\"faq-a\"><p>Yes &mdash; Assign To User supports multiple crew members, each shown as a removable chip.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "money",
+            "name": "Payments &amp; APA",
+            "icon": "cash",
+            "body": "\n<p class=\"lead\">The Charter module separates the fixed charter money from the spending float: <strong>Payment Details</strong> is the billing summary, <strong>APA</strong> is the pre-paid allowance and what&rsquo;s left of it.</p>\n\n<h2 id=\"payments\">Payment Details</h2>\n<p>Tracks the charter&rsquo;s fee structure, with columns for <strong>Charter Fee</strong>, <strong>Fuel Fee</strong>, <strong>APA Fee</strong> and <strong>Total</strong> per guest/charter &mdash; the high-level billing summary.</p>\n\n<h2 id=\"apa\">APA (Advance Provisioning Allowance)</h2>\n<p>Tracks the guest&rsquo;s pre-paid spending pot, with columns for <strong>Type</strong>, <strong>APA</strong> and <strong>Balance</strong>, so you can see how much of the allowance remains as expenses are drawn down.</p>\n\n<h2 id=\"populate\">How records appear here</h2>\n<p>Both screens are tied to charters and guests, so rows appear as charters are set up rather than being created from scratch. When both are empty you&rsquo;ll see <strong>&ldquo;No Rows To Show.&rdquo;</strong></p>\n<div class=\"callout tip\"><div class=\"co-h\">In short</div><p><strong>Payment Details</strong> = what the charter is billed (fees &amp; total). <strong>APA</strong> = the spending float and remaining balance.</p></div>\n"
+          },
+          {
+            "id": "guests",
+            "name": "Guest Profiles",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">Guest Profiles holds the people on your charters. A guest must exist here before they can be set as the <strong>Primary Guest</strong> on a charter.</p>\n\n<h2 id=\"add\">Add a guest profile</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Charter &rsaquo; Guest Profiles</strong> and click <strong>Add</strong>.</li>\n<li>Enter the guest&rsquo;s details (First Name, Last Name, Email, Phone, etc.).</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The guest appears in the grid (First Name, Last Name, Email, Phone, Charters) and becomes selectable as a <strong>Primary Guest Name</strong> when adding a charter.</p>\n\n<h2 id=\"manifest\">Passenger list &amp; export</h2>\n<p>Use <strong>IMO Passenger List</strong> to produce the passenger manifest, and <strong>Export</strong> to download the list. Like other Charter grids, you can filter and <strong>Save View</strong>.</p>\n<div class=\"callout note\"><div class=\"co-h\">Guest list empty?</div><p>&ldquo;No Rows To Show&rdquo; means no profiles exist yet &mdash; add one.</p></div>\n"
+          },
+          {
+            "id": "calendar",
+            "name": "Calendar",
+            "icon": "calendar",
+            "body": "\n<p class=\"lead\">The Calendar is the scheduling hub for the Charter module &mdash; charters as spanning bars and individual activities as color-coded time blocks.</p>\n\n<h2 id=\"read\">What it shows</h2>\n<p>Charters (e.g. Charter #09 &ldquo;Beach Holiday&rdquo;) appear as spanning bars, while activities (watersports, guest drop-offs, land excursions) appear as color-coded time blocks.</p>\n\n<h2 id=\"views\">Views and display</h2>\n<p>Switch between <strong>Day, Week, WorkWeek, Month, Year, Agenda</strong> and <strong>Timeline Views</strong>, and toggle <strong>Gridlines</strong>, <strong>Row Auto Height</strong> and the <strong>Toolbar</strong>. <strong>Settings</strong> lets you tune the display.</p>\n\n<h2 id=\"schedule\">Scheduling and sharing</h2>\n<ul class=\"bul\">\n<li>Use <strong>New Recurring Event</strong> to schedule repeating items.</li>\n<li>Use <strong>Today</strong> to jump to the current date.</li>\n<li>Use <strong>Print</strong> or <strong>Export</strong> to share the schedule.</li>\n</ul>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

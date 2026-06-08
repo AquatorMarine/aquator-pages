@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Management &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="User Management help: create roles and permissions, invite users, and manage user records in the Admin Console."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">User Management</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">User Management <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Manage roles, permissions, user invitations, and user records in the Aquator Admin Console &mdash; control who can access what across your accounts.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open <strong>Admin Console &rarr; Users</strong> (the <strong>Users</strong> item in the left sidebar). The module has three tabs: <strong>Roles</strong>, <strong>Users</strong> and <strong>Invite User</strong>.</p>\n\n<h2 id=\"flow\">How it fits together</h2>\n<ul class=\"bul\">\n<li><strong>Roles</strong> &mdash; define a named set of permissions (View / Edit / Delete per area).</li>\n<li><strong>Invite User</strong> &mdash; queue people to invite and assign each an existing role.</li>\n<li><strong>Users</strong> &mdash; the list of users, where you change roles/status and edit records.</li>\n</ul>\n<div class=\"callout warn\"><div class=\"co-h\">The one rule to remember: roles are account-scoped</div><p>Each role belongs to a single <strong>Account</strong> (e.g. AquatorCharter, AquatorGV, Account A&ndash;D). A role created under one account won&rsquo;t appear under another. If a user&rsquo;s access looks wrong, the role was often created under a different account than expected.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I change a user&rsquo;s role without re-inviting them?</summary><div class=\"faq-a\"><p>Yes &mdash; on <strong>Users</strong>, use the inline <strong>Role</strong> dropdown on the user&rsquo;s row (or <strong>&#8942; &rarr; Edit</strong>). No new invitation is needed; the new role&rsquo;s permissions apply immediately.</p></div></details>\n<details><summary>What&rsquo;s the difference between deactivating and deleting a user?</summary><div class=\"faq-a\"><p>Setting <strong>Status</strong> to inactive keeps the record but removes access. <strong>Delete</strong> removes the user record entirely. To revoke access temporarily, set inactive rather than deleting.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "roles",
+            "name": "Roles &amp; Permissions",
+            "icon": "scale",
+            "body": "\n<p class=\"lead\">A role is a named set of permissions, scoped to one account. You build roles from a grid of View / Edit / Delete toggles, then assign them to users.</p>\n\n<h2 id=\"create\">Create a role and set permissions</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Decide which <strong>Account</strong> the role belongs to &mdash; roles are scoped to a single account and won&rsquo;t appear under another.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Users &rarr; Roles</strong> and click <strong>Add Role</strong> (top-right).</li>\n<li>Type a <strong>Role Name</strong>.</li>\n<li>Choose the <strong>Account</strong> from the dropdown.</li>\n<li>Set permissions using the <strong>View / Edit / Delete</strong> toggles for each area. Rows are grouped under <strong>Company, Fleet, Operations</strong> and <strong>Admin Console</strong>; many expand into sub-modules (click a row like AIS Tracker, SMS, Team, Accounting, Shipyard ERP, Integrations or Users to reveal its sub-items).</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The new role appears as a card on the <strong>Roles</strong> tab showing its name and a <strong>&ldquo;0 users assigned&rdquo;</strong> count, and becomes selectable in the Invite User <strong>Role</strong> dropdown and the per-user Role column.</p>\n<div class=\"callout note\"><div class=\"co-h\">Role missing when inviting?</div><p>Check you selected the correct <strong>Account</strong> &mdash; roles only show for their own account. If toggles seem to reset, make sure you clicked <strong>Save</strong>, not Cancel.</p></div>\n\n<h2 id=\"edit\">Edit or delete a role</h2>\n<div class=\"callout warn\"><div class=\"co-h\">Before you delete</div><p>Deleting a role that still has users assigned leaves those users without that role &mdash; check the <strong>&ldquo;X users assigned&rdquo;</strong> count on the card first.</p></div>\n<ol class=\"steps\">\n<li>On the role&rsquo;s card (<strong>Roles</strong> tab), click <strong>Edit</strong> to change it or <strong>Delete</strong> to remove it.</li>\n<li>If editing, the dialog opens pre-filled with the Role Name, Account and all permission toggles &mdash; adjust and click <strong>Save</strong>.</li>\n</ol>\n<p>Edits apply to everyone currently assigned the role.</p>\n\n<h2 id=\"permissions\">How permissions work (View / Edit / Delete)</h2>\n<p>Access is granted <strong>per-action</strong>, not just per-module &mdash; a role can <em>View</em> Accounting but not <em>Edit</em> or <em>Delete</em> in it. Permissions mirror the app&rsquo;s main areas:</p>\n<table class=\"ftab\"><thead><tr><th>Group</th><th>Includes</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Company</td><td>Dashboard, Profile.</td></tr>\n<tr><td class=\"t-name\">Fleet</td><td>Yachts, AIS Tracker, SMS.</td></tr>\n<tr><td class=\"t-name\">Operations</td><td>Management, Smart Documents, Shipyard ERP, Team, Accounting, File Manager, Reports, Integrations.</td></tr>\n<tr><td class=\"t-name\">Admin Console</td><td>Company, Yacht, Users, Billing.</td></tr>\n</tbody></table>\n<p>Expandable rows break down further &mdash; for example <strong>Team</strong> splits into Personal Information, Employment, Payroll, Certificates, Leave and Emergency Contacts, each with its own View/Edit/Delete row.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Roles are account-scoped</div><p>The <strong>Account</strong> dropdown at the top of the role dialog determines which account the role applies to. If a user&rsquo;s access looks wrong, the role was often created under a different account than expected.</p></div>\n"
+          },
+          {
+            "id": "invite",
+            "name": "Invite User",
+            "icon": "badge",
+            "body": "\n<p class=\"lead\">Invite people into an account and assign each an existing role. You can queue several before sending all invitations together.</p>\n\n<h2 id=\"invite\">Invite a user</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>The <strong>role</strong> you want to assign must already exist on the <strong>Roles</strong> tab &mdash; the Role field only lists existing roles. Have the person&rsquo;s email ready.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Users &rarr; Invite User</strong>.</li>\n<li>Fill in <strong>First Name, Last Name</strong> and <strong>Email</strong>.</li>\n<li>Choose a <strong>Role</strong> from the <strong>Select Role</strong> dropdown (e.g. Fleet Manager, Yacht Manager, Crew Manager, Safety Manager, Technical Manager, Accounting).</li>\n<li>Turn on the <strong>Send Email</strong> toggle to email the invitation.</li>\n<li>Click <strong>Add</strong> to add the person to the invite list.</li>\n</ol>\n<p>You can queue several people before sending: <em>&ldquo;Build a list of users to invite, then send all invitations together.&rdquo;</em> Once sent, invitees appear in the <strong>Users</strong> tab with a status.</p>\n<div class=\"callout note\"><div class=\"co-h\">&ldquo;Role is required&rdquo;?</div><p>You tried to add the user without picking a role &mdash; select one and try again. If the role you want isn&rsquo;t listed, create it first on the <strong>Roles</strong> tab under the right <strong>Account</strong>.</p></div>\n"
+          },
+          {
+            "id": "users",
+            "name": "Users",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">The Users list is every user in the account &mdash; change roles and status inline, or open a full user record to edit their profile.</p>\n\n<h2 id=\"manage\">Manage users</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Users &rarr; Users</strong>.</li>\n<li>The table shows <strong>Name, Email, Country, Rank, Role, Status, Last Signed In, Account Name</strong> and <strong>Actions</strong> (scroll horizontally to see all columns).</li>\n<li>To change a user&rsquo;s <strong>Role</strong>, use the inline <strong>Select&hellip;</strong> dropdown in the Role column.</li>\n<li>To change <strong>Status</strong>, use the inline dropdown in the Status column (active / inactive).</li>\n<li>For more options, click the <strong>&#8942;</strong> Actions menu and choose <strong>Edit, Delete</strong> or <strong>Send Email</strong>.</li>\n</ol>\n<p>Inline Role/Status changes apply immediately to that row.</p>\n\n<h2 id=\"record\">The full user record</h2>\n<p><strong>Edit</strong> opens the full record (<strong>User &rarr; Edit</strong>) with tabs: <strong>Account, Change Password, Personal Information, Address, Employment, Certificates, Leave, Emergency Contact, File Manager</strong> and more. The <strong>Account</strong> tab includes <strong>Profile Branding</strong> (cover image, profile picture) and <strong>Account Identity</strong> (Username, First Name, etc.). Edits save to that user&rsquo;s profile.</p>\n<div class=\"callout note\"><div class=\"co-h\">&ldquo;No Rows To Show&rdquo; or missing Actions?</div><p>An empty table means no users exist yet (invite one) or the list is still loading. The <strong>Actions</strong> column is the last column &mdash; scroll right. Use the page-size selector (default 10) and pagination at the bottom to move through users.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I change a user&rsquo;s role without re-inviting them?</summary><div class=\"faq-a\"><p>Yes &mdash; use the inline <strong>Role</strong> dropdown on the user&rsquo;s row (or <strong>&#8942; &rarr; Edit</strong>). No new invitation is needed.</p></div></details>\n<details><summary>What&rsquo;s the difference between deactivating and deleting a user?</summary><div class=\"faq-a\"><p>Setting <strong>Status</strong> to inactive keeps the record but removes access. <strong>Delete</strong> (<strong>&#8942; &rarr; Actions</strong>) removes the record entirely. To revoke access temporarily, set inactive rather than deleting.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>
