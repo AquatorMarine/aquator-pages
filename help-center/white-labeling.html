@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>White Labeling &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="White Labeling help: run Aquator under your own brand — brand name, sub-domain, logos, colours, favicon, branded emails and reports, and the powered-by badge."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">White Labeling</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">White Labeling <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">White Labeling lets approved partners, management companies and resellers deliver the full Aquator platform under their <strong>own brand</strong>. To their crew, clients and owners the app looks like the partner&rsquo;s own product &mdash; while running on Aquator&rsquo;s infrastructure, modules and updates underneath.</p>\n\n<h2 id=\"what\">What white labeling changes</h2>\n<p>A white-labeled environment re-skins the entire experience &mdash; brand name, logos, colours, favicon, login and loading screens, system emails and exported reports &mdash; but it does <strong>not</strong> change any functionality. Every module (accounting, crew, maintenance, subscriptions and the rest) and every platform update is included automatically.</p>\n<div class=\"callout note\"><div class=\"co-h\">Branding, not a different product</div><p>White labeling changes the <strong>presentation</strong> of Aquator, not what it does. Your team gets the same features and the same updates &mdash; just with your brand on them.</p></div>\n\n<h2 id=\"diff\">How it differs from the Theme Customizer</h2>\n<p>The <strong>Theme Customizer</strong> is a personal setting &mdash; each user picks their own colours and layout, saved to their profile. <strong>White Labeling</strong> is an account-level brand identity that applies to <em>everyone</em> who opens the branded address, and covers things the customizer can&rsquo;t: brand name, logos, favicon, sub-domain, branded emails and branded reports.</p>\n\n<h2 id=\"setup\">How it&rsquo;s set up</h2>\n<p>White labeling is configured for you by the Aquator team and linked to your company account &mdash; it is not self-serve from inside the app. Once it&rsquo;s live, anyone visiting your branded address sees your identity automatically. To request or change a white-label brand, contact Aquator support with your brand assets (see <strong>Branding Options</strong> for the full checklist).</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Do we lose any features when white labeled?</summary><div class=\"faq-a\"><p>No. White labeling only changes how Aquator looks. All modules and future updates are included exactly as before.</p></div></details>\n<details><summary>Is this the same as the Theme Customizer?</summary><div class=\"faq-a\"><p>No. The Theme Customizer is a per-user preference. White Labeling is an account-wide brand identity that also covers your name, logos, favicon, sub-domain, emails and reports.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "branding",
+            "name": "Branding Options",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">Everything you can customise on a white-label brand. Provide these assets to Aquator support and they&rsquo;re applied across the platform.</p>\n\n<h2 id=\"identity\">Brand identity</h2>\n<table class=\"ftab\"><thead><tr><th>Option</th><th>What it controls</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Brand name</td><td>The product name shown in the browser tab, the installable app, and throughout the interface.</td></tr>\n<tr><td class=\"t-name\">Sub-domain</td><td>Your dedicated branded address &mdash; the path that loads your theme automatically (see <strong>Your Branded Address</strong>).</td></tr>\n<tr><td class=\"t-name\">Website URL</td><td>Your own website, linked from the branded experience.</td></tr>\n<tr><td class=\"t-name\">Terms &amp; Conditions URL</td><td>A link to your own terms instead of the default.</td></tr>\n<tr><td class=\"t-name\">Favicon</td><td>The browser/tab icon and the icon used when the app is installed.</td></tr>\n</tbody></table>\n\n<h2 id=\"colours\">Colours</h2>\n<ul class=\"bul\">\n<li><strong>Primary / theme colour</strong> &mdash; buttons, highlights and active states across the app.</li>\n<li><strong>Navigation colour</strong> &mdash; the top navigation bar (defaults to the Aquator orange if not set).</li>\n<li><strong>Layout background colour</strong> &mdash; the background of the login and layout shell.</li>\n</ul>\n\n<h2 id=\"logos\">Logos</h2>\n<p>You can supply separate logos for different placements so each one looks right in context:</p>\n<table class=\"ftab\"><thead><tr><th>Logo</th><th>Where it appears</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Desktop logo</td><td>The main logo on desktop screens.</td></tr>\n<tr><td class=\"t-name\">Mobile logo</td><td>A compact logo for small screens.</td></tr>\n<tr><td class=\"t-name\">Layout logo (light)</td><td>The logo in the app layout / loading screen on light backgrounds.</td></tr>\n<tr><td class=\"t-name\">Dark layout logo</td><td>A variant used on dark backgrounds for contrast.</td></tr>\n<tr><td class=\"t-name\">Email template logo</td><td>Your logo on system emails (welcome, verification, notifications).</td></tr>\n<tr><td class=\"t-name\">Report logo</td><td>Your logo on generated documents and reports.</td></tr>\n<tr><td class=\"t-name\">Purchase report logo</td><td>Your logo specifically on purchase / financial reports.</td></tr>\n</tbody></table>\n<div class=\"callout note\"><div class=\"co-h\">Vertical logo option</div><p>If your logo reads better stacked (mark above wordmark) than wide, ask for the <strong>vertical logo</strong> option so it&rsquo;s laid out correctly.</p></div>\n\n<h2 id=\"poweredby\">&ldquo;Powered by Aquator&rdquo; badge</h2>\n<p>By default a small <strong>Powered by Aquator</strong> credit is shown. White-label brands can request to <strong>hide</strong> it for a fully unbranded experience.</p>\n"
+          },
+          {
+            "id": "experience",
+            "name": "Branded Experience",
+            "icon": "anchor",
+            "body": "\n<p class=\"lead\">Your branding doesn&rsquo;t stop at the dashboard &mdash; it carries through every touchpoint a user sees.</p>\n\n<h2 id=\"touchpoints\">Where your brand shows up</h2>\n<ul class=\"bul\">\n<li><strong>Browser &amp; tab</strong> &mdash; your brand name as the page title and your favicon.</li>\n<li><strong>Login &amp; loading screens</strong> &mdash; your logo, colours and background.</li>\n<li><strong>In-app navigation</strong> &mdash; your logo and theme colour throughout.</li>\n<li><strong>System emails</strong> &mdash; welcome, verification and notification emails carry your email logo.</li>\n<li><strong>Reports &amp; documents</strong> &mdash; exported PDFs and purchase/financial reports carry your report logo.</li>\n</ul>\n\n<h2 id=\"pwa\">Installable app (PWA)</h2>\n<p>When a user installs Aquator to their phone or desktop from your branded address, it installs as <strong>your</strong> app &mdash; your name and icon on the home screen, your theme colour on the splash screen. They never see the Aquator name.</p>\n<div class=\"callout note\"><div class=\"co-h\">Automatic theming</div><p>The branding applies the moment a user opens your branded address &mdash; the title, favicon, colours and logos all switch to your identity with no action needed from the user.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Will users see the Aquator name anywhere?</summary><div class=\"faq-a\"><p>With the <strong>Powered by</strong> badge hidden, the visible experience &mdash; app, emails and reports &mdash; carries only your brand. (Aquator remains the underlying platform provider.)</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "address",
+            "name": "Your Branded Address",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">Each white-label brand has its own <strong>sub-domain</strong> &mdash; a unique address that automatically loads your theme. Aquator recognises the brand from the address and re-skins everything before the user signs in.</p>\n\n<h2 id=\"how\">How the address works</h2>\n<p>Your sub-domain is the part of the link that identifies your brand (for example <strong>your-brand</strong>). When someone opens your branded link, Aquator loads your logos, colours, favicon and name automatically &mdash; including on the login screen, before any account exists.</p>\n<div class=\"callout note\"><div class=\"co-h\">Bookmark the branded link</div><p>Always share and bookmark <strong>your</strong> branded address with your team. Opening the generic Aquator address won&rsquo;t apply your branding.</p></div>\n\n<h2 id=\"onboarding\">Partner-controlled onboarding</h2>\n<p>In a white-labeled environment, the open <strong>self-registration</strong>, <strong>contribute</strong> and <strong>invite-members</strong> flows are turned off. This is intentional &mdash; <strong>you</strong> control who joins and how, rather than people signing themselves up. Add and manage users through the normal user-management tools for your account.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why can&rsquo;t users self-register on our branded site?</summary><div class=\"faq-a\"><p>Public self-registration is disabled by design on white-label brands so that you control onboarding. Add users through your account&rsquo;s user-management instead.</p></div></details>\n<details><summary>My branding didn&rsquo;t load &mdash; why?</summary><div class=\"faq-a\"><p>You likely opened the generic address rather than your branded sub-domain link. Use the branded link your administrator shared &mdash; branding is applied from that address.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

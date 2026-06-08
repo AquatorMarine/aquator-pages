@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Settings &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Global Settings help: the platform's central configuration hub — settings areas, UI patterns, and non-obvious settings logic."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Settings</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Settings <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">The Settings tab &mdash; the <strong>Global Settings</strong> area inside the Admin Console &mdash; is the central configuration hub for the whole Aquator platform. It&rsquo;s a single grid of cards, where each card is one configurable area.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open <strong>Admin Console &rarr; Settings</strong>. At the top of the grid are a <strong>Search settings&hellip;</strong> box and a module filter dropdown (<strong>Select&hellip;</strong>) &mdash; jump to a setting by name, or narrow the grid to one module&rsquo;s settings.</p>\n\n<h2 id=\"tagging\">Settings aren&rsquo;t siloed</h2>\n<div class=\"callout tip\"><div class=\"co-h\">The key concept</div><p>Each card is <strong>tagged with the product module(s) it feeds</strong>, so one setting often powers several modules at once (cards are tagged against Accounting, Charter, Planned Maintenance, New Builds, Refits, Crew, AIS Tracker, Shipyard ERP and more). The tags double as a map of <em>which configuration affects which part of the product</em> &mdash; useful when chasing a &ldquo;why isn&rsquo;t X working?&rdquo; question.</p></div>\n\n<h2 id=\"why\">What it&rsquo;s for</h2>\n<p>Settings is where an administrator does the one-time and ongoing groundwork that makes the rest of the platform function. It:</p>\n<ul class=\"bul\">\n<li>establishes the <strong>financial backbone</strong> (accounts, chart of accounts, currencies, taxes, customers, suppliers, items) every invoice, PO and report draws on;</li>\n<li>defines the <strong>shared reference data</strong> (categories, addresses, participants) that tasks and records across modules rely on;</li>\n<li>sets <strong>crew rules</strong> (leave types); and</li>\n<li>configures how the <strong>fleet and shipyard</strong> modules behave and display (map markers, work centers, production stages).</li>\n</ul>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>How do I find a specific setting?</summary><div class=\"faq-a\"><p>Use the <strong>Search settings&hellip;</strong> box to find a card by name, or the module <strong>Select&hellip;</strong> dropdown to show only the settings that feed a given module.</p></div></details>\n<details><summary>Why does a setting affect more than one module?</summary><div class=\"faq-a\"><p>Settings are shared, not siloed &mdash; each card is tagged to the module(s) it powers, so one setting (e.g. Categories or Currencies) can feed several modules at once.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "areas",
+            "name": "What&rsquo;s inside",
+            "icon": "scale",
+            "body": "\n<p class=\"lead\">The grid&rsquo;s cards group into a few clusters by what they power. Here&rsquo;s the catalogue.</p>\n\n<h2 id=\"finance\">Accounting &amp; Finance</h2>\n<p>The largest cluster &mdash; the financial backbone:</p>\n<table class=\"ftab\"><thead><tr><th>Card</th><th>What it configures</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Accounts</td><td>Bank / cash / card accounts with balances and an active toggle.</td></tr>\n<tr><td class=\"t-name\">Chart of Accounts</td><td>The full accounting structure.</td></tr>\n<tr><td class=\"t-name\">Currencies</td><td>Multi-currency with a primary currency and an FX rate mode.</td></tr>\n<tr><td class=\"t-name\">Taxes</td><td>Tax rates with types.</td></tr>\n<tr><td class=\"t-name\">Customers</td><td>Income / invoicing contacts.</td></tr>\n<tr><td class=\"t-name\">Suppliers</td><td>Procurement contacts.</td></tr>\n<tr><td class=\"t-name\">Items</td><td>Products / services used as invoice and PO line items.</td></tr>\n<tr><td class=\"t-name\">Default</td><td>Default accounting preferences.</td></tr>\n<tr><td class=\"t-name\">Finance Approvals</td><td>Transaction approval workflows.</td></tr>\n<tr><td class=\"t-name\">Company</td><td>Core company details.</td></tr>\n<tr><td class=\"t-name\">Consign</td><td>Consignment contacts for POs.</td></tr>\n<tr><td class=\"t-name\">Central Agent</td><td>Assigned charter agent.</td></tr>\n<tr><td class=\"t-name\">Addresses</td><td>PO billing / shipping details.</td></tr>\n</tbody></table>\n\n<h2 id=\"ops\">Operations &amp; assets</h2>\n<ul class=\"bul\">\n<li><strong>Categories</strong> &mdash; tags to sort/filter tasks and items, shared across New Builds, Planned Maintenance and more.</li>\n<li><strong>Participants</strong> &mdash; external people assignable to tasks in New Builds / Refits.</li>\n<li><strong>Storage</strong>.</li>\n</ul>\n\n<h2 id=\"crew\">Crew</h2>\n<ul class=\"bul\">\n<li><strong>Leave Settings</strong> &mdash; the leave types and rules for crew.</li>\n</ul>\n\n<h2 id=\"ais\">AIS Tracker</h2>\n<ul class=\"bul\">\n<li><strong>Fleet Settings</strong>, <strong>Map Pin</strong> and <strong>Fullscreen View</strong> &mdash; controlling how vessels and locations display on the live tracking map.</li>\n</ul>\n\n<h2 id=\"shipyard\">Shipyard ERP</h2>\n<ul class=\"bul\">\n<li><strong>Projects</strong>, <strong>Work Center</strong> and <strong>Stages</strong> &mdash; the production setup for the shipyard workflow.</li>\n</ul>\n"
+          },
+          {
+            "id": "patterns",
+            "name": "The UI patterns",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">Rather than every page being unique, Settings reuses a handful of UI archetypes &mdash; learn one and you know them all.</p>\n\n<h2 id=\"list\">The list / table archetype</h2>\n<p>The most common pattern (Taxes, Chart of Accounts, Currencies, Customers, Items, Work Center, Stages). It has a header with a <strong>Search</strong> box and an <strong>Add</strong> button, a table of records, a per-page count selector (default 10) with pagination, and a three-dot <strong>Actions</strong> menu per row.</p>\n<ol class=\"steps\">\n<li>Click <strong>Add</strong> to create a record, or the row&rsquo;s <strong>&#8942;</strong> menu for <strong>View, Edit</strong> or <strong>Delete</strong>.</li>\n<li>Fill in the form (for Categories, for example: Parent, Name, Icon, Color, Description) and save.</li>\n<li>Many rows also have an <strong>Enabled</strong> toggle to switch a record on/off without opening it.</li>\n</ol>\n<p>A brand-new list shows <strong>&ldquo;No Rows To Show&rdquo;</strong> until you add the first record.</p>\n\n<h2 id=\"cards\">The card-tile archetype</h2>\n<p>Used by <strong>Accounts</strong> and <strong>Leave Settings</strong>. <strong>Accounts</strong> shows each account as a visual card with balances and inline edit / delete / toggle icons. <strong>Leave Settings</strong> shows each leave type as a card with a single on/off toggle and one bottom <strong>Save</strong> button &mdash; a toggle-and-save screen rather than per-record CRUD.</p>\n\n<h2 id=\"map\">The map-data grid archetype</h2>\n<p>Used by AIS Tracker&rsquo;s <strong>Fleet Settings</strong> and <strong>Map Pin</strong>. These add an <strong>Active View</strong> filter bar with <strong>Save View</strong> and <strong>Clear All</strong> &mdash; build and save custom filtered views over vessel or pin data &mdash; plus a <strong>marker-colour</strong> column that controls how things appear on the tracking map.</p>\n"
+          },
+          {
+            "id": "logic",
+            "name": "Settings logic to know",
+            "icon": "help",
+            "body": "\n<p class=\"lead\">A few things the Settings UI doesn&rsquo;t explain on its own &mdash; worth knowing before they trip you up.</p>\n\n<h2 id=\"nested\">Module-nested settings only load from their card</h2>\n<div class=\"callout warn\"><div class=\"co-h\">Open them from the grid, not by URL</div><p>The module-nested settings (AIS Tracker&rsquo;s <strong>Fleet Settings / Map Pin</strong>, Shipyard ERP&rsquo;s <strong>Work Center / Stages</strong>) only load when opened through their <strong>card on the grid</strong> &mdash; their breadcrumb runs <strong>Settings &rsaquo; [Module] &rsaquo; [Setting]</strong>. Reaching them by direct URL may not load them.</p></div>\n\n<h2 id=\"hidden\">Settings that carry hidden logic</h2>\n<table class=\"ftab\"><thead><tr><th>Setting</th><th>The non-obvious rule</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Taxes</td><td>A tax&rsquo;s <strong>Type</strong> &mdash; Fixed, Inclusive or Withholding &mdash; changes how the number is applied, not just its value.</td></tr>\n<tr><td class=\"t-name\">Currencies</td><td>You need at least <strong>two currencies</strong> before you can set FX rates, and there&rsquo;s a <strong>Manual vs automatic</strong> FX mode.</td></tr>\n<tr><td class=\"t-name\">Leave Settings</td><td>Leave types are <strong>Accruable vs Non-accrued</strong>, which determines whether a balance builds up.</td></tr>\n<tr><td class=\"t-name\">Stages</td><td>A <strong>parent/child hierarchy</strong> (e.g. &ldquo;1. Hull &amp; Structure&rdquo; &rarr; &ldquo;1.1 Lamination Bay&rdquo;), with each stage typed as <strong>Inventory / BOM</strong>.</td></tr>\n</tbody></table>\n\n<h2 id=\"empty\">Empty states</h2>\n<p>Empty states are consistent &mdash; brand-new lists show <strong>&ldquo;No Rows To Show.&rdquo;</strong> Currencies even gives a helpful hint: <strong>&ldquo;Add at least two currencies to configure exchange rates.&rdquo;</strong></p>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

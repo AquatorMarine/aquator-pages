@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Customer Support &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Customer Support help: meet Jim, get help inside Aquator, what Jim can do, and the Help Center and Change Log."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Customer Support</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Customer Support <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Meet Jim",
+            "icon": "help",
+            "body": "\n<p class=\"lead\"><strong>Jim</strong> is Aquator&rsquo;s customer support assistant. Whenever you have a question, hit a snag or want to know how something works, Jim is the fastest way to get help &mdash; right inside the app, without leaving what you&rsquo;re doing.</p>\n\n<h2 id=\"what\">What Jim is</h2>\n<p>Jim is the friendly face of our support team. Ask a question in plain English and Jim answers instantly, pulls up the right help article, and &mdash; whenever you need a person &mdash; hands the conversation to our human support team without you having to repeat yourself.</p>\n<div class=\"callout note\"><div class=\"co-h\">Always in the same place</div><p>Jim travels with you across Aquator. You don&rsquo;t need to open a separate site or raise a ticket &mdash; the support chat is one click away from any screen.</p></div>\n\n<h2 id=\"when\">When to use Jim</h2>\n<ul class=\"bul\">\n<li><strong>&ldquo;How do I&hellip;?&rdquo;</strong> questions about any module or feature.</li>\n<li>Something isn&rsquo;t behaving as you expect and you want it checked.</li>\n<li>You want a walkthrough or a link to the right guide.</li>\n<li>You&rsquo;d like to send feedback or request a feature.</li>\n</ul>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Is Jim a real person?</summary><div class=\"faq-a\"><p>Jim is our support assistant and answers most questions instantly. When something needs a human, Jim passes you straight to our support team &mdash; with the full conversation, so you never repeat yourself.</p></div></details>\n<details><summary>Does it cost anything to chat with Jim?</summary><div class=\"faq-a\"><p>No. Support through Jim is included with your Aquator account.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "get-help",
+            "name": "Get help in Aquator",
+            "icon": "rocket",
+            "body": "\n<p class=\"lead\">You can reach Jim from anywhere in Aquator in a couple of clicks. There are two ways in &mdash; both open the same support chat.</p>\n\n<h2 id=\"navbar\">From the top navigation bar</h2>\n<ol class=\"steps\">\n<li>Look at the <strong>top-right of the screen</strong>, next to your profile.</li>\n<li>Click the <strong>Customer Support</strong> icon (the sparkle &#10024; icon &mdash; hover it and the tooltip reads &ldquo;Customer Support&rdquo;).</li>\n<li>The chat panel opens &mdash; type your question and Jim replies.</li>\n</ol>\n\n<h2 id=\"profile\">From your profile menu</h2>\n<ol class=\"steps\">\n<li>Click your <strong>profile avatar</strong> in the top-right corner.</li>\n<li>Choose <strong>Customer Support</strong> from the dropdown.</li>\n<li>The same chat panel opens.</li>\n</ol>\n<div class=\"callout note\"><div class=\"co-h\">No need to give your account details</div><p>Because you&rsquo;re signed in, the chat already knows who you are &mdash; your name and account are securely attached to the conversation. Just ask your question; you don&rsquo;t have to look up your account number or email.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>I can&rsquo;t find the support icon.</summary><div class=\"faq-a\"><p>It&rsquo;s in the top-right of the navigation bar, near your profile avatar &mdash; the sparkle &#10024; icon labelled &ldquo;Customer Support&rdquo; on hover. If your window is narrow, widen it or open your <strong>profile menu</strong> and choose <strong>Customer Support</strong> instead.</p></div></details>\n<details><summary>Will I lose my place in the app when I open the chat?</summary><div class=\"faq-a\"><p>No. The chat opens as a panel over your current screen &mdash; close it and you&rsquo;re exactly where you left off.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "what-jim-does",
+            "name": "What Jim can do",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Jim is built to get you to an answer quickly &mdash; and to a person when that&rsquo;s what you need.</p>\n\n<h2 id=\"answers\">Instant answers</h2>\n<p>Ask in plain language and Jim responds right away, drawing on Aquator&rsquo;s help content so the answer fits how the product actually works.</p>\n\n<h2 id=\"articles\">The right guide, surfaced for you</h2>\n<p>When a question is best answered by a full walkthrough, Jim points you to the matching <strong>Help Center</strong> article so you can follow the steps yourself.</p>\n\n<h2 id=\"handoff\">A smooth handoff to our team</h2>\n<p>If your question needs a human &mdash; an account-specific change, something unusual, or anything Jim can&rsquo;t resolve &mdash; Jim passes the conversation to our support team along with everything you&rsquo;ve already said. You won&rsquo;t need to start over or repeat your details.</p>\n<div class=\"callout note\"><div class=\"co-h\">One conversation, start to finish</div><p>Whether Jim answers or a teammate does, it&rsquo;s the same thread. Your history stays in one place, so follow-ups are easy to pick up later.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can Jim make changes to my account for me?</summary><div class=\"faq-a\"><p>Jim answers questions and guides you through the steps. For account-specific changes that need our team, Jim hands you to a teammate who can help directly.</p></div></details>\n<details><summary>What if Jim doesn&rsquo;t understand my question?</summary><div class=\"faq-a\"><p>Rephrase it, or ask to speak to the team &mdash; Jim will connect you to a human who can take it from there.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "more-resources",
+            "name": "Help Center &amp; Change Log",
+            "icon": "contract",
+            "body": "\n<p class=\"lead\">Alongside chatting with Jim, two more resources live in the same top navigation bar &mdash; handy when you&rsquo;d rather read up or see what&rsquo;s new.</p>\n\n<h2 id=\"help-center\">Help Center</h2>\n<p>The <strong>Help Center</strong> is our library of guides and tutorials for every module &mdash; from accounting and crew to maintenance and subscriptions. Open it from the <strong>Help Center</strong> icon in the top navigation bar, or visit <strong>help.aquatormarine.com/help-center</strong>. It&rsquo;s the same content Jim draws on, browsable at your own pace.</p>\n\n<h2 id=\"change-log\">Change Log</h2>\n<p>The <strong>Change Log</strong> is where we post what&rsquo;s new &mdash; features, improvements and fixes as they ship. Open it from the <strong>Change Log</strong> icon in the top navigation bar, or visit <strong>help.aquatormarine.com/change-log</strong>.</p>\n<div class=\"callout note\"><div class=\"co-h\">Which one should I use?</div><p>Want a quick answer or a hand with something specific? <strong>Ask Jim.</strong> Prefer to read a full walkthrough? <strong>Browse the Help Center.</strong> Curious what changed recently? <strong>Check the Change Log.</strong></p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Where do I find these in the app?</summary><div class=\"faq-a\"><p>All three live in the top-right of the navigation bar: the sparkle &#10024; icon for <strong>Customer Support</strong> (Jim), and separate icons for the <strong>Help Center</strong> and <strong>Change Log</strong>.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>
