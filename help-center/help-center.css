@@ -140,6 +140,9 @@ header.mast {
   }
   .rail-left {
     position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
     border-right: none !important;
     border-bottom: 1px solid var(--line);
   }
