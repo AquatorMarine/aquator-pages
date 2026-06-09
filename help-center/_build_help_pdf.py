@@ -88,31 +88,40 @@ for i, (slug, title, mods) in enumerate(topics, 1):
 parts.append('<section class="book-toc"><div class="toc-h">Table of Contents</div>'
              + "".join(rows) + '</section>')
 
-# Per-topic sections. Titles deep-link back to the online Help Center so the
-# PDF doubles as a clickable index (topic header -> page, module -> page#anchor).
+# Per-topic chapters. Each chapter is wrapped in a plain block <section> that
+# carries the page break and the #ch-* anchor — putting break-before on the flex
+# `.sec` header instead makes Chrome emit phantom blank pages. Titles deep-link
+# back to the online Help Center (chapter -> page, module -> page#anchor).
 for slug, title, mods in topics:
     turl = f"{BASE}{slug}.html"
-    parts.append(f'<div class="sec topic-sec" id="ch-{slug}">'
-                 f'<a class="label" href="{turl}">{html.escape(title)}</a>'
-                 f'<span class="hint">{len(mods)} sections</span></div>')
+    chap = [f'<section class="chapter" id="ch-{slug}">'
+            f'<div class="sec topic-sec">'
+            f'<a class="label" href="{turl}">{html.escape(title)}</a>'
+            f'<span class="hint">{len(mods)} sections</span></div>']
     for m in mods:
         name = html.unescape(m.get("name", ""))
         mid = m.get("id", "")
         murl = f"{turl}#{mid}" if mid else turl
         body = clean_body(m.get("body", ""), slug)
-        parts.append(f'<div class="modblock"><div class="modtitle">'
-                     f'<a href="{murl}">{html.escape(name)}</a></div>'
-                     f'<div class="modbody">{body}</div></div>')
+        chap.append(f'<div class="modblock"><div class="modtitle">'
+                    f'<a href="{murl}">{html.escape(name)}</a></div>'
+                    f'<div class="modbody">{body}</div></div>')
+    chap.append('</section>')
+    parts.append("".join(chap))
 
 body_html = "\n".join(parts)
 
 # ---- Supplementary styles for help-center element classes -----------------
 extra_css = """
 <style>
-/* Topic sections start on a fresh page; first one need not. */
-.topic-sec{break-before:page;margin-top:6px}
-.topic-sec:first-of-type{break-before:auto}
-.modblock{break-inside:avoid-page;margin:0 0 4px}
+/* Each chapter starts on a fresh page; the first one need not. The break lives
+   on the block wrapper (not the flex `.sec` header) to avoid phantom blanks. */
+.chapter{break-before:page}
+.chapter:first-of-type{break-before:auto}
+/* Keep the chapter header whole and glued to its first block — letting the flex
+   `.sec` header fragment at a page break is what spawned phantom blank pages. */
+.topic-sec{margin-top:6px;break-inside:avoid;break-after:avoid}
+.modblock{break-inside:avoid;margin:0 0 4px}
 .modtitle{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);
   margin:18px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .modbody{font-size:13px;line-height:1.6;color:var(--text)}
@@ -256,52 +265,74 @@ subprocess.run([
 ], check=True, capture_output=True)
 print(f"[ok] wrote {OUT}")
 
-# ---- Book post-process: bookmarks, TOC page numbers, footer page numbers --
-# Chrome already turned the TOC's #ch-* anchors into internal GoTo links, so we
-# read those to learn each chapter's start page, then (a) print the page number
-# on its TOC row, (b) build a chapter/section bookmark outline (the PDF nav
-# panel), and (c) stamp "N / total" in every page footer. Done with PyMuPDF so
-# the external title links Chrome created are preserved.
-import fitz
+# ---- Book post-process: drop blank pages, then bookmarks, TOC page numbers,
+# footer page numbers. Chrome turns the TOC's #ch-* anchors into internal links;
+# we capture those (rect + destination) BEFORE removing blank pages, then rebuild
+# the navigation against the cleaned layout. PyMuPDF keeps the external links.
+import fitz, bisect
 
 doc = fitz.open(str(OUT))
-N = doc.page_count
+GREY = (0.30, 0.33, 0.35)
 
-# All internal links are the TOC rows (body/title links are external https).
-# Chrome emits them as NAMED links that resolve to a page, so match on page>=0.
+# Capture TOC internal links (rect + destination) in reading order = chapters.
 ch_links = []
-for pi in range(N):
+for pi in range(doc.page_count):
     for ln in doc[pi].get_links():
         if ln.get("page", -1) >= 0 and not ln.get("uri"):
-            ch_links.append((pi, fitz.Rect(ln["from"]), ln["page"]))
+            ch_links.append([pi, fitz.Rect(ln["from"]), ln["page"]])
 ch_links.sort(key=lambda t: (t[0], round(t[1].y0)))
 
-GREY = (0.30, 0.33, 0.35)
+# Phantom blank pages: page breaks between chapters occasionally leave a fully
+# empty page (only a stray 1px rule). Find any page (never the cover) with no
+# text in the content band. A chapter link landing on a blank really targets the
+# next page, so nudge those destinations before we delete.
+def is_blank(pi):
+    H = doc[pi].rect.height
+    return not any(96 < ln["bbox"][1] < H - 46
+                   for b in doc[pi].get_text("dict")["blocks"]
+                   for ln in b.get("lines", []))
+blanks = sorted(pi for pi in range(1, doc.page_count) if is_blank(pi))
+for cl in ch_links:
+    if cl[2] in blanks:
+        cl[2] += 1
+for pi in reversed(blanks):
+    doc.delete_page(pi)
+N = doc.page_count
+remap = lambda old: old - bisect.bisect_left(blanks, old)
+if blanks:
+    print(f"[ok] removed {len(blanks)} blank page(s): {[b + 1 for b in blanks]}")
+
 if len(ch_links) == len(topics):
-    # (a) print the destination page number at the right end of each TOC row,
-    # aligned to the title's text baseline so it lines up with the entry.
+    # Rebuild the TOC internal links cleanly against the new page layout.
+    for pi in range(N):
+        for ln in list(doc[pi].get_links()):
+            if ln.get("page", -1) >= 0 and not ln.get("uri"):
+                doc[pi].delete_link(ln)
+    starts = []
     for (src_pi, rect, dest), (slug, title, mods) in zip(ch_links, topics):
-        label = str(dest + 1)
+        src, dst = remap(src_pi), remap(dest)
+        starts.append(dst)
+        doc[src].insert_link({"kind": fitz.LINK_GOTO, "from": rect, "page": dst})
+        # page number on the TOC row, aligned to its text baseline
+        label = str(dst + 1)
         tw = fitz.get_text_length(label, fontname="helv", fontsize=11)
         ys = [s["origin"][1]
-              for b in doc[src_pi].get_text("dict", clip=rect)["blocks"]
+              for b in doc[src].get_text("dict", clip=rect)["blocks"]
               for ln in b.get("lines", []) for s in ln["spans"]]
         baseline = min(ys) if ys else rect.y1 - 8
-        doc[src_pi].insert_text((rect.x1 - tw, baseline), label,
-                                fontname="helv", fontsize=11, color=GREY)
-    # (b) chapter (level 1) + section (level 2) bookmark outline.
-    # Locate each section by its TITLE LINE (a line whose text equals the module
-    # name) so incidental cross-references in body text don't mislead us.
+        doc[src].insert_text((rect.x1 - tw, baseline), label,
+                             fontname="helv", fontsize=11, color=GREY)
+
+    # Bookmark outline: chapter (level 1) + section (level 2). Locate each
+    # section by its TITLE LINE (a line equal to the name) so body cross-refs
+    # don't mislead us.
     def title_page(name, p0, p1):
         for p in range(p0, p1):
             for blk in doc[p].get_text("dict")["blocks"]:
                 for line in blk.get("lines", []):
-                    txt = "".join(s["text"] for s in line["spans"]).strip()
-                    if txt == name:
+                    if "".join(s["text"] for s in line["spans"]).strip() == name:
                         return p
         return None
-
-    starts = [d for _, _, d in ch_links]
     outline = []
     for ci, (slug, title, mods) in enumerate(topics):
         cstart = starts[ci]
@@ -316,7 +347,7 @@ if len(ch_links) == len(topics):
 else:
     print(f"[warn] TOC links {len(ch_links)} != topics {len(topics)} — skipped outline")
 
-# (c) footer page numbers on every page except the cover (page 0)
+# Footer page numbers on every page except the cover (page 0).
 for i in range(1, N):
     pg = doc[i]
     w, h = pg.rect.width, pg.rect.height
@@ -324,5 +355,8 @@ for i in range(1, N):
     tw = fitz.get_text_length(txt, fontname="helv", fontsize=8)
     pg.insert_text(((w - tw) / 2, h - 17), txt, fontname="helv", fontsize=8, color=GREY)
 
-doc.saveIncr()
+out_tmp = OUT.with_suffix(".tmp.pdf")
+doc.save(str(out_tmp), garbage=4, deflate=True)
+doc.close()
+out_tmp.replace(OUT)
 print(f"[ok] wrote book PDF: {N} pages")
