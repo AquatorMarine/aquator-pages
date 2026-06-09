@@ -11,18 +11,37 @@ DATE = "June 2026"
 # Online Help Center — topic/module titles in the PDF link back here.
 BASE = "https://help.aquatormarine.com/help-center/"
 
-# Topic order: Getting Started first, then the index card order.
+# Book structure: chapters grouped into Parts, sequenced as a user journey
+# (set up -> daily use -> commercial -> projects -> documents -> extend -> help).
 # NOTE: warranty, passage-planning and new-builds are intentionally excluded
-# (hidden from the live Help Center and this PDF). Re-add them here to restore.
-ORDER = [
-    "getting-started", "pms", "ism", "sms", "crew-management",
-    "in-out-board", "user-management", "accounting", "charter",
-    "yacht-plans-subscription", "refits",
-    "shipyard", "file-manager", "smart-documents", "yacht-management",
-    "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
-    "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
-    "mobile-app", "faq", "customer-support",
+# (hidden from the live Help Center and this PDF). Re-add them to a Part to restore.
+PARTS = [
+    ("Set Up",
+     "Create your account, configure the platform, and set who can do what.",
+     ["getting-started", "global-settings", "yacht-settings",
+      "personal-settings", "user-management"]),
+    ("Daily Operations",
+     "The modules your crew use day to day — maintenance, safety and the board.",
+     ["pms", "ism", "sms", "in-out-board", "crew-management"]),
+    ("Commercial",
+     "Charters, finances and your Aquator subscription.",
+     ["charter", "accounting", "yacht-plans-subscription"]),
+    ("Projects & Yard",
+     "Manage refit projects and shipyard work.",
+     ["refits", "shipyard"]),
+    ("Documents & Fleet",
+     "Files, smart documents, fleet management and live vessel tracking.",
+     ["file-manager", "smart-documents", "yacht-management", "ais-tracker"]),
+    ("Customise & Extend",
+     "Make Aquator your own and connect it to the tools you already use.",
+     ["theme-customizer", "sidebar-settings", "white-labeling",
+      "integrations", "mobile-app"]),
+    ("Help",
+     "Answers to common questions and how to reach us.",
+     ["faq", "customer-support"]),
 ]
+ORDER = [slug for _, _, slugs in PARTS for slug in slugs]
+ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
 
 def page_title(slug):
     s = (HC / f"{slug}.html").read_text(encoding="utf-8")
@@ -52,11 +71,18 @@ def clean_body(body, slug):
     return re.sub(r'href="([^"]+)"', fix, body)
 
 # ---- Build sections -------------------------------------------------------
-topics = []
-for slug in ORDER:
-    topics.append((slug, page_title(slug), modules(slug)))
-
+topics = [(slug, page_title(slug), modules(slug)) for slug in ORDER]
+tmap = {slug: (title, mods) for slug, title, mods in topics}
+chno = {slug: i for i, slug in enumerate(ORDER, 1)}   # continuous chapter numbers
 total_mods = sum(len(m) for _, _, m in topics)
+
+# Ordered list of TOC entries (parts + chapters), in the exact order they appear
+# on the contents page. Used after rendering to match internal links 1:1.
+toc_entries = []
+for pi, (ptitle, _pdesc, slugs) in enumerate(PARTS):
+    toc_entries.append(("part", pi, f"Part {ROMAN[pi]} · {ptitle}"))
+    for slug in slugs:
+        toc_entries.append(("chapter", slug, tmap[slug][0]))
 
 parts = []
 # ---- Cover page ----
@@ -65,44 +91,62 @@ parts.append(f"""<section class="cover">
   <h1 class="cover-title">Aquator<br>Help&nbsp;Center</h1>
   <div class="cover-rule"></div>
   <p class="cover-sub">The complete operating manual for Aquator Marine &mdash;
-  every module, setting and workflow, from PMS, ISM, SMS, Crew, Charter and
-  Accounting through fleet management, settings and support.</p>
+  every module, setting and workflow, organised as a guided journey from first
+  set-up through daily operations to customisation and support.</p>
   <div class="cover-stats">
+    <div><b>{len(PARTS)}</b><span>Parts</span></div>
     <div><b>{len(topics)}</b><span>Chapters</span></div>
     <div><b>{total_mods}</b><span>Sections</span></div>
-    <div><b>{DATE}</b><span>Edition</span></div>
   </div>
   <div class="cover-by">Aquator Marine Private Limited</div>
 </section>""")
 
-# ---- Table of Contents (each row links internally to its chapter; the page
-# number on the right is drawn in post-process once pagination is known) ----
-rows = []
-for i, (slug, title, mods) in enumerate(topics, 1):
-    rows.append(
-        f'<a class="toc-row" href="#ch-{slug}">'
-        f'<span class="toc-num">{i:02d}</span>'
-        f'<span class="toc-title">{html.escape(title)}</span>'
-        f'<span class="toc-dots"></span>'
-        f'<span class="toc-pg"></span></a>')
-parts.append('<section class="book-toc"><div class="toc-h">Table of Contents</div>'
-             + "".join(rows) + '</section>')
+# ---- Table of Contents, grouped into Parts. Part headers and chapter rows are
+# internal links; the page number on the right is drawn in post-process. ----
+toc_html = ['<section class="book-toc"><div class="toc-h">Table of Contents</div>']
+for pi, (ptitle, _pdesc, slugs) in enumerate(PARTS):
+    toc_html.append(
+        f'<a class="toc-part" href="#part-{pi}">'
+        f'<span class="toc-part-k">Part {ROMAN[pi]}</span>'
+        f'<span class="toc-part-t">{html.escape(ptitle)}</span>'
+        f'<span class="toc-dots"></span><span class="toc-pg"></span></a>')
+    for slug in slugs:
+        title, mods = tmap[slug]
+        toc_html.append(
+            f'<a class="toc-row" href="#ch-{slug}">'
+            f'<span class="toc-num">{chno[slug]:02d}</span>'
+            f'<span class="toc-title">{html.escape(title)}</span>'
+            f'<span class="toc-dots"></span><span class="toc-pg"></span></a>')
+toc_html.append('</section>')
+parts.append("".join(toc_html))
 
-# Per-topic sections. Titles deep-link back to the online Help Center so the
-# PDF doubles as a clickable index (topic header -> page, module -> page#anchor).
-for slug, title, mods in topics:
-    turl = f"{BASE}{slug}.html"
-    parts.append(f'<div class="sec topic-sec" id="ch-{slug}">'
-                 f'<a class="label" href="{turl}">{html.escape(title)}</a>'
-                 f'<span class="hint">{len(mods)} sections</span></div>')
-    for m in mods:
-        name = html.unescape(m.get("name", ""))
-        mid = m.get("id", "")
-        murl = f"{turl}#{mid}" if mid else turl
-        body = clean_body(m.get("body", ""), slug)
-        parts.append(f'<div class="modblock"><div class="modtitle">'
-                     f'<a href="{murl}">{html.escape(name)}</a></div>'
-                     f'<div class="modbody">{body}</div></div>')
+# ---- Parts: a divider page, then the part's chapters. Titles deep-link back to
+# the online Help Center so the PDF doubles as a clickable index. ----
+for pi, (ptitle, pdesc, slugs) in enumerate(PARTS):
+    items = "".join(
+        f'<li><span class="pc-num">{chno[s]:02d}</span>'
+        f'<span class="pc-t">{html.escape(tmap[s][0])}</span></li>' for s in slugs)
+    parts.append(
+        f'<section class="part-divider" id="part-{pi}">'
+        f'<div class="part-kicker">Part {ROMAN[pi]}</div>'
+        f'<h2 class="part-title">{html.escape(ptitle)}</h2>'
+        f'<div class="part-rule"></div>'
+        f'<p class="part-desc">{html.escape(pdesc)}</p>'
+        f'<ol class="part-contents">{items}</ol></section>')
+    for slug in slugs:
+        title, mods = tmap[slug]
+        turl = f"{BASE}{slug}.html"
+        parts.append(f'<div class="sec topic-sec" id="ch-{slug}">'
+                     f'<a class="label" href="{turl}">{html.escape(title)}</a>'
+                     f'<span class="hint">{len(mods)} sections</span></div>')
+        for m in mods:
+            name = html.unescape(m.get("name", ""))
+            mid = m.get("id", "")
+            murl = f"{turl}#{mid}" if mid else turl
+            body = clean_body(m.get("body", ""), slug)
+            parts.append(f'<div class="modblock"><div class="modtitle">'
+                         f'<a href="{murl}">{html.escape(name)}</a></div>'
+                         f'<div class="modbody">{body}</div></div>')
 
 body_html = "\n".join(parts)
 
@@ -216,6 +260,29 @@ extra_css = """
 .toc-title{font-family:var(--serif);font-size:15.5px;font-weight:600;color:#1C333D;white-space:nowrap}
 .toc-dots{flex:1;border-bottom:1px dotted #C4CACE;transform:translateY(-4px);min-width:18px}
 .toc-pg{min-width:30px;flex:none}   /* page number drawn here in post-process */
+/* TOC part headers (group rows) */
+.toc-part{display:flex;align-items:baseline;gap:12px;text-decoration:none;
+  margin:22px 0 4px;padding:0 2px 7px;border-bottom:2px solid var(--orange)}
+.toc-part:first-of-type{margin-top:6px}
+.toc-part-k{font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--orange);flex:none}
+.toc-part-t{font-family:var(--serif);font-size:18px;font-weight:600;color:#1C333D;white-space:nowrap}
+.toc-part .toc-dots{border-bottom:none}
+
+/* ================= BOOK: part divider page ================= */
+.part-divider{break-before:page;break-after:page;min-height:880px;
+  display:flex;flex-direction:column;padding:96px 6px 0}
+.part-kicker{font-size:13px;font-weight:700;letter-spacing:.30em;text-transform:uppercase;color:var(--orange)}
+.part-title{font-family:var(--serif);font-size:52px;font-weight:600;color:#1C333D;
+  margin:16px 0 0;line-height:1.05;letter-spacing:0}
+.part-rule{width:90px;height:4px;background:var(--orange);margin:26px 0 22px}
+.part-desc{font-size:15px;line-height:1.6;color:var(--text);max-width:540px;margin:0 0 30px}
+.part-contents{list-style:none;margin:0;padding:0;max-width:560px}
+.part-contents li{display:flex;gap:14px;align-items:baseline;padding:9px 0;
+  border-bottom:1px solid var(--line-soft)}
+.part-contents .pc-num{font-family:var(--sans);font-weight:700;color:var(--orange);
+  font-size:12.5px;min-width:24px;flex:none}
+.part-contents .pc-t{font-family:var(--serif);font-size:16px;font-weight:600;color:#1C333D}
 </style>
 """
 
@@ -238,12 +305,6 @@ full = R.build_html(extra_css + "\n" + body_html, meta)
 # swap it for the orange anchor (the same logo the footer already uses).
 full = full.replace(R.png_data_uri("aquator-white.png"),
                     R.png_data_uri("aquator-orange.png"))
-# Make the masthead logo + AQUATOR wordmark a link to the live Help Center.
-full = full.replace(
-    '<div class="logo">',
-    f'<a class="logo" href="{BASE}" style="text-decoration:none;color:inherit">', 1)
-full = full.replace('    </div>\n    <div class="doc">',
-                    '    </a>\n    <div class="doc">', 1)
 tmp = HC / "_full.html"
 tmp.write_text(full, encoding="utf-8")
 print(f"[ok] composed body: {len(topics)} topics, {total_mods} sections")
@@ -267,20 +328,33 @@ import fitz
 doc = fitz.open(str(OUT))
 N = doc.page_count
 
-# All internal links are the TOC rows (body/title links are external https).
-# Chrome emits them as NAMED links that resolve to a page, so match on page>=0.
-ch_links = []
+# All internal links are the TOC rows (part headers + chapters); body/title
+# links are external https. Chrome emits internal links as NAMED links that
+# resolve to a page, so match on page>=0. Sorted by (page, y) they line up 1:1
+# with toc_entries (the order we wrote the contents page in).
+nav_links = []
 for pi in range(N):
     for ln in doc[pi].get_links():
         if ln.get("page", -1) >= 0 and not ln.get("uri"):
-            ch_links.append((pi, fitz.Rect(ln["from"]), ln["page"]))
-ch_links.sort(key=lambda t: (t[0], round(t[1].y0)))
+            nav_links.append((pi, fitz.Rect(ln["from"]), ln["page"]))
+nav_links.sort(key=lambda t: (t[0], round(t[1].y0)))
 
 GREY = (0.30, 0.33, 0.35)
-if len(ch_links) == len(topics):
-    # (a) print the destination page number at the right end of each TOC row,
-    # aligned to the title's text baseline so it lines up with the entry.
-    for (src_pi, rect, dest), (slug, title, mods) in zip(ch_links, topics):
+
+def title_page(name, p0, p1):
+    """Page of a section, found by its TITLE LINE (a line equal to the name) so
+    incidental cross-references in body text don't mislead us."""
+    for p in range(p0, p1):
+        for blk in doc[p].get_text("dict")["blocks"]:
+            for line in blk.get("lines", []):
+                if "".join(s["text"] for s in line["spans"]).strip() == name:
+                    return p
+    return None
+
+if len(nav_links) == len(toc_entries):
+    # (a) print the destination page number at the right of every TOC row,
+    # aligned to the row's text baseline.
+    for (src_pi, rect, dest), entry in zip(nav_links, toc_entries):
         label = str(dest + 1)
         tw = fitz.get_text_length(label, fontname="helv", fontsize=11)
         ys = [s["origin"][1]
@@ -289,32 +363,32 @@ if len(ch_links) == len(topics):
         baseline = min(ys) if ys else rect.y1 - 8
         doc[src_pi].insert_text((rect.x1 - tw, baseline), label,
                                 fontname="helv", fontsize=11, color=GREY)
-    # (b) chapter (level 1) + section (level 2) bookmark outline.
-    # Locate each section by its TITLE LINE (a line whose text equals the module
-    # name) so incidental cross-references in body text don't mislead us.
-    def title_page(name, p0, p1):
-        for p in range(p0, p1):
-            for blk in doc[p].get_text("dict")["blocks"]:
-                for line in blk.get("lines", []):
-                    txt = "".join(s["text"] for s in line["spans"]).strip()
-                    if txt == name:
-                        return p
-        return None
 
-    starts = [d for _, _, d in ch_links]
+    # (b) three-level outline: Part -> Chapter -> Section.
+    dests = [d for _, _, d in nav_links]
+    # chapter start pages in reading order (for section search ranges)
+    chap_dests = [d for (_, _, d), e in zip(nav_links, toc_entries) if e[0] == "chapter"]
+    chap_i = 0
     outline = []
-    for ci, (slug, title, mods) in enumerate(topics):
-        cstart = starts[ci]
-        cend = starts[ci + 1] if ci + 1 < len(starts) else N
-        outline.append([1, title, cstart + 1])
-        for m in mods:
-            name = html.unescape(m.get("name", ""))
-            pg = title_page(name, cstart, cend)
-            outline.append([2, name, (pg if pg is not None else cstart) + 1])
+    for (src_pi, rect, dest), entry in zip(nav_links, toc_entries):
+        kind, ref, label = entry
+        if kind == "part":
+            outline.append([1, label, dest + 1])
+        else:
+            outline.append([2, label, dest + 1])
+            cstart = chap_dests[chap_i]
+            cend = chap_dests[chap_i + 1] if chap_i + 1 < len(chap_dests) else N
+            chap_i += 1
+            for m in tmap[ref][1]:
+                name = html.unescape(m.get("name", ""))
+                pg = title_page(name, cstart, cend)
+                outline.append([3, name, (pg if pg is not None else cstart) + 1])
     doc.set_toc(outline)
-    print(f"[ok] linked TOC + {len(topics)} chapters / {len(outline)} bookmarks")
+    print(f"[ok] linked TOC ({len(PARTS)} parts, {len(topics)} chapters) / "
+          f"{len(outline)} bookmarks")
 else:
-    print(f"[warn] TOC links {len(ch_links)} != topics {len(topics)} — skipped outline")
+    print(f"[warn] nav links {len(nav_links)} != entries {len(toc_entries)} — "
+          f"skipped outline")
 
 # (c) footer page numbers on every page except the cover (page 0)
 for i in range(1, N):
