@@ -8,12 +8,16 @@ HC = pathlib.Path("/Users/mac/Nirali/aquator/aquator-pages/help-center")
 SKILL = pathlib.Path("/Users/mac/Downloads/sales-engine_4/skills/pdf-report")
 OUT = HC / "Aquator-Help-Center-Complete-Guide.pdf"
 DATE = "June 2026"
+# Online Help Center — topic/module titles in the PDF link back here.
+BASE = "https://help.aquatormarine.com/help-center/"
 
 # Topic order: Getting Started first, then the index card order.
+# NOTE: warranty, passage-planning and new-builds are intentionally excluded
+# (hidden from the live Help Center and this PDF). Re-add them here to restore.
 ORDER = [
-    "getting-started", "pms", "ism", "sms", "warranty", "crew-management",
+    "getting-started", "pms", "ism", "sms", "crew-management",
     "in-out-board", "user-management", "accounting", "charter",
-    "passage-planning", "yacht-plans-subscription", "new-builds", "refits",
+    "yacht-plans-subscription", "refits",
     "shipyard", "file-manager", "smart-documents", "yacht-management",
     "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
     "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
@@ -31,10 +35,21 @@ def modules(slug):
     m = re.search(r'<script id="kb"[^>]*>(.*?)</script>', s, re.S)
     return json.loads(m.group(1)).get("modules", [])
 
-def clean_body(body):
+def clean_body(body, slug):
     # Force all FAQ <details> open so they print expanded.
     body = re.sub(r"<details(?![^>]*\bopen\b)", "<details open", body)
-    return body
+
+    # Rewrite relative links to the online Help Center so the PDF never carries
+    # local file:// links (Chrome would otherwise absolutise them against disk).
+    def fix(m):
+        href = m.group(1)
+        if href.startswith(("http://", "https://", "mailto:", "tel:")):
+            return m.group(0)
+        if href.startswith("#"):
+            href = f"{slug}.html{href}"
+        return f'href="{BASE}{href}"'
+
+    return re.sub(r'href="([^"]+)"', fix, body)
 
 # ---- Build sections -------------------------------------------------------
 topics = []
@@ -66,14 +81,19 @@ for i, (slug, title, mods) in enumerate(topics, 1):
                f'{html.escape(sub)}</div></div>')
 parts.append('<div class="facts cols-2">' + "".join(toc) + '</div>')
 
-# Per-topic sections
+# Per-topic sections. Titles deep-link back to the online Help Center so the
+# PDF doubles as a clickable index (topic header -> page, module -> page#anchor).
 for slug, title, mods in topics:
-    parts.append(f'<div class="sec topic-sec"><span class="label">{html.escape(title)}</span>'
+    turl = f"{BASE}{slug}.html"
+    parts.append(f'<div class="sec topic-sec"><a class="label" href="{turl}">{html.escape(title)}</a>'
                  f'<span class="hint">{len(mods)} sections</span></div>')
     for m in mods:
         name = html.unescape(m.get("name", ""))
-        body = clean_body(m.get("body", ""))
-        parts.append(f'<div class="modblock"><div class="modtitle">{html.escape(name)}</div>'
+        mid = m.get("id", "")
+        murl = f"{turl}#{mid}" if mid else turl
+        body = clean_body(m.get("body", ""), slug)
+        parts.append(f'<div class="modblock"><div class="modtitle">'
+                     f'<a href="{murl}">{html.escape(name)}</a></div>'
                      f'<div class="modbody">{body}</div></div>')
 
 body_html = "\n".join(parts)
@@ -157,6 +177,10 @@ extra_css = """
   border-bottom:2px solid var(--orange)}
 /* Keep dark chips readable as a slate, not pure black */
 .modbody .chip.dark,.chip.dark{background:#1C333D}
+/* Title links back to the online Help Center: keep the title look, drop link chrome */
+.sec a.label{color:var(--orange);text-decoration:none}
+.modtitle a{color:inherit;text-decoration:none}
+.modtitle a:hover,.sec a.label:hover{text-decoration:none}
 </style>
 """
 
@@ -190,3 +214,33 @@ subprocess.run([
     f"--print-to-pdf={OUT}", tmp.resolve().as_uri(),
 ], check=True, capture_output=True)
 print(f"[ok] wrote {OUT}")
+
+# ---- Stamp page numbers into the footer band -----------------------------
+# Chrome's --print-to-pdf can't render CSS paged-media margin boxes, so we
+# overlay "N / total" centred in the white footer band as a post-process.
+# merge_page keeps the page's link annotations, so the title hyperlinks survive.
+import io
+from pypdf import PdfReader, PdfWriter
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+
+reader = PdfReader(str(OUT))
+n = len(reader.pages)
+buf = io.BytesIO()
+c = canvas.Canvas(buf, pagesize=A4)
+PWpt, PHpt = A4
+for i in range(n):
+    c.setFont("Helvetica", 8)
+    c.setFillColorRGB(0.42, 0.45, 0.47)   # muted slate-grey, matches footer text
+    c.drawCentredString(PWpt / 2, 15, f"{i + 1} / {n}")
+    c.showPage()
+c.save()
+buf.seek(0)
+overlay = PdfReader(buf)
+writer = PdfWriter()
+for i, pg in enumerate(reader.pages):
+    pg.merge_page(overlay.pages[i])
+    writer.add_page(pg)
+with open(OUT, "wb") as f:
+    writer.write(f)
+print(f"[ok] stamped page numbers on {n} pages")
