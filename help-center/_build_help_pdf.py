@@ -13,10 +13,11 @@ DATE = "June 2026"
 ORDER = [
     "getting-started", "pms", "ism", "sms", "warranty", "crew-management",
     "in-out-board", "user-management", "accounting", "charter",
-    "yacht-plans-subscription", "new-builds", "refits", "shipyard",
-    "file-manager", "smart-documents", "yacht-management", "ais-tracker",
-    "global-settings", "yacht-settings", "personal-settings",
-    "theme-customizer", "white-labeling", "integrations", "customer-support",
+    "passage-planning", "yacht-plans-subscription", "new-builds", "refits",
+    "shipyard", "file-manager", "smart-documents", "yacht-management",
+    "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
+    "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
+    "mobile-app", "faq", "customer-support",
 ]
 
 def page_title(slug):
@@ -129,6 +130,33 @@ extra_css = """
 .modbody .chip.warnchip{background:#FFF3E6;color:#B9560B}
 .modbody .chip.okchip{background:#E7F6EC;color:#1F7A3D}
 .modbody .chip.accent{background:var(--orange);color:#fff}
+
+/* ================================================================
+   PRINT-FRIENDLY BRAND CHROME  (overrides the skill's heavy CSS)
+   Mostly white; orange #FF6500 + brand slate #1C333D as accents only,
+   matched to the Aquator website palette. No full-bleed ink bands.
+   ================================================================ */
+/* Re-tone the whole document to the website's slate instead of black */
+:root{--ink:#1C333D;--orange-2:#E55B00}
+/* Masthead: white with orange wordmark + thin orange rule (was solid orange) */
+.hdr{background:#fff;color:#1C333D;border-bottom:2.5px solid var(--orange);padding:15px 36px}
+.word{color:var(--orange)}
+.tag{color:var(--muted);opacity:1}
+.kicker{color:var(--orange-2);opacity:1}
+.who{color:#1C333D}
+.mark img{height:40px}
+/* Footer: white with a hairline top rule (was solid black band) */
+.ftr{background:#fff;color:#1C333D;border-top:1px solid var(--line);padding:11px 36px}
+.ftr .r{color:var(--muted)}
+/* Section badge: outline the number instead of an orange fill block */
+.sec{border-bottom:1.5px solid var(--orange)}
+.sec::before{background:#fff;color:var(--orange);border:1.5px solid var(--orange)}
+/* Table headers: light surface + dark slate text + orange underline (was black) */
+.modbody table.ftab thead th,.modbody table thead th,.table thead th{
+  background:var(--surface-alt);color:#1C333D;
+  border-bottom:2px solid var(--orange)}
+/* Keep dark chips readable as a slate, not pure black */
+.modbody .chip.dark,.chip.dark{background:#1C333D}
 </style>
 """
 
@@ -147,6 +175,10 @@ meta = {
     "footer_right_sub": DATE,
 }
 full = R.build_html(extra_css + "\n" + body_html, meta)
+# Masthead is now white, so the white header logo would be invisible —
+# swap it for the orange anchor (the same logo the footer already uses).
+full = full.replace(R.png_data_uri("aquator-white.png"),
+                    R.png_data_uri("aquator-orange.png"))
 tmp = HC / "_full.html"
 tmp.write_text(full, encoding="utf-8")
 print(f"[ok] composed body: {len(topics)} topics, {total_mods} sections")
