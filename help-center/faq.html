@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>FAQ &amp; Troubleshooting &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Answers to the most common Aquator questions and fixes for everyday problems — login and access, missing modules, uploads, sync, exports and where to get more help."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">FAQ &amp; Troubleshooting</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">FAQ &amp; Troubleshooting <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "common",
+            "name": "Common Questions",
+            "icon": "help",
+            "body": "\n<p class=\"lead\">Quick answers to the questions we hear most often. If you don&rsquo;t find what you need here, every page in this Help Center is searchable from the top, and <strong>Jim</strong>, our in-app assistant, is one click away (see <strong>Still Need Help?</strong>).</p>\n\n<h2 id=\"general\">Getting started</h2>\n<div class=\"faq\">\n<details><summary>What is Aquator?</summary><div class=\"faq-a\"><p>Aquator is an all-in-one platform for running a yacht or a whole fleet &mdash; accounting, crew, maintenance (PMS), safety and ISM, charters, passage planning, documents and more, in one place. What each person sees depends on their <strong>role</strong> and the account&rsquo;s <strong>plan</strong>.</p></div></details>\n<details><summary>Do I need to install anything?</summary><div class=\"faq-a\"><p>No. Aquator runs in your web browser. You can also install it as an app on your phone, tablet or computer for one-tap access &mdash; see <a href=\"mobile-app.html\">Mobile &amp; Installable App</a>.</p></div></details>\n<details><summary>How do I add my yacht, crew and team?</summary><div class=\"faq-a\"><p>Set up your vessel in <a href=\"yacht-settings.html\">Yacht Settings</a>, add people in <a href=\"crew-management.html\">Crew Management</a>, and invite logins in <a href=\"user-management.html\">User Management</a>. The <a href=\"getting-started.html\">Getting Started</a> guide walks through the whole first-time setup.</p></div></details>\n</div>\n\n<h2 id=\"data\">Your data</h2>\n<div class=\"faq\">\n<details><summary>Can I import existing data or export what&rsquo;s in Aquator?</summary><div class=\"faq-a\"><p>Yes &mdash; bulk imports such as crew/IMO lists and vessel MMSI data are supported, and you can export PDFs, reports, manifests and payslips from the relevant modules.</p></div></details>\n<details><summary>What do all the abbreviations mean (APA, SEA, ISM, MLC&hellip;)?</summary><div class=\"faq-a\"><p>Common ones: <strong>APA</strong> (Advance Provisioning Allowance), <strong>SEA</strong> (Seafarer&rsquo;s Employment Agreement), <strong>ISM</strong> (International Safety Management) and <strong>MLC</strong> (Maritime Labour Convention). Each module&rsquo;s guide explains the terms specific to it.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "login",
+            "name": "Login &amp; Access",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">Most access problems fall into a handful of causes. Work through these before contacting support &mdash; they resolve the large majority of cases.</p>\n\n<h2 id=\"cant-login\">I can&rsquo;t log in</h2>\n<ul class=\"bul\">\n<li><strong>Wrong address</strong> &mdash; if your company uses a branded (white-label) site, log in from <em>that</em> link, not the generic Aquator address. Bookmark the branded link your administrator shared.</li>\n<li><strong>Forgotten password</strong> &mdash; use <strong>Forgot Password</strong> on the login screen to receive a reset email, then set a new password.</li>\n<li><strong>Account not approved yet</strong> &mdash; new self-sign-ups are reviewed before access is granted (typically within 24 hours). Until then the login page won&rsquo;t let you in.</li>\n</ul>\n\n<h2 id=\"invite\">My invitation or set-password link doesn&rsquo;t work</h2>\n<p>Invitation and &ldquo;set password&rdquo; links are time-limited and single-use. If yours has expired or was already used, ask your administrator to re-send the invite from <a href=\"user-management.html\">User Management</a>.</p>\n\n<h2 id=\"2fa\">Two-factor authentication (2FA)</h2>\n<p>If 2FA is enabled on your profile, you&rsquo;ll be asked for a code after your password. Lost access to your authenticator? Your administrator can help you reset 2FA. You manage your own 2FA under <a href=\"personal-settings.html\">Personal Settings &rarr; Account &amp; Security</a>.</p>\n\n<div class=\"callout note\"><div class=\"co-h\">Still locked out?</div><p>Clear the saved password, try an incognito/private window, and confirm you&rsquo;re on the correct site address. If it still fails, contact support (see <strong>Still Need Help?</strong>).</p></div>\n"
+          },
+          {
+            "id": "visibility",
+            "name": "Why Can&rsquo;t I See That?",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">If a module, button or record is missing, it&rsquo;s almost always one of three things: your <strong>role</strong>, your <strong>plan</strong>, or your <strong>sidebar</strong>. Here&rsquo;s how to tell which.</p>\n\n<h2 id=\"permissions\">It&rsquo;s a permission</h2>\n<p>What you can see and do is set by your role&rsquo;s <strong>View / Edit / Delete</strong> permissions. If you can&rsquo;t open a module or a button is greyed out, your role may not have access. An administrator can adjust this in <a href=\"user-management.html\">User Management</a>.</p>\n\n<h2 id=\"plan\">It&rsquo;s your plan</h2>\n<p>Some modules unlock at higher subscription tiers or as add-ons. If a feature isn&rsquo;t available at all for anyone on your account, check <a href=\"yacht-plans-subscription.html\">Yacht Plans &amp; Subscription</a> for what your plan includes.</p>\n\n<h2 id=\"sidebar\">It&rsquo;s hidden in your sidebar</h2>\n<p>You may have hidden the menu item yourself. Sidebar visibility is a <em>personal</em> preference and doesn&rsquo;t affect permissions &mdash; restore any hidden items from <a href=\"sidebar-settings.html\">Sidebar Settings</a>.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>A colleague can see a module but I can&rsquo;t &mdash; why?</summary><div class=\"faq-a\"><p>You likely have a different role. Compare role permissions in <a href=\"user-management.html\">User Management</a>, or ask an administrator to grant View access.</p></div></details>\n<details><summary>The module is greyed out with a lock or upgrade prompt.</summary><div class=\"faq-a\"><p>That feature isn&rsquo;t in your current plan. Review options in <a href=\"yacht-plans-subscription.html\">Yacht Plans &amp; Subscription</a>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "fixes",
+            "name": "Fixing Common Issues",
+            "icon": "gear",
+            "body": "\n<p class=\"lead\">Practical fixes for the everyday glitches &mdash; uploads, payslips, integrations and reports. Start with the quick checks, then the module-specific tips.</p>\n\n<h2 id=\"quick\">Quick checks first</h2>\n<ol class=\"steps\">\n<li><strong>Refresh the page</strong> &mdash; reloads the latest data and clears a stuck view.</li>\n<li><strong>Check your connection</strong> &mdash; Aquator needs to be online to save and sync.</li>\n<li><strong>Try a different browser or an incognito window</strong> &mdash; rules out an extension or a cached file.</li>\n<li><strong>Update your browser</strong> &mdash; use a current version of Chrome, Edge, Safari or Firefox.</li>\n</ol>\n\n<h2 id=\"uploads\">A file or photo won&rsquo;t upload</h2>\n<ul class=\"bul\">\n<li>Confirm the file isn&rsquo;t larger than the allowed size and is a supported type.</li>\n<li>A weak connection can interrupt large uploads &mdash; retry on a stronger signal.</li>\n<li>Renaming a file with unusual characters before uploading can help.</li>\n</ul>\n\n<h2 id=\"payslips\">Payslips or reports won&rsquo;t generate</h2>\n<ul class=\"bul\">\n<li>Make sure the underlying records are complete &mdash; e.g. a payslip needs employment / SEA and salary details on the crew profile.</li>\n<li>Check you&rsquo;ve selected a valid date range or pay period.</li>\n<li>If a PDF doesn&rsquo;t open, allow pop-ups/downloads for the Aquator site in your browser.</li>\n</ul>\n\n<h2 id=\"sync\">An integration isn&rsquo;t syncing</h2>\n<p>For Xero, Centtrip, Expensify or Box, open <a href=\"integrations.html\">Third-Party Integrations</a> and check the connection is still active &mdash; access tokens can expire. Disconnect and reconnect to refresh the link.</p>\n\n<div class=\"callout note\"><div class=\"co-h\">Note the details</div><p>If you do contact support, noting what you clicked, what you expected and what happened (plus a screenshot) gets you to an answer much faster.</p></div>\n"
+          },
+          {
+            "id": "help",
+            "name": "Still Need Help?",
+            "icon": "phone",
+            "body": "\n<p class=\"lead\">If these answers didn&rsquo;t solve it, reach a person quickly &mdash; without leaving Aquator.</p>\n\n<h2 id=\"jim\">Ask Jim, in-app</h2>\n<p><strong>Jim</strong> is Aquator&rsquo;s support assistant. Open him from the top navigation bar or the help button on any screen for instant answers, the right guide, and a smooth handoff to the support team when you need a human. See <a href=\"customer-support.html\">Customer Support</a> for the full walkthrough.</p>\n\n<h2 id=\"whats-new\">What changed recently</h2>\n<p>If something behaves differently than before, it may be a recent update. Check the <a href=\"../change-log/index.html\">Change Log</a> for the latest releases and improvements.</p>\n\n<h2 id=\"email\">Email our support team</h2>\n<p>Prefer email? Reach us any time at <a href=\"mailto:info@aquatormarine.com\">info@aquatormarine.com</a> and our team will get back to you.</p>\n\n<h2 id=\"escalate\">When you contact support</h2>\n<p>Include: the module and screen you were on, what you were trying to do, what happened instead, and a screenshot if you can. That context lets the team reproduce and fix the issue without a back-and-forth.</p>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>
