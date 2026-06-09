@@ -540,6 +540,40 @@ ol.steps li::before {
 }
 
 /* ── Interactive plan picker ── */
+.aq-tool {
+  max-width: 760px;
+  margin: 22px 0;
+  padding: 6px 22px 22px;
+  border: 1px solid var(--orange-soft);
+  border-radius: 14px;
+  background: var(--orange-tint);
+  box-shadow: 0 6px 22px rgba(255, 101, 0, 0.07);
+  position: relative;
+}
+.aq-tool::before {
+  content: "Interactive";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: #fff;
+  border: 1px solid var(--orange-soft);
+  border-radius: 999px;
+  padding: 3px 11px;
+}
+.content .aq-tool .aq-tool-h {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 14px;
+  padding-right: 96px;
+}
+.aq-tool .aq-picker {
+  margin-bottom: 0;
+}
 .aq-picker {
   max-width: 760px;
   margin: 8px 0 14px;
@@ -588,6 +622,49 @@ ol.steps li::before {
 }
 .aq-detail {
   margin-top: 14px;
+}
+
+/* ── Setup services card grid ── */
+.aq-svc {
+  margin: 10px 0 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.aq-svc .svc {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px 17px 15px;
+}
+.aq-svc .svc-h {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+.aq-svc .svc-d {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0 0 16px;
+  max-width: none;
+  flex: 1;
+}
+.aq-svc .svc-foot {
+  margin-top: auto;
+}
+.aq-svc .svc-price {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.aq-svc .svc-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
 }
 .aq-empty {
   max-width: 760px;
