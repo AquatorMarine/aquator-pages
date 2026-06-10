@@ -12,12 +12,13 @@ DATE = "June 2026"
 BASE = "https://help.aquatormarine.com/help-center/"
 
 # Topic order: Getting Started first, then the index card order.
-# NOTE: warranty, passage-planning and new-builds are intentionally excluded
-# (hidden from the live Help Center and this PDF). Re-add them here to restore.
+# NOTE: warranty, passage-planning, new-builds and refits are intentionally
+# excluded (hidden from the live Help Center and this PDF). Re-add them here to
+# restore.
 ORDER = [
     "getting-started", "pms", "ism", "sms", "crew-management",
     "in-out-board", "user-management", "accounting", "charter",
-    "yacht-plans-subscription", "refits",
+    "yacht-plans-subscription",
     "shipyard", "file-manager", "smart-documents", "yacht-management",
     "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
     "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
