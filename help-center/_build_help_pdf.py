@@ -19,7 +19,7 @@ ORDER = [
     "getting-started", "pms", "ism", "sms", "crew-management",
     "in-out-board", "user-management", "accounting", "charter",
     "yacht-plans-subscription",
-    "shipyard", "file-manager", "smart-documents", "yacht-management",
+    "shipyard", "file-manager", "reports", "smart-documents", "yacht-management",
     "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
     "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
     "mobile-app", "faq", "customer-support",
