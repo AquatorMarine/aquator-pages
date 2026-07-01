@@ -2611,6 +2611,24 @@
         line-height: 1.55;
         margin: 0 0 8px 0;
       }
+      .entry__list {
+        font-family: var(--sans);
+        font-size: 13.5px;
+        color: var(--dark-grey);
+        line-height: 1.55;
+        margin: 0 0 8px 0;
+        padding-left: 20px;
+      }
+      .entry__list li {
+        margin-bottom: 4px;
+      }
+      .entry__list li:last-child {
+        margin-bottom: 0;
+      }
+      .entry__list b {
+        color: var(--primary);
+        font-weight: 600;
+      }
       .entry__use {
         font-family: var(--sans);
         font-size: 12.5px;
@@ -2803,11 +2821,11 @@
           </p>
           <div class="hero__quickstats">
             <div>
-              <div class="hero__stat-num">60</div>
+              <div class="hero__stat-num">61</div>
               <div class="hero__stat-label">Releases shipped</div>
             </div>
             <div>
-              <div class="hero__stat-num">325<em>+</em></div>
+              <div class="hero__stat-num">337<em>+</em></div>
               <div class="hero__stat-label">Features delivered</div>
             </div>
             <div>
@@ -2815,8 +2833,8 @@
               <div class="hero__stat-label">Years of progress</div>
             </div>
             <div>
-              <div class="hero__stat-num">v7.5<em>.</em>0</div>
-              <div class="hero__stat-label">Latest version · 31 July 2026</div>
+              <div class="hero__stat-num">v7.6<em>.</em>0</div>
+              <div class="hero__stat-label">Latest version · 30 Jun 2026</div>
             </div>
           </div>
         </div>
@@ -2883,7 +2901,7 @@
                     class="sidebar__link"
                     data-target="r-7-6-2026"
                     data-year="2026"
-                    ><span>July 2026</span><span class="ver">v7.6</span></a
+                    ><span>June 2026</span><span class="ver">v7.6</span></a
                   >
                 </li>
                 <li class="sidebar__item">
@@ -3476,40 +3494,351 @@
                 class="release"
                 id="r-7-6-2026"
                 data-year="2026"
-                data-iso="2026-07-31"
-                data-search="v7.6 31 july 2026 technical management improvements the july 2026 release focuses on updates to the technical management module. this update delivers improvements to how technical operations are managed across your fleet. technical management technical management module update the technical management module has been updated with improvements to support fleet maintenance and operational workflows."
+                data-iso="2026-06-30"
+                data-search="v7.6 30 june 2026 new standard reports suite; technical management module; finance renamed to accounting the new standard reports suite delivers five yacht-level reports in one place — owner, accounting, crew, compliance, and technical — for quick, consistent reporting per vessel. the new technical management module ships with dedicated dashboards and a worklist integrated with the ga editor. finance is now called accounting, crew gets a new leave list and direct record editing, and permissions are scoped down to the individual yacht."
               >
                 <header class="release__header">
                   <div class="release__header-left">
                     <span class="release__version">v7.6</span>
-                    <span class="release__date">31 July 2026</span>
+                    <span class="release__date">30 June 2026</span>
                     <span class="release__year-tag">2026</span>
                   </div>
-                  <div class="release__counters"><span class="counter counter--improvement"><span class="counter__dot"></span>1 Improved</span></div>
+                  <div class="release__counters">
+                    <span class="counter counter--feature"
+                      ><span class="counter__dot"></span>4 New</span
+                    ><span class="counter counter--improvement"
+                      ><span class="counter__dot"></span>3 Improved</span
+                    ><span class="counter counter--fix"
+                      ><span class="counter__dot"></span>1 Fixed</span
+                    >
+                  </div>
                 </header>
                 <div class="release__body">
-                  <h3 class="release__headline">Technical Management improvements</h3>
-                  <p class="release__summary">The July 2026 release focuses on updates to the Technical Management module. This update delivers improvements to how technical operations are managed across your fleet.</p>
-                  <nav class="release__tabs"><button class="release__tab active" data-tab="all">All <span class="tab-count">1</span></button><button class="release__tab" data-tab="feature"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--orange); display: inline-block;"></span>New <span class="tab-count">0</span></button><button class="release__tab" data-tab="improvement"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--primary); display: inline-block;"></span>Improved <span class="tab-count">1</span></button><button class="release__tab" data-tab="fix"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--text-grey); display: inline-block;"></span>Fixed <span class="tab-count">0</span></button></nav>
+                  <h3 class="release__headline">
+                    New Standard Reports suite; Technical Management module;
+                    Finance renamed to Accounting
+                  </h3>
+                  <p class="release__summary">
+                    The new Standard Reports suite delivers five yacht-level
+                    reports in one place — Owner, Accounting, Crew, Compliance,
+                    and Technical — for quick, consistent reporting per vessel.
+                    The new Technical Management module ships with dedicated
+                    dashboards and a Worklist integrated with the GA editor.
+                    Finance is now called Accounting, Crew gets a new leave list
+                    and direct record editing, and permissions are scoped down
+                    to the individual yacht.
+                  </p>
+                  <nav class="release__tabs">
+                    <button class="release__tab active" data-tab="all">
+                      All <span class="tab-count">8</span></button
+                    ><button class="release__tab" data-tab="feature">
+                      <span
+                        style="
+                          width: 7px;
+                          height: 7px;
+                          border-radius: 50%;
+                          background: var(--orange);
+                          display: inline-block;
+                        "
+                      ></span
+                      >New <span class="tab-count">4</span></button
+                    ><button class="release__tab" data-tab="improvement">
+                      <span
+                        style="
+                          width: 7px;
+                          height: 7px;
+                          border-radius: 50%;
+                          background: var(--primary);
+                          display: inline-block;
+                        "
+                      ></span
+                      >Improved <span class="tab-count">3</span></button
+                    ><button class="release__tab" data-tab="fix">
+                      <span
+                        style="
+                          width: 7px;
+                          height: 7px;
+                          border-radius: 50%;
+                          background: var(--text-grey);
+                          display: inline-block;
+                        "
+                      ></span
+                      >Fixed <span class="tab-count">1</span>
+                    </button>
+                  </nav>
                   <div class="entries">
-                  <div
-                    class="entry"
-                    data-type="improvement"
-                    data-search="technical management technical management module update the technical management module has been updated with improvements to support fleet maintenance and operational workflows."
-                  >
-                    <div class="entry__meta">
-                      <span class="entry__tag entry__tag--improvement">Improved</span>
-                      <span class="entry__module">Technical Management</span>
+                    <div
+                      class="entry"
+                      data-type="feature"
+                      data-search="reports standard reports owner accounting crew compliance technical the new standard reports suite delivers five yacht-level reports in one place, giving every stakeholder a consistent, at-a-glance view per vessel. owner report — dedicated overview for fleet owners covering vessel status, activity, and headline metrics. accounting report — full financial view with charts, kpis, and summary tables. crew report — headcount, movements, and crew status per yacht. compliance report — outstanding compliance items, certificate status, and audit readiness. technical report — technical position, open worklist items, and maintenance status."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--feature">New</span>
+                        <span class="entry__module">Reports</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">Standard Reports</h4>
+                        <p class="entry__what">
+                          A new yacht-level Standard Reports suite delivers five
+                          reports in one place, giving every stakeholder a
+                          consistent, at-a-glance view per vessel:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Owner Report</b> — dedicated overview for fleet
+                            owners covering vessel status, activity, and
+                            headline metrics.
+                          </li>
+                          <li>
+                            <b>Accounting Report</b> — full financial view with
+                            charts, KPIs, and summary tables.
+                          </li>
+                          <li>
+                            <b>Crew Report</b> — headcount, movements, and crew
+                            status per yacht.
+                          </li>
+                          <li>
+                            <b>Compliance Report</b> — outstanding compliance
+                            items, certificate status, and audit readiness.
+                          </li>
+                          <li>
+                            <b>Technical Report</b> — technical position, open
+                            worklist items, and maintenance status.
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <div class="entry__content">
-                      <h4 class="entry__title">Technical Management Module Update</h4>
-                      <p class="entry__what">The Technical Management module has been updated with improvements to support fleet maintenance and operational workflows.</p>
+
+                    <div
+                      class="entry"
+                      data-type="feature"
+                      data-search="technical management technical management module worklist ga editor general arrangement new technical management module bringing dedicated technical dashboards, a full worklist, and a technical standard report and export together in one place. the worklist integrates directly with the ga (general arrangement) editor — pin items straight to the vessel&#x27;s layout drawing so location context stays with every job. dedicated technical dashboards surface open jobs, overdue items, and maintenance load at a glance."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--feature">New</span>
+                        <span class="entry__module">Technical Management</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">
+                          Technical Management Module
+                        </h4>
+                        <p class="entry__what">
+                          A brand-new Technical Management module brings
+                          dedicated dashboards, a full Worklist, and technical
+                          reporting together in one place:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Technical dashboards</b> — surface open jobs,
+                            overdue items, and maintenance load at a glance.
+                          </li>
+                          <li>
+                            <b>Worklist + GA Editor integration</b> — the new
+                            Worklist plugs directly into the GA (General
+                            Arrangement) editor, so you can pin items straight
+                            to the vessel&#x27;s layout drawing and keep
+                            location context with every job.
+                          </li>
+                          <li>
+                            <b>Technical Standard Report &amp; Export</b> — a
+                            dedicated standard report and export options built
+                            for the Technical team.
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
+
+                    <div
+                      class="entry"
+                      data-type="feature"
+                      data-search="finance invoice date vs payment date transaction unpaid filter invoice date and payment date are now tracked and displayed separately, giving you a true picture of cash flow versus billing. a new unpaid filter surfaces outstanding transactions in one view so you can chase or reconcile without hunting through the full ledger."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--feature">New</span>
+                        <span class="entry__module">Finance</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">
+                          Invoice / Payment Tracking &amp; Unpaid Filter
+                        </h4>
+                        <p class="entry__what">
+                          Finance gets sharper visibility into what&#x27;s
+                          billed versus what&#x27;s actually been paid:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Invoice date vs payment date</b> — the two dates
+                            are now tracked and displayed separately, giving you
+                            a true picture of cash flow versus billing.
+                          </li>
+                          <li>
+                            <b>Unpaid transaction filter</b> — surface
+                            outstanding transactions in one view so you can
+                            chase or reconcile without hunting through the full
+                            ledger.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      class="entry"
+                      data-type="feature"
+                      data-search="crew crew leave list edit crew records new paginated crew leave list with a quick action menu so you can approve, edit, or drill into leave requests without leaving the list. crew records can now also be edited directly, removing the round trip through a separate profile screen for routine updates."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--feature">New</span>
+                        <span class="entry__module">Crew</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">
+                          Crew Leave List &amp; Direct Record Editing
+                        </h4>
+                        <p class="entry__what">
+                          Two additions that speed up day-to-day crew
+                          administration:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Crew leave list</b> — a new paginated list with a
+                            quick action menu so you can approve, edit, or drill
+                            into leave requests without leaving the list.
+                          </li>
+                          <li>
+                            <b>Edit crew inline</b> — crew records can now be
+                            edited directly, removing the round trip through a
+                            separate profile screen for routine updates.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      class="entry"
+                      data-type="improvement"
+                      data-search="accounting renamed finance the finance module has been renamed to accounting throughout the platform for clearer, industry-standard terminology. all navigation, headings, breadcrumbs, and in-app labels have been updated so users and finance teams see consistent language everywhere, aligning with the new standard accounting report."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--improvement"
+                          >Improved</span
+                        >
+                        <span class="entry__module">Accounting</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">
+                          Finance Module Renamed to Accounting
+                        </h4>
+                        <p class="entry__what">
+                          The &quot;Finance&quot; module has been renamed to
+                          &quot;Accounting&quot; throughout the platform for
+                          clearer, industry-standard terminology. All
+                          navigation, headings, breadcrumbs, and in-app labels
+                          have been updated so users and finance teams see
+                          consistent language everywhere — and it lines up with
+                          the new Accounting report in the Standard Reports
+                          suite.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      class="entry"
+                      data-type="improvement"
+                      data-search="crew crew dashboard yacht-permission-based crew visibility the crew dashboard has been refreshed with updated data and a cleaner ui, so key crew metrics are easier to scan at a glance. crew data is now also filtered according to each user&#x27;s yacht permissions, so people only see the crew for the vessels they have access to — tightening privacy across multi-yacht accounts."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--improvement"
+                          >Improved</span
+                        >
+                        <span class="entry__module">Crew</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">
+                          Crew Dashboard &amp; Permission-Scoped Visibility
+                        </h4>
+                        <p class="entry__what">
+                          The Crew experience gets two connected upgrades:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Refreshed Crew dashboard</b> — updated data and a
+                            cleaner UI make key crew metrics easier to scan at a
+                            glance.
+                          </li>
+                          <li>
+                            <b>Yacht-permission-based visibility</b> — crew data
+                            is now filtered by each user&#x27;s yacht
+                            permissions, so people only see the crew for the
+                            vessels they have access to. This tightens privacy
+                            across multi-yacht accounts.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      class="entry"
+                      data-type="improvement"
+                      data-search="permissions roles yacht-level edit export admin superadmin role sync role-assignment modal permissions and role management have been strengthened across the platform. yacht-level scoping for edit and export permissions, improved admin and superadmin controls, more reliable role synchronisation, and fixes to the role-assignment modal all combine to give admins tighter, more predictable access control."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--improvement"
+                          >Improved</span
+                        >
+                        <span class="entry__module">Permissions</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">Permissions &amp; Roles</h4>
+                        <p class="entry__what">
+                          Permissions and role management have been strengthened
+                          across the platform, giving admins tighter, more
+                          predictable access control:
+                        </p>
+                        <ul class="entry__list">
+                          <li>
+                            <b>Yacht-level scoping</b> for edit and export
+                            permissions — grant access on a per-vessel basis.
+                          </li>
+                          <li>
+                            <b>Improved admin / superadmin controls</b> for
+                            managing users and roles.
+                          </li>
+                          <li>
+                            <b>More reliable role sync</b> so permission changes
+                            propagate consistently across modules.
+                          </li>
+                          <li>
+                            <b>Role-assignment modal fixes</b> that remove
+                            long-standing rough edges when assigning users to
+                            roles.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div
+                      class="entry"
+                      data-type="fix"
+                      data-search="certificates certificate tracking fixes bulk upload editing role-based access fixed several issues in certificate tracking, including problems with bulk upload, editing existing certificates, and role-based access — so certificates now upload, save, and stay visible to exactly the users they should."
+                    >
+                      <div class="entry__meta">
+                        <span class="entry__tag entry__tag--fix">Fix</span>
+                        <span class="entry__module">Certificates</span>
+                      </div>
+                      <div class="entry__content">
+                        <h4 class="entry__title">Certificate Tracking Fixes</h4>
+                        <p class="entry__what">
+                          Fixed several issues in Certificate Tracking —
+                          including bulk upload, editing existing certificates,
+                          and role-based access — so certificates now upload,
+                          save, and stay visible to exactly the users they
+                          should.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
-
 
               <article
                 class="release"
