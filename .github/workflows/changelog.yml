@@ -2,7 +2,7 @@ name: Monthly Changelog Generator
 
 on:
   schedule:
-    - cron: "57 4 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch: # Allow manual trigger for testing
 
 permissions:
