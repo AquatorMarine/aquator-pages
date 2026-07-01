@@ -861,11 +861,11 @@
       <!-- Stats -->
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num">25</div>
+          <div class="hero-stat-num">26</div>
           <div class="hero-stat-label">Modules</div>
         </div>
         <div>
-          <div class="hero-stat-num">122</div>
+          <div class="hero-stat-num">125</div>
           <div class="hero-stat-label">Help articles</div>
         </div>
         <div>
@@ -1035,6 +1035,40 @@
                 <span class="topic-tag">Library</span>
                 <span class="topic-tag">Templates</span>
                 <span class="topic-tag">Populated</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Technical Management -->
+          <a class="card" href="technical-management.html">
+            <div class="card-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"
+                />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Technical Management</h2>
+              <p class="card-desc">
+                Track defects, maintenance and compliance items as work
+                orders, and pin them to the yacht&rsquo;s GA drawings.
+              </p>
+              <div class="card-topics">
+                <span class="topic-tag">Work List</span>
+                <span class="topic-tag">Editor</span>
+                <span class="topic-tag">Pins</span>
+                <span class="topic-tag">Layers</span>
               </div>
             </div>
           </a>
@@ -1472,6 +1506,40 @@
                 <span class="topic-tag">Upload</span>
                 <span class="topic-tag">Cut / Copy / Paste</span>
                 <span class="topic-tag">Views &amp; Sorting</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Reports -->
+          <a class="card" href="reports.html">
+            <div class="card-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="4" y1="20" x2="20.5" y2="20" />
+                <rect x="6" y="11" width="3" height="6.5" />
+                <rect x="11" y="6.5" width="3" height="11" />
+                <rect x="16" y="13.5" width="3" height="4" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Reports</h2>
+              <p class="card-desc">
+                Roll up data from across the platform into shareable PDFs —
+                pre-built Standard reports or your own saved Application reports.
+              </p>
+              <div class="card-topics">
+                <span class="topic-tag">Standard</span>
+                <span class="topic-tag">Application</span>
+                <span class="topic-tag">Generate</span>
+                <span class="topic-tag">Export</span>
               </div>
             </div>
           </a>
@@ -2049,7 +2117,7 @@
             "Module guides",
             "Still need a hand"
           ],
-          "text": "With your account, yacht and team set up, you are ready to dive into the tools. Each module has its own step-by-step guide: Accounting, Crew Management, PMS, Yacht Management, In Out Board, AIS Tracker, ISM, SMS, Charter, Smart Documents, File Manager, Warranty, Refits, New Builds, Shipyard and User Management. Use the search box on the Help Center home to find any topic fast, or email info@aquatormarine.com.",
+          "text": "With your account, yacht and team set up, you are ready to dive into the tools. Each module has its own step-by-step guide: Accounting, Crew Management, PMS, Technical Management, Yacht Management, In Out Board, AIS Tracker, ISM, SMS, Charter, Smart Documents, File Manager, Warranty, Refits, New Builds, Shipyard and User Management. Use the search box on the Help Center home to find any topic fast, or email info@aquatormarine.com.",
           "url": "getting-started.html#explore"
         },
         {
@@ -2355,6 +2423,50 @@
           ],
           "text": "Inventory is your parts and spares stock quantities on hand, costs, low-stock thresholds, and where each item is stored. Where to find it: PMS Inventory. Add an inventory item Go to PMS Inventory and click Add . Enter ID , Name and Categories . Set Units in Stock , Unit Cost and Minimum in Stock (your low-stock threshold). Add a Description , Part Number , Serial Number , Manufacturer and Area . Set a QR code / Bar code (or Generate Code ). Set Storage Primary and link a supplier with Add Supplier . Attach files and click Save . What happens next The item appears showing Stock , Available Quantity and Cost . If Stock falls to or below Minimum in Stock , the Stock value is highlighted red as a low-stock warning (a flag only it doesn t send alerts or auto-reorder). How stock vs. available quantity works Each item shows both Stock and Available Quantity , and they aren t always the same: Stock the physical units on hand. Available Quantity what s free to use after the parts on open tasks (any task not yet Completed) are subtracted. Purchase-order lines don t reserve stock only open tasks do. So you may see Stock 8 but Available 7, or even a negative Available when commitments exceed what s on hand. Minimum in Stock is the low-stock threshold when Stock reaches or drops below it, the figure is flagged red so you can reorder. A negative Stock or Available figure signals consumption recorded beyond what was received, and should be reconciled with a restock. What moves stock Stock goes up when you Fulfill a Purchase Order, and down when you Complete a task that has Parts (reopening the task adds them back). See Purchase Orders and Tasks . FAQs What s the difference between Stock and Available Quantity? Stock is the physical units on hand; Available Quantity is what s left after the parts on open tasks are reserved. They differ when stock is committed to a task that hasn t been completed, and Available can go negative if commitments exceed what s on hand. Purchase-order lines don t reserve stock.",
           "url": "pms.html#inventory"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Introduction",
+          "headings": [
+            "What&rsquo;s inside",
+            "How the areas connect",
+            "The same on every screen",
+            "Access &amp; what you can see",
+            "FAQs"
+          ],
+          "text": "Technical Management is where a defect, job or observation on the vessel becomes a tracked work item and where you pin it to the exact spot on the yacht s General Arrangement (GA) drawings. What s inside Two linked areas, both under Technical Management in the sidebar: Work List every defect, compliance item and redline as a trackable work item, with status, priority, deck and dates. Editor the yacht s GA (General Arrangement) drawings, with pins and mark-ups linked back to those work items. A Technical Dashboard also lives under Technical Management, giving an at-a-glance summary of open items this guide covers Work List and the Editor. How the areas connect Dropping a pin in the Editor creates a Work List item tied to that deck and location. A work item s Layer (Defects, Maintenance, Equipment, Compliance, Redlines) sets which coloured layer it lives on in the drawing. Hiding a layer in the Editor hides its pins; a pin s status and priority stay in step with the Work List row, either way you edit them. The same on every screen Top-right controls: Filters , view toggle (List / Board / Gantt Chart / Calendar), Search , Export and Add . Each row s Actions (three-dot) menu: View , Edit , Delete . Selecting rows opens a bulk bar to Mark In Progress , Mark Completed or Defer several items at once. Unlike PMS, ISM and most other modules, the Work List s Add/Edit form does not accept file attachments. Access what you can see Access is granted per area as view , edit or delete . Without full access to the Work List, you only see items assigned to you. FAQs What s the difference between a Type and a Layer? Type classifies the work; Layer is the drawing layer it sits on in the Editor and drives its pin colour.",
+          "url": "technical-management.html#overview"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Work List",
+          "headings": [
+            "Before you start",
+            "Add a work item",
+            "Change status or priority inline",
+            "Bulk actions",
+            "Edit or delete an item",
+            "Switch views",
+            "Find, filter &amp; export",
+            "Comments &amp; history",
+            "Troubleshooting &amp; FAQs"
+          ],
+          "text": "The Work List is the register of every technical work item on the vessel defects, maintenance, compliance items and redlines each with a status, priority, deck and dates. Where to find it: Technical Management Work List. Add a work item Go to Technical Management Work List and click Add . In the Add Work List form, enter a Title (required, up to 100 characters) and, optionally, a Description . Choose the Type (Defect, Maintenance, Equipment, Compliance, Redline) and Layer (Defects, Maintenance, Equipment, Compliance, Redlines). Set the Priority (Critical, High, Medium, Low) and Status (Draft, Open, In Progress, Pending Parts, Pending Inspection, Completed, Deferred, Cancelled). Click Create Item . The Add/Edit form has no file-upload field. Change status or priority inline Click the Status or Priority chevron on a row and pick a new value. Bulk actions Tick the checkbox on rows for a bar with Mark In Progress , Mark Completed , Defer and Clear . Edit or delete an item Actions (three-dot) Edit , then Save Changes , or Delete and confirm on the Delete item dialog this cannot be undone. Switch views List, Board, Gantt Chart or Calendar. Find, filter export Filters by Status, Priority, Type, Layer, Assigned To, Category, Tags, Has GA Pin, Recurring, Due Date and Date Reported. Save View keeps a filtered set. Export Work List Report Choose Report Columns PDF or Excel. Comments history Comments tab (Post) and History tab. Troubleshooting FAQs A row shows a pin icon hover it (View on Editor) or click it to jump to that pin on the GA drawing.",
+          "url": "technical-management.html#worklist"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Editor",
+          "headings": [
+            "Before you start",
+            "Add a deck &amp; upload a drawing",
+            "Drop a pin (create a work item)",
+            "Mark up the drawing",
+            "Work with layers",
+            "Troubleshooting &amp; FAQs"
+          ],
+          "text": "The Editor holds the yacht s General Arrangement (GA) drawings. Upload a deck plan, drop pins that become work items, and mark it up with shapes, text and coloured layers. Where to find it: Technical Management Editor. Add a deck upload a drawing Click Manage Images this opens the Image Management window. Type a deck name and click Add Deck . Drag drop a file into the deck s upload area, or click browse one file per upload (PNG, JPG, PDF, DOC, XLS max 100 MB). Click Done . Set active switches to an inactive version; Upload new version (replaces active drawing) or Upload drawing depending on whether the deck already has an active drawing. Drop a pin (create a work item) Select the pin tool (tooltip: Place pin (new item)). Click the drawing. Fill the Add Work List form. Click Create Item . Mark up the drawing Select / move, Pan, Pin, Line, Arrow, Rectangle, Ellipse, Text label and Freehand tools, plus an Eraser. Undo (Ctrl+Z) / Redo (Ctrl+Y). Grid and Snap (25px) toggles. Work with layers The Layers panel Defects, Maintenance, Equipment, Compliance, Redlines shows a live item count per layer. The eye icon toggles visibility; the lock icon blocks edits. The Annotations panel lists every pin with search and status filters. Troubleshooting FAQs My pin isn t showing its layer may be hidden or locked.",
+          "url": "technical-management.html#editor"
         },
         {
           "collection": "Yacht Plans & Subscription",
@@ -3541,6 +3653,72 @@
           ],
           "text": "For multi-vessel operations, shipyards and owner-side teams, Aquator offers custom-quoted Business Plans — priced by conversation, not by the module — alongside the bespoke Foxtrot tier for the largest vessels.Fleet ManagementFor yacht management companies, charter operators and fleet managers (typically 5–50 vessels).Multi-vessel fleet dashboard with live KPIsPlanned maintenance system (PMS) across all vesselsCrew lifecycle — certs, rotations, leave, payslipsISM, ISPS and MLC compliance automationMulti-currency accounting and financial reportingCharter module — bookings, APA, guest profilesOwner reporting, per vessel and fleet-wideCustom integrations and API accessRefit & ProjectFor shipyards, refit operations and new-build facilities. Scoped by active project count, team size and ERP modules.Gantt project management with critical-path trackingSubcontractor coordination and work-order managementRefit scoping, budgeting and spend trackingWarranty tracking and claims managementClient reporting portal and milestone sign-offTechnical documentation and GA plan managementNew-build ERP suite (optional)Digital vessel handover packageOwner OversightFor family offices, private wealth managers and owner-side teams. Scoped by portfolio size, reporting requirements and wealth integration.Full portfolio financial dashboard — actual vs budgetAsset depreciation tracking and valuation trailCharter P&L — income, broker commissions, APAApproval workflows for expenses above a thresholdVAT and tax reporting by jurisdictionInsurance and certificate renewal trackingManager performance and spend analyticsCustom owner reporting cadence and formatEvery Business Plan includes platform setup, custom configuration, team training, unlimited vessels, dedicated onboarding, priority support, data migration and custom integrations. Most clients go live within 48 hours.Get a quoteBusiness Plans and Foxtrot are tailored to your operation. Click Get in touch on a custom plan in Billing, or contact info@aquatormarine.com, to get a quote.",
           "url": "yacht-plans-subscription.html#custom-plans"
+        },
+        {
+          "collection": "Reports",
+          "title": "Introduction",
+          "headings": [
+            "Where to find Reports",
+            "Who uses it",
+            "Roles & access",
+            "FAQs",
+            "Do I need special access to use Reports?",
+            "I see “No report categories are available for your account” — why?"
+          ],
+          "text": "The Reports module turns the data already captured across Aquator into clean, shareable documents. Instead of exporting one screen at a time, Reports lets you pull figures from across the platform — accounts, technical/PMS, crew, compliance, charters and more — and produce a single document for owners, accountants, captains and auditors. Where to find Reports Reports sits in the left navigation under Applications , with its own icon between File Manager and Integrations . Inside it you’ll find two areas covered in this guide: Standard and Application . Area What it’s for Standard Ready-made, pre-built reports you generate with one click and a date range. No setup required. Application A build-your-own report tool. Tick the sections you want (pulled from across the platform), name and categorise the report, then save it to reuse later. Who uses it Owners and management who want a single rollup instead of several separate exports. Accountants running the monthly close. Captains, HR officers and yacht managers preparing crew and flag-state evidence. Power users who want to assemble and reuse their own report templates. Roles & access Access follows Aquator’s company → fleet → yacht hierarchy, with per-module view / edit / delete rights. What you see in Reports is driven entirely by the permissions your role and plan grant — the menu, the report cards and even individual sections appear only where you have access. See the Reports menu — any role granted view on Reports for its scope. Generate a Standard report — you need view on that specific report, and the report’s module must be enabled for your account. Each card shows the roles that qualify (e.g. Yacht Manager). Build & save an Application report — roles with view/edit on the Application area; deleting a saved report needs delete rights. Admin / superadmin roles have the broadest access. Availability is data-driven, not tied to plan names Your plan tier and your role together determine which modules, standard reports and sections are switched on; Aquator simply renders what your permission profile allows. If a report or section doesn’t appear, it hasn’t been enabled for your account. FAQs Do I need special access to use Reports? Yes — the Reports menu, each report card and each Application section only appear where your role has been granted access for your company, fleet or yacht. If you can’t see something you expect, ask your administrator to enable it for your role. I see “No report categories are available for your account” — why? No report areas are enabled for your plan or role. Contact your administrator to have the reports you need switched on.",
+          "url": "reports.html#overview"
+        },
+        {
+          "collection": "Reports",
+          "title": "Standard Reports",
+          "headings": [
+            "The available standard reports",
+            "To generate a standard report",
+            "Which cards you see",
+            "FAQs",
+            "Why do I only see three Standard reports when there are four?",
+            "What date range does a Standard report use by default?",
+            "Where does the finished report open?",
+            "Can I report on a single yacht or the whole fleet?",
+            "What happens with no data, or with a very large fleet?",
+            "How are mixed currencies handled in the Accounting / Owner reports?"
+          ],
+          "text": "Standard Reports are the fastest route to a finished document. Each one is a single PDF that rolls up several underlying reports for a date range you choose. The available standard reports Report What it covers Owner Report A single-document rollup of Account, Technical, Crew & Compliance information — period spend versus budget, open critical defects, crew certification compliance and certificates expiring. Built for the owner who wants one PDF, not four. Accounting Report Accounting, finance, procurement and payroll in one document — P&L summary, budget versus actual, transaction journal, AR/AP ageing, purchase orders, top suppliers and a payroll summary. The source document for your monthly close. Crew Report Roster, certifications, hours of rest, leave balances and retention risk in a single document. Supports MLC 2006 evidence, crew planning and flag-state inspections — built for the captain, HR officer and yacht manager. Compliance Report An SMS and ISM evidence pack — open SMS items by priority, drill completion by type, vessel certificate expiry status and HoWR captain sign-off rate. The submission-ready evidence document for flag-state and ISM auditors. To generate a standard report Go to Reports → Standard . Find the report card you need. Each card shows its format (PDF) and the roles that can use it. Click Generate on that card. In the Select the reporting period dialog, set the Date Range . It defaults to 1 January of the current year through the end of the current month — adjust if you need a different window. Click Generate Report . Aquator builds the document for your date range and opens the finished PDF in a new browser tab. Which cards you see The cards on the Standard page are filtered to your account: A report only appears if its module is enabled for your account and your role has view (or higher) on that report. The Compliance Report only appears when you are viewing a specific yacht . At company or fleet level it is hidden — select a yacht to generate it. If a report can’t be built You’ll see a “Failed to generate report” message. The most common cause is no data in the selected period — widen the date range or confirm the underlying module has data, then try again. FAQs Why do I only see three Standard reports when there are four? The Compliance Report only shows when you have a specific yacht selected — at company or fleet level it’s hidden. A report can also be hidden if its module isn’t enabled for your account or your role doesn’t have view on it. Select a yacht, or ask your administrator to enable the report for your role. What date range does a Standard report use by default? From 1 January of the current year to the end of the current month. You can change it in the date-range dialog before generating. Where does the finished report open? In a new browser tab. If nothing opens, check that your browser isn’t blocking pop-ups for Aquator. Can I report on a single yacht or the whole fleet? Both. When you generate from a specific yacht, the report is scoped to that yacht; at fleet/company level it aggregates across the yachts you have access to (note the Compliance Report is yacht-level only). What happens with no data, or with a very large fleet? With no data the report still generates, but the relevant sections come through empty rather than erroring. Large fleets pull more data, so wide date ranges across many yachts take longer to build — narrow the range or scope where you can. How are mixed currencies handled in the Accounting / Owner reports? Financial figures follow how amounts are recorded in the underlying accounting modules. Where multiple currencies are in play, review the source figures rather than assuming a single converted total.",
+          "url": "reports.html#standard"
+        },
+        {
+          "collection": "Reports",
+          "title": "Application Report",
+          "headings": [
+            "The toolbar",
+            "To build a new report",
+            "The sections you can include",
+            "Save, load and delete",
+            "FAQs",
+            "Why is a section greyed out or labelled “Coming Soon”?",
+            "What date range does the Application report use by default?",
+            "Can I reuse or edit a report I built?",
+            "Who can delete a saved report?"
+          ],
+          "text": "The Application Report lets you assemble a custom document from sections across the whole platform, preview it live, then save it for reuse. The toolbar Button What it does New Start a fresh, empty report. Select Open the Report Sections picker — choose the date range and tick the sections to include. Save Save the current report. You’ll be asked for a name and category the first time. Load Reopen one of your saved reports, grouped by category. To build a new report Go to Reports → Application and click New . Click Select to open the Report Sections picker. Set the date range at the top of the picker (it defaults to roughly the last 30 days). Tick the sections you want. Click Full Report to include everything available to you, or pick individual sections, then click Save in the picker. The report renders in the viewer. Use the toolbar to page through, zoom, switch between single-page and continuous view, search the content, print, or export. The sections you can include The picker is built from the modules you have access to that contain reportable data, grouped by module — for example Company (Profile), Fleet (Yachts, AIS Tracker, Calendar, Task Tracker), SMS (Editor, Library, Templates, Populated) and Operations (To Do, Team, Personal Information, Employment, Payroll, Leave, Emergency Contacts, and more). Your exact list depends on your plan and permissions, so it may be longer or shorter than this. Sections marked Coming Soon can be seen but aren’t generatable yet — they’re disabled, so tick only the sections without that label for now. Save, load and delete Save — Click Save , give the report a Report Name and optionally assign a Category . Names must be unique — you’ll see “Report name already exists” if one clashes. The built-in categories are Charter, Equipment, Maintenance, Provisions, Refit and Safety, and you can type your own. Load — Click Load to reopen any saved report. Reports are grouped by category, with uncategorised ones under Other . You can also rename a loaded report with the edit icon next to its name. Delete — In the Load list, click the × on a saved report and confirm in the prompt. Deletions are permanent, so do these yourself rather than relying on automation. FAQs Why is a section greyed out or labelled “Coming Soon”? Those sections are shown so you know they’re planned, but they’re disabled and can’t be generated yet. Tick only the sections without the “Coming Soon” label. What date range does the Application report use by default? Roughly the last 30 days. Change it in the date-range field at the top of the Report Sections picker before generating. (Standard reports use a different default — 1 January to the end of the current month.) Can I reuse or edit a report I built? Yes. Click Save with a unique name and category, then reopen it any time via Load . Open it, change the sections or rename it, and Save again. Who can delete a saved report? Only roles with delete rights, and deletions are permanent — so delete saved reports yourself rather than relying on automation.",
+          "url": "reports.html#application"
+        },
+        {
+          "collection": "Reports",
+          "title": "Export & data sources",
+          "headings": [
+            "Formats",
+            "How generation works",
+            "Scheduling",
+            "Data sources",
+            "FAQs",
+            "Can I schedule reports to run automatically?",
+            "What formats can I export?",
+            "Will reports show my company branding?",
+            "Are my generated reports stored?"
+          ],
+          "text": "Reports generate on demand. Standard reports come out as PDF; the Application report viewer can export to several formats. Formats Standard reports — open as PDF . Application reports — from the viewer toolbar you can export to PDF, Excel, HTML or Word . Other module exports across the platform — many offer both PDF and Excel (for example work-in-progress, inventory-on-hand, inventory movement and the purchase-order import report). Check the export options on the specific report. How generation works When you generate a report, Aquator builds it on demand for your chosen date range, saves an export record, then opens the finished file in a new tab. Documents are produced fresh each time — there is no cached copy. Standard reports are built for your browser’s current time zone. Reports carry your branding On white-labelled accounts, generated reports use your brand — logo, brand name, colours and footer links — in the header and footer. See White Labeling for how that’s set up. Scheduling No automated recurring delivery yet There is currently no built-in scheduling in the Reports module — reports are generated on demand. If you need a report regularly, generate it manually for each period (for example, monthly for the accounting close). Data sources Reports pull live from across Aquator, including: PMS / technical — work orders, equipment, inventory, logs, purchase orders, audits Refit / yacht production — planning, BOM, WIP, finance Crew — qualifications, personal information, employment, payroll, leave, emergency contacts IMO — crew and passenger lists ISM / SMS — forms, library, drill matrix, certificate tracking Hours of Work & Rest Charters — APA, payment details, guest profiles Accounting — transactions, budget, category, budget-vs-actual FAQs Can I schedule reports to run automatically? Not currently. Reports are generated on demand, so you’ll need to regenerate them each period (for example, each month for the accounting close). What formats can I export? Standard reports open as PDF. The Application report viewer can export to PDF, Excel, HTML or Word. Many other module exports offer PDF and Excel — check the options on the specific report. Will reports show my company branding? On white-labelled accounts, yes — your logo, brand name, colours and footer links appear in the report header and footer automatically. See the White Labeling guide to set this up. Are my generated reports stored? An export record is kept, but the document itself is built fresh every time you generate — there’s no cached file to re-download, so regenerate when you need a current copy.",
+          "url": "reports.html#export"
         }
       ]
     </script>
@@ -3549,6 +3727,7 @@
         { name: "Accounting", url: "accounting.html" },
         { name: "Crew Management", url: "crew-management.html" },
         { name: "PMS", url: "pms.html" },
+        { name: "Technical Management", url: "technical-management.html" },
         {
           name: "Yacht Plans & Subscription",
           url: "yacht-plans-subscription.html",
@@ -3560,6 +3739,7 @@
         { name: "ISM", url: "ism.html" },
         { name: "SMS", url: "sms.html" },
         { name: "File Manager", url: "file-manager.html" },
+        { name: "Reports", url: "reports.html" },
         // { name: "New Builds", url: "new-builds.html" },  // hidden
         { name: "Shipyard", url: "shipyard.html" },
         { name: "Smart Documents", url: "smart-documents.html" },

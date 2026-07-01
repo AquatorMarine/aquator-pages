@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """Compose a single body fragment for the whole Help Center, then render it
 through the pdf-report skill's brand chrome (orange masthead + dark colophon)
-using locally-installed Google Chrome (headless) instead of Playwright."""
-import re, json, html, pathlib, subprocess, sys
+using locally-installed Google Chrome (headless) instead of Playwright.
 
-HC = pathlib.Path("/Users/mac/Nirali/aquator/aquator-pages/help-center")
-SKILL = pathlib.Path("/Users/mac/Downloads/sales-engine_4/skills/pdf-report")
+Cross-platform: works from this script's own folder (no hardcoded machine
+paths). If the pdf-report skill isn't installed on this machine, it falls
+back to re-using the brand-chrome wrapper baked into a previous build's
+_full.html (the masthead/footer/CSS don't change between rebuilds)."""
+import re, json, html, pathlib, subprocess, sys, platform
+
+HC = pathlib.Path(__file__).resolve().parent
+SKILL_CANDIDATES = [
+    pathlib.Path("/Users/mac/Downloads/sales-engine_4/skills/pdf-report"),
+]
+SKILL = next((p for p in SKILL_CANDIDATES if p.exists()), None)
 OUT = HC / "Aquator-Help-Center-Complete-Guide.pdf"
 DATE = "June 2026"
 # Online Help Center — topic/module titles in the PDF link back here.
@@ -16,10 +24,11 @@ BASE = "https://help.aquatormarine.com/help-center/"
 # excluded (hidden from the live Help Center and this PDF). Re-add them here to
 # restore.
 ORDER = [
-    "getting-started", "pms", "ism", "sms", "crew-management",
+    "getting-started", "pms", "technical-management", "ism", "sms",
+    "crew-management",
     "in-out-board", "user-management", "accounting", "charter",
     "yacht-plans-subscription",
-    "shipyard", "file-manager", "smart-documents", "yacht-management",
+    "shipyard", "file-manager", "reports", "smart-documents", "yacht-management",
     "ais-tracker", "global-settings", "yacht-settings", "personal-settings",
     "theme-customizer", "sidebar-settings", "white-labeling", "integrations",
     "mobile-app", "faq", "customer-support",
@@ -231,35 +240,78 @@ extra_css = """
 
 (HC / "_body.html").write_text(extra_css + "\n" + body_html, encoding="utf-8")
 
-# ---- Wrap in brand chrome via the skill's render.py build_html ------------
-sys.path.insert(0, str(SKILL / "scripts"))
-import render as R  # noqa
-R.ASSETS = SKILL / "assets"
-R.HERE = SKILL / "scripts"
-meta = {
-    "eyebrow": "Help Center",
-    "company": "Complete Guide",
-    "footer_left": "Aquator Marine Private Limited",
-    "footer_right_strong": "Help Center",
-    "footer_right_sub": DATE,
-}
-full = R.build_html(extra_css + "\n" + body_html, meta)
-# Masthead is now white, so the white header logo would be invisible —
-# swap it for the orange anchor (the same logo the footer already uses).
-full = full.replace(R.png_data_uri("aquator-white.png"),
-                    R.png_data_uri("aquator-orange.png"))
-# Make the masthead logo + AQUATOR wordmark a link to the live Help Center.
-full = full.replace(
-    '<div class="logo">',
-    f'<a class="logo" href="{BASE}" style="text-decoration:none;color:inherit">', 1)
-full = full.replace('    </div>\n    <div class="doc">',
-                    '    </a>\n    <div class="doc">', 1)
+# ---- Wrap in brand chrome ---------------------------------------------
+if SKILL is not None:
+    # Full rebuild via the pdf-report skill's render.py build_html.
+    sys.path.insert(0, str(SKILL / "scripts"))
+    import render as R  # noqa
+    R.ASSETS = SKILL / "assets"
+    R.HERE = SKILL / "scripts"
+    meta = {
+        "eyebrow": "Help Center",
+        "company": "Complete Guide",
+        "footer_left": "Aquator Marine Private Limited",
+        "footer_right_strong": "Help Center",
+        "footer_right_sub": DATE,
+    }
+    full = R.build_html(extra_css + "\n" + body_html, meta)
+    # Masthead is now white, so the white header logo would be invisible —
+    # swap it for the orange anchor (the same logo the footer already uses).
+    full = full.replace(R.png_data_uri("aquator-white.png"),
+                        R.png_data_uri("aquator-orange.png"))
+    # Make the masthead logo + AQUATOR wordmark a link to the live Help Center.
+    full = full.replace(
+        '<div class="logo">',
+        f'<a class="logo" href="{BASE}" style="text-decoration:none;color:inherit">', 1)
+    full = full.replace('    </div>\n    <div class="doc">',
+                        '    </a>\n    <div class="doc">', 1)
+else:
+    # Fallback for machines without the pdf-report skill installed: the
+    # masthead/footer/CSS chrome baked into a previous _full.html never
+    # changes between rebuilds, so splice the freshly composed content into
+    # that cached wrapper instead of regenerating it from scratch.
+    cached_path = HC / "_full.html"
+    if not cached_path.exists():
+        sys.exit("[error] pdf-report skill not found and no cached _full.html "
+                  "to reuse as a brand-chrome template")
+    old_full = cached_path.read_text(encoding="utf-8")
+    before, sep1, rest = old_full.partition('<td class="content">')
+    # rpartition (not partition): some module tables end a row with a single
+    # <td>, so the literal substring "</td></tr></tbody>" can also occur
+    # *inside* body content (e.g. a pricing table's last row) well before the
+    # real structural close of the outer content cell, which is always the
+    # last occurrence in the document.
+    _, sep2, after = rest.rpartition('</td></tr></tbody>')
+    if not sep1 or not sep2:
+        sys.exit("[error] couldn't locate content markers in cached _full.html")
+    full = (before + '<td class="content">\n\n' + extra_css + "\n" + body_html
+            + "\n</td></tr></tbody>" + after)
+    print("[ok] reused cached brand-chrome wrapper (pdf-report skill not installed here)")
+
 tmp = HC / "_full.html"
 tmp.write_text(full, encoding="utf-8")
 print(f"[ok] composed body: {len(topics)} topics, {total_mods} sections")
 
-# ---- Render with Chrome headless -----------------------------------------
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# ---- Render with Chrome/Edge headless -------------------------------------
+def find_browser():
+    system = platform.system()
+    if system == "Darwin":
+        candidates = ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"]
+    elif system == "Windows":
+        candidates = [
+            r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+            r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+            r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+            r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+        ]
+    else:
+        candidates = ["/usr/bin/google-chrome", "/usr/bin/chromium-browser", "/usr/bin/chromium"]
+    for c in candidates:
+        if pathlib.Path(c).exists():
+            return c
+    sys.exit("[error] no Chrome/Edge install found for headless PDF rendering")
+
+CHROME = find_browser()
 subprocess.run([
     CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
     f"--print-to-pdf={OUT}", tmp.resolve().as_uri(),
