@@ -147,12 +147,15 @@ Return ONLY the HTML content (no markdown, no code fences). Start with an <h2> t
       },
     },
     {
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-4-5",
       max_tokens: 2000,
       messages: [{ role: "user", content: prompt }],
     }
   );
 
+  if (!res.data.content) {
+    throw new Error(`Claude API error: ${JSON.stringify(res.data)}`);
+  }
   const changelog = res.data.content[0].text;
   console.log("   Changelog generated successfully");
   return changelog;
