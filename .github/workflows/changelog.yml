@@ -2,8 +2,8 @@ name: Monthly Changelog Generator
 
 on:
   schedule:
-    # Runs at 9:00 AM UTC on the 1st of every month
-    - cron: '0 9 1 * *'
+    # Runs at 10:00 AM IST (4:30 AM UTC) on the 1st of every month
+    - cron: '30 4 1 * *'
   workflow_dispatch: # Allow manual trigger for testing
 
 permissions:
