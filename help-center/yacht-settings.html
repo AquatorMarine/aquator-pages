@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Yacht Settings &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Yacht Settings help: configure your vessel's profile, specifications, amenities, contacts, insurance, addresses and Safe Manning."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Yacht Settings</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Yacht Settings <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Configure your vessel&rsquo;s profile, specifications, amenities, contacts, insurance, addresses, and crew certificate requirements. Reached via <strong>Admin Console &rarr; Yacht &rarr; Yacht Settings</strong>, organised into seven tabs.</p>\n\n<h2 id=\"tabs\">The seven tabs</h2>\n<p>Each tab owns a different part of your vessel record:</p>\n<table class=\"ftab\"><thead><tr><th>Tab</th><th>What it holds</th></tr></thead><tbody>\n<tr><td class=\"t-name\">General</td><td>Branding (cover, logo), core identity (name, account, date format), profile tags &amp; description, and the legal employer details used in crew contracts.</td></tr>\n<tr><td class=\"t-name\">Specifications</td><td>The technical spec sheet: identity, dimensions, accommodation, performance, engines, compliance/class, tank capacities and design credits.</td></tr>\n<tr><td class=\"t-name\">Amenities</td><td>Categorised amenity lists used in charters and listings.</td></tr>\n<tr><td class=\"t-name\">Contact</td><td>A directory of management/agent contacts.</td></tr>\n<tr><td class=\"t-name\">Insurance</td><td>Policy details, coverage values and the policy document.</td></tr>\n<tr><td class=\"t-name\">Address</td><td>Marina and registration addresses, each with a map.</td></tr>\n<tr><td class=\"t-name\">Safe Manning</td><td>The certificate requirements expected for each crew role.</td></tr>\n</tbody></table>\n<div class=\"callout warn\"><div class=\"co-h\">Each tab saves on its own</div><p>Most tabs save independently with their own <strong>Save</strong> and <strong>Reset</strong> buttons &mdash; changes on one tab don&rsquo;t carry to another until saved. Save the tab you&rsquo;re working on before switching.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I undo changes before saving?</summary><div class=\"faq-a\"><p>Yes &mdash; most tabs have a <strong>Reset</strong> button that discards unsaved edits and restores the last saved values.</p></div></details>\n<details><summary>What file types and sizes are allowed for uploads?</summary><div class=\"faq-a\"><p>Branding images (cover/logo): <strong>JPG, GIF, PNG, max 2&nbsp;MB</strong>. Insurance policy documents: <strong>PNG, JPG, PDF, DOC, XLS, max 100&nbsp;MB</strong>.</p></div></details>\n<details><summary>Does each tab save separately?</summary><div class=\"faq-a\"><p>Yes &mdash; each tab has its own Save/Reset, so save the tab you&rsquo;re working on before switching.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "general",
+            "name": "General",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">The General tab sets your yacht&rsquo;s branding, identity, profile description and the legal employer details used in crew contracts.</p>\n\n<h2 id=\"setup\">Set up branding and profile</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Cover image and logo files must be <strong>JPG, GIF or PNG, max 2&nbsp;MB</strong>.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Yacht &rarr; Yacht Settings &rarr; General</strong>.</li>\n<li>Under <strong>Yacht Branding</strong>, use <strong>Upload Cover</strong> and the logo <strong>Upload</strong> control (use <strong>Remove</strong> to clear either).</li>\n<li>Under <strong>Yacht Identity</strong>, set <strong>Yacht Name, Account Name</strong> and <strong>Date Format</strong>.</li>\n<li>Under <strong>About Your Yacht</strong>, add <strong>Tags</strong> and write the rich-text <strong>About</strong> description shown on your profile.</li>\n<li>Under <strong>Employer Details</strong>, complete <strong>Employer Name, Employer Address, Care of (c/o)</strong> and <strong>Yacht</strong>.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<div class=\"callout note\"><div class=\"co-h\">Why employer details matter</div><p>The Employer Details feed <strong>crew contracts and HR documents</strong>, so keep them accurate. If an image won&rsquo;t upload, check it&rsquo;s under 2&nbsp;MB and in JPG/GIF/PNG format.</p></div>\n"
+          },
+          {
+            "id": "specifications",
+            "name": "Specifications",
+            "icon": "scale",
+            "body": "\n<p class=\"lead\">The Specifications tab is your vessel&rsquo;s technical spec sheet &mdash; identity, dimensions, accommodation, performance, engines, compliance, capacities and design credits.</p>\n\n<h2 id=\"edit\">Edit your specifications</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Yacht &rarr; Yacht Settings &rarr; Specifications</strong>.</li>\n<li>Fill in the relevant section &mdash; see the list below.</li>\n<li>Click <strong>Save</strong> (or <strong>Reset</strong> to discard unsaved edits and restore the last saved values).</li>\n</ol>\n<table class=\"ftab\"><thead><tr><th>Section</th><th>Fields</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Header</td><td>Vessel Name, Builder, Model.</td></tr>\n<tr><td class=\"t-name\">Commercial &amp; Identity</td><td>Built, Flag, Flag Registration Number, Call Sign, MMSI, Asking Price, Current Location.</td></tr>\n<tr><td class=\"t-name\">Dimensions &amp; Capacity</td><td>Length Overall, Beam, Draft (m); Gross Tonnage (GT).</td></tr>\n<tr><td class=\"t-name\">Accommodation</td><td>Cabins, Guests, Crew.</td></tr>\n<tr><td class=\"t-name\">Performance</td><td>Cruising Speed, Maximum Speed (kts), Range.</td></tr>\n<tr><td class=\"t-name\">Technical Summary</td><td>Main Engines, Propulsion, Bow Thruster, Stabilizers, Generators.</td></tr>\n<tr><td class=\"t-name\">Compliance &amp; Class</td><td>IMO Number, Classification, MCA Compliance, ISM Certified.</td></tr>\n<tr><td class=\"t-name\">Capacities</td><td>Fresh Water, Fuel, Black Water, Grey Water (L).</td></tr>\n<tr><td class=\"t-name\">Design &amp; Construction</td><td>Exterior Designer, Interior Designer, Construction, Hull Configuration.</td></tr>\n</tbody></table>\n<div class=\"callout note\"><div class=\"co-h\">Check the units</div><p>Each measurement field (m, L, kts) has its own unit selector next to it &mdash; confirm the unit dropdown before saving.</p></div>\n"
+          },
+          {
+            "id": "listings",
+            "name": "Amenities, Contacts &amp; Addresses",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">Three tabs hold your yacht&rsquo;s listing and directory information: amenities for charters/listings, a contacts directory, and the marina &amp; registration addresses.</p>\n\n<h2 id=\"amenities\">Amenities</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Yacht Settings &rarr; Amenities</strong> and click <strong>Add New Category</strong>.</li>\n<li>Enter a <strong>Category</strong> title.</li>\n<li>Type an amenity in <strong>Add item&hellip;</strong> and click <strong>+</strong> to add it; repeat for each item.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The category and items become available for charters and listings. A blank tab with only an <strong>Add New Category</strong> button is the empty state &mdash; create the first category to populate it.</p>\n\n<h2 id=\"contacts\">Contacts</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Yacht Settings &rarr; Contact</strong> and click <strong>Add</strong>.</li>\n<li>Complete the <strong>Contact Details</strong> form: photo, Role, Company Name, First Name, Last Name, Email, Phone (with country code), Address Line 1/2, City, Post Code, Country and Note.</li>\n<li>Click <strong>Add</strong> to save the contact.</li>\n</ol>\n<p>The contact appears in the table. Use <strong>Search</strong> to filter, the page-size selector and arrows to page, and <strong>Download</strong> to export the list.</p>\n\n<h2 id=\"address\">Addresses</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Yacht Settings &rarr; Address</strong>.</li>\n<li>Under <strong>Marina</strong>, start typing in <strong>Address Line 1</strong> &mdash; selecting a suggestion auto-fills the other fields. Then adjust Address Line 2, Post Code, City, Country, Email, Website and Phone. A map pin reflects the location.</li>\n<li>Repeat under <strong>Registration</strong>, including the <strong>Registration Name</strong> field.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<div class=\"callout note\"><div class=\"co-h\">Map pin in the wrong place?</div><p>Re-select <strong>Address Line 1</strong> from the autocomplete &mdash; manual typing alone may not move the pin. The hint &ldquo;Selecting fills other fields&rdquo; marks the autocomplete field.</p></div>\n"
+          },
+          {
+            "id": "insurance",
+            "name": "Insurance",
+            "icon": "contract",
+            "body": "\n<p class=\"lead\">The Insurance tab records the policy, coverage values and the policy document for the vessel.</p>\n\n<h2 id=\"record\">Record insurance and upload the policy</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Yacht &rarr; Yacht Settings &rarr; Insurance</strong>.</li>\n<li>Under <strong>Insurance</strong>, enter <strong>Insurance Company, Insurance Policy</strong> and the <strong>Policy period (From) / (To)</strong>.</li>\n<li>Under <strong>Policy Document</strong>, drag &amp; drop or browse to attach the policy file.</li>\n<li>Complete <strong>Collision Damage</strong> (Salvage, Property Damage, Injury, Personal Property, Specialized, Consequential Damage, Additional Circumstances, Cruising, Other), <strong>Coverage Value</strong> (Agreed Value, Actual Cash Value) and <strong>Miscellaneous</strong> (Other, Comments).</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<div class=\"callout warn\"><div class=\"co-h\">&ldquo;Policy Expired&rdquo; red banner?</div><p>The policy&rsquo;s <strong>Policy period (To)</strong> date is in the past (the banner shows how many days ago). Renew with your insurer and update the policy dates to clear it. If the document won&rsquo;t attach, accepted types are <strong>PNG, JPG, PDF, DOC, XLS, max 100&nbsp;MB</strong>.</p></div>\n"
+          },
+          {
+            "id": "safe-manning",
+            "name": "Safe Manning",
+            "icon": "badge",
+            "body": "\n<p class=\"lead\">Safe Manning sets the certificate requirements expected for each crew role &mdash; the baseline against which crew certificate coverage is judged.</p>\n\n<h2 id=\"set\">Set crew certificate requirements</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>The Safe Manning table is populated from the <strong>Settings</strong> modal &mdash; if the table is empty, add roles there first.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Admin Console &rarr; Yacht &rarr; Yacht Settings &rarr; Safe Manning</strong>.</li>\n<li>Click <strong>Settings</strong> to open <strong>Role Certificate Settings</strong>.</li>\n<li>Click <strong>Add Role</strong> and choose a <strong>Role</strong> (e.g. Captain, Chief Engineer, Fleet Captain).</li>\n<li>In <strong>Required Certificates</strong>, select all mandatory certificates (e.g. STCW 95, ENG 1, MCA CoC Master). In <strong>Optional Certificates</strong>, add any non-mandatory ones.</li>\n<li>Repeat per role, then click <strong>Save</strong> (or <strong>Cancel</strong> to discard).</li>\n</ol>\n<p>Each configured role appears on the Safe Manning tab with its Required and Optional certificates listed. An empty Role / Required / Optional table means no roles are configured yet &mdash; click <strong>Settings &rarr; Add Role</strong>.</p>\n\n<h2 id=\"req-opt\">Required vs Optional certificates</h2>\n<p>Each role carries two certificate lists:</p>\n<ul class=\"bul\">\n<li><strong>Required Certificates</strong> &mdash; the qualifications a crew member in that role <em>must</em> hold; these drive the role&rsquo;s compliance expectations.</li>\n<li><strong>Optional Certificates</strong> &mdash; desirable-but-not-mandatory qualifications recorded for completeness (e.g. specialised endorsements).</li>\n</ul>\n<p>Both lists are multi-select, so one role can require several certificates at once (a Captain may require STCW 95, ENG 1 and an MCA CoC Master while listing other endorsements as optional). Configuring these per role is what populates the Safe Manning table.</p>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

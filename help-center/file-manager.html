@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>File Manager &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="File Manager help: create folders, upload files, rename, move (cut/copy/paste), views, sorting and navigation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <header class="mast">
+      <div class="mast-in">
+        <div class="brand">
+          <img
+            src="logo.png"
+            alt="Aquator"
+          />
+          <div>
+            <div class="word">AQUATOR</div>
+            <div class="tag">Built for the Sea. Defined by Innovation.</div>
+          </div>
+        </div>
+        <span class="mast-hc"
+          >File&nbsp;Manager&nbsp;&middot;&nbsp;Help&nbsp;Center</span
+        >
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">File Manager</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">File Manager <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Store, organize, and manage the yacht&rsquo;s documents in a folder tree &mdash; create folders, upload files, rename, move (cut / copy / paste), and view file details.</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open from <strong>Applications &rarr; File Manager</strong>. The left panel is a folder <strong>tree</strong>; the main area shows the contents of the open folder.</p>\n\n<h2 id=\"current\">The one rule to remember</h2>\n<p>Almost everything acts on the <strong>currently open folder</strong> &mdash; the one shown in the <strong>breadcrumb</strong> at the top (<strong>/</strong> is the root). <strong>New folder</strong> and <strong>Upload</strong> create items <em>inside</em> wherever you are, and the search box only searches <em>within</em> that folder. Open the right folder first and most &ldquo;it went to the wrong place&rdquo; surprises disappear.</p>\n<div class=\"callout tip\"><div class=\"co-h\">Check the breadcrumb</div><p>Before creating or uploading, glance at the breadcrumb (e.g. <strong>/ &rsaquo; Drill reports</strong>) to confirm where the new item will land.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Where do new folders and uploaded files go?</summary><div class=\"faq-a\"><p>Into the folder that&rsquo;s currently open, shown in the breadcrumb (<strong>/</strong> is the root). If something lands in the wrong place, open the correct folder and create/upload again, or use right-click <strong>Cut &rarr; Paste</strong> to move it.</p></div></details>\n<details><summary>What does &ldquo;This folder is empty&rdquo; mean?</summary><div class=\"faq-a\"><p>The open folder has no files or subfolders yet. The screen shows a folder icon with <strong>&ldquo;This folder is empty&rdquo;</strong> and <strong>&ldquo;Drag files here to upload.&rdquo;</strong> Populate it with <strong>Upload</strong>, by dragging files on, or with <strong>New folder</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "folders",
+            "name": "Folders &amp; Files",
+            "icon": "receipt",
+            "body": "\n<p class=\"lead\">The core actions &mdash; creating folders, uploading, renaming, moving and inspecting items. Remember that create and upload act on the <strong>currently open folder</strong>.</p>\n\n<h2 id=\"new-folder\">Create a new folder</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Applications &rarr; File Manager</strong>.</li>\n<li>In the tree on the left, click the folder you want the new one to sit inside (or stay at <strong>/</strong> for the root).</li>\n<li>Click <strong>New folder</strong> in the toolbar.</li>\n<li>In the <strong>Folder</strong> dialog, type a name in <strong>Enter your folder name</strong>.</li>\n<li>Click <strong>CREATE</strong>.</li>\n</ol>\n<p>The folder appears immediately in both the tree and the main grid/list, with its <strong>Modified</strong> date set to now.</p>\n<div class=\"callout note\"><div class=\"co-h\">New folder in the wrong place?</div><p>It&rsquo;s created inside whichever folder was open &mdash; open the correct parent first, or use <strong>Cut/Paste</strong> to move it. If it doesn&rsquo;t show up, click <strong>Refresh</strong>.</p></div>\n\n<h2 id=\"upload\">Upload files</h2>\n<ol class=\"steps\">\n<li>Open the folder you want the files to land in (check the breadcrumb).</li>\n<li>Click <strong>Upload</strong> in the toolbar and choose files &mdash; or drag files directly from your desktop onto the content area.</li>\n</ol>\n<p>The files appear in the folder. An empty folder shows <strong>&ldquo;This folder is empty / Drag files here to upload&rdquo;</strong> until at least one item exists.</p>\n<div class=\"callout note\"><div class=\"co-h\">Nothing happens after clicking Upload?</div><p>The file picker opens in a separate window &mdash; check it isn&rsquo;t hidden behind the browser. Files always upload into the open folder, so open the right one first.</p></div>\n\n<h2 id=\"rename\">Rename a folder or file</h2>\n<ol class=\"steps\">\n<li>Click the item once to select it (a highlight appears and the toolbar shows <strong>Rename</strong> and <strong>Delete</strong>).</li>\n<li>Click <strong>Rename</strong> in the toolbar, or right-click the item and choose <strong>Rename</strong>.</li>\n<li>In the <strong>Rename</strong> dialog, clear the field and type the new name in <strong>Enter your new name</strong>.</li>\n<li>Click <strong>SAVE</strong>.</li>\n</ol>\n<p>The item&rsquo;s name updates in the tree, grid and list.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Rename field shows &ldquo;undefined&rdquo;?</div><p>That happens when Rename is triggered from the empty content area <em>inside</em> an open folder instead of from the selected item. Close the dialog, select the folder/file directly in its <strong>parent</strong> listing (toolbar should read &ldquo;1 item selected&rdquo;), then rename.</p></div>\n\n<h2 id=\"move\">Move items (cut, copy, paste)</h2>\n<ol class=\"steps\">\n<li>Right-click the file or folder you want to move.</li>\n<li>Choose <strong>Cut</strong> (to move) or <strong>Copy</strong> (to duplicate).</li>\n<li>Open the destination folder.</li>\n<li>Right-click in the destination and choose <strong>Paste</strong>.</li>\n</ol>\n<p>The item appears in the destination; after a <strong>Cut</strong> it&rsquo;s removed from the original location.</p>\n\n<h2 id=\"details\">View file or folder details</h2>\n<p>Right-click the item and choose <strong>Details</strong>. The dialog shows <strong>Type</strong> (e.g. Folder), <strong>Size</strong>, <strong>Location</strong> (its path, e.g. <strong>/</strong>) and <strong>Modified</strong> (date and time). Click <strong>OK</strong> to close.</p>\n<div class=\"callout note\"><div class=\"co-h\">Size shows 0?</div><p>The folder is empty or contains only empty subfolders.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why is the Paste option greyed out?</summary><div class=\"faq-a\"><p>Paste only activates after you&rsquo;ve used <strong>Cut</strong> or <strong>Copy</strong> on an item. With nothing on the clipboard it stays disabled &mdash; cut or copy something first.</p></div></details>\n<details><summary>The name didn&rsquo;t change after Save.</summary><div class=\"faq-a\"><p>Make sure you selected the item first (the toolbar should read &ldquo;1 item selected&rdquo;), then rename and Save again.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "views",
+            "name": "Views &amp; Sorting",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">Switch how the content area looks and the order items appear in.</p>\n\n<h2 id=\"views\">Large icons vs Details</h2>\n<p>Toggle the layout from the <strong>View</strong> button (grid icon) at the top right:</p>\n<ul class=\"bul\">\n<li><strong>Large icons</strong> &mdash; the default folder-tile grid.</li>\n<li><strong>Details</strong> &mdash; a table with <strong>Name, Modified</strong> and <strong>Size</strong> columns, plus a select-all checkbox. Useful when you need dates and sizes, or want to select several items at once.</li>\n</ul>\n\n<h2 id=\"sorting\">Sorting</h2>\n<p>The <strong>Sort by</strong> dropdown has two parts. The first picks the <strong>field</strong>: <strong>Name, Size</strong> or <strong>Modified</strong>. The second picks the <strong>order</strong>: <strong>Ascending, Descending</strong> or <strong>None</strong>. A checkmark marks the active option in each part (the default is <strong>Name + Ascending</strong>). In <strong>Details</strong> view you can also click a column header (e.g. <strong>Name</strong>) to sort by it.</p>\n"
+          },
+          {
+            "id": "navigation",
+            "name": "Navigation &amp; Menus",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">How the folder tree, breadcrumb, scoped search and right-click menu work together.</p>\n\n<h2 id=\"tree\">The folder tree and breadcrumb</h2>\n<p>The left panel is a folder <strong>tree</strong>: click a folder name to open it, or click the <strong>chevron</strong> to expand and reveal its subfolders without leaving the current view. Folders can nest several levels deep &mdash; for example <strong>Crew Management</strong> expands into Captain, Deckhand, Engineer and Stew.</p>\n<p>The <strong>breadcrumb</strong> at the top shows where you are (e.g. <strong>/ &rsaquo; Drill reports</strong>); click <strong>/</strong> to jump back to the root.</p>\n\n<h2 id=\"scoped-search\">Scoped search</h2>\n<div class=\"callout tip\"><div class=\"co-h\">Search is scoped to your folder</div><p>The search box only searches the folder you&rsquo;re <em>in</em> &mdash; its placeholder changes to <strong>Search /Drill reports/</strong>, not the whole drive. Likewise <strong>New folder</strong> and <strong>Upload</strong> act on the open folder, so what you create or upload lands wherever the breadcrumb says you are.</p></div>\n\n<h2 id=\"context\">The context (right-click) menu</h2>\n<p>Right-clicking an item opens a context menu. On a folder or file the full set is <strong>Open, Cut, Copy, Paste, Delete, Rename</strong> and <strong>Details</strong>. <strong>Paste</strong> stays disabled until you&rsquo;ve cut or copied something.</p>\n<p>Right-clicking a folder also <strong>selects</strong> it, which is why the toolbar simultaneously switches to show <strong>Rename</strong> and <strong>Delete</strong> plus a <strong>&ldquo;1 item selected&rdquo;</strong> badge (with an <strong>&times;</strong> to clear it).</p>\n<div class=\"callout note\"><div class=\"co-h\">Select the item first</div><p>The available options differ slightly between right-clicking an item and an empty area, and renaming from inside an empty open folder can pre-fill the field with <strong>&ldquo;undefined.&rdquo;</strong> For reliable results, always select the specific item first.</p></div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

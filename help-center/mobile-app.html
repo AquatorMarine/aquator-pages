@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Mobile &amp; Installable App &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Use Aquator on phones and tablets, install it to your home screen as an app (PWA), and work on deck with the In/Out Board QR check-in."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Mobile &amp; Installable App</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Mobile &amp; Installable App <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "mobile",
+            "name": "Aquator on Mobile",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Aquator runs in the browser on phones and tablets as well as on a desktop &mdash; the layout adapts to the size of your screen, so you can check a task, update the board or look something up from anywhere on board.</p>\n\n<h2 id=\"works\">What works on mobile</h2>\n<p>The full platform is available on a mobile browser. Quick, on-the-go actions &mdash; checking the In/Out Board, viewing tasks and calendars, looking up a contact or certificate, uploading a photo &mdash; are especially handy away from a desk. Heavier work like building reports or large documents is more comfortable on a bigger screen.</p>\n\n<h2 id=\"tips\">Tips for small screens</h2>\n<ul class=\"bul\">\n<li>Rotate to landscape for wide tables and planners.</li>\n<li>Use the search at the top to jump straight to what you need.</li>\n<li>Tidy your menu with <a href=\"sidebar-settings.html\">Sidebar Settings</a> so the modules you use are first.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Stay connected</div><p>Aquator saves and syncs over the internet, so keep a connection when you&rsquo;re entering data. On a weak signal, let uploads finish before moving on.</p></div>\n"
+          },
+          {
+            "id": "install",
+            "name": "Install as an App",
+            "icon": "rocket",
+            "body": "\n<p class=\"lead\">Aquator can be installed to your home screen or desktop as an app (a <strong>PWA</strong>) &mdash; so it opens in one tap, full-screen, with its own icon, just like a downloaded app. There&rsquo;s nothing to get from an app store.</p>\n\n<h2 id=\"iphone\">iPhone &amp; iPad (Safari)</h2>\n<ol class=\"steps\">\n<li>Open Aquator in <strong>Safari</strong>.</li>\n<li>Tap the <strong>Share</strong> button.</li>\n<li>Choose <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li>\n</ol>\n\n<h2 id=\"android\">Android (Chrome)</h2>\n<ol class=\"steps\">\n<li>Open Aquator in <strong>Chrome</strong>.</li>\n<li>Tap the <strong>&#8942;</strong> menu.</li>\n<li>Choose <strong>Install app</strong> (or <strong>Add to Home screen</strong>).</li>\n</ol>\n\n<h2 id=\"desktop\">Desktop (Chrome &amp; Edge)</h2>\n<ol class=\"steps\">\n<li>Open Aquator in Chrome or Edge.</li>\n<li>Click the <strong>install</strong> icon in the address bar (or the browser menu).</li>\n<li>Confirm <strong>Install</strong> &mdash; Aquator opens in its own window.</li>\n</ol>\n\n<div class=\"callout note\"><div class=\"co-h\">Branded installs</div><p>If your company uses a <a href=\"white-labeling.html\">white-label</a> brand, install from your branded address &mdash; the app installs with <em>your</em> name, icon and colours.</p></div>\n"
+          },
+          {
+            "id": "ondeck",
+            "name": "Working On Deck",
+            "icon": "anchor",
+            "body": "\n<p class=\"lead\">A few Aquator features are built specifically for use away from a desk &mdash; on the dock, at the passerelle or out on the water.</p>\n\n<h2 id=\"qr\">In/Out Board QR check-in</h2>\n<p>The <a href=\"in-out-board.html\">In/Out Board</a> lets people set their in/out status from their own phone by scanning a <strong>QR code</strong> &mdash; ideal at the gangway without handing a device around. It can also switch status automatically with a <strong>geofence</strong> as people enter or leave a set area.</p>\n\n<h2 id=\"external\">Shareable links for non-users</h2>\n<p>Some forms and certificates can be opened from an <strong>external link</strong> &mdash; so guests, contractors or surveyors can complete a form or view a certificate on their own phone without an Aquator login (for example a charter guest preference sheet).</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Is there a separate app to download from the App Store / Play Store?</summary><div class=\"faq-a\"><p>No &mdash; Aquator installs straight from your browser as a PWA. You get an app-like icon and full-screen experience without an app store.</p></div></details>\n<details><summary>Will my branding show on the installed app?</summary><div class=\"faq-a\"><p>On a white-label account, yes &mdash; install from your branded address and the app carries your name, icon and theme colour.</p></div></details>\n<details><summary>Does Aquator work offline?</summary><div class=\"faq-a\"><p>Aquator needs a connection to load and save your live data. Keep a signal when entering information so it syncs.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

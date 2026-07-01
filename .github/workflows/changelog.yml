@@ -2,8 +2,7 @@ name: Monthly Changelog Generator
 
 on:
   schedule:
-    # Runs at 9:00 AM UTC on the 1st of every month
-    - cron: '0 9 1 * *'
+    - cron: "30 6 1 * *"
   workflow_dispatch: # Allow manual trigger for testing
 
 permissions:
@@ -20,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Generate changelog and create PR
         env:

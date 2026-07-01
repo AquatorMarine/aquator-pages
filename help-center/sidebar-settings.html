@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Sidebar Settings &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Sidebar Settings help: show or hide menu items in your left navigation, use group toggles, save your layout, and understand how it differs from permissions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Sidebar Settings</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Sidebar Settings <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Sidebar Settings lets you <strong>declutter your left-hand menu</strong> by hiding the modules you don&rsquo;t use and keeping the ones you do &mdash; a personal layout that&rsquo;s yours alone.</p>\n\n<h2 id=\"open\">Open Sidebar Settings</h2>\n<ol class=\"steps\">\n<li>In the top-right corner, click your <strong>profile avatar</strong> (shows your name and role).</li>\n<li>In the dropdown, click <strong>Sidebar Settings</strong>.</li>\n<li>A dialog opens, titled <strong>&ldquo;Sidebar Settings,&rdquo;</strong> listing every menu group and item you can access, each with an on/off switch.</li>\n</ol>\n\n<h2 id=\"save\">Switch on/off, then Save</h2>\n<div class=\"callout warn\"><div class=\"co-h\">Nothing changes until you Save</div><p>Flipping switches in the dialog only stages your choices. They take effect on the sidebar <strong>only after you click the orange <strong>Save</strong> button</strong> at the bottom of the dialog. Close the dialog without saving and your switches roll back to the last saved state.</p></div>\n<p>To apply your layout: turn items on or off, then click <strong>Save</strong>. The dialog closes, a success message appears, and your left sidebar immediately reflects what you kept visible.</p>\n\n<h2 id=\"default\">What you start with</h2>\n<p>By default <strong>every item you have access to is switched on</strong> &mdash; the sidebar shows your full menu until you choose to hide something. Hiding items here never removes a feature; it only tidies your own menu, and you can switch anything back on at any time.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Where is Sidebar Settings?</summary><div class=\"faq-a\"><p>Click your <strong>profile avatar</strong> in the top-right, then <strong>Sidebar Settings</strong> in the dropdown menu.</p></div></details>\n<details><summary>My sidebar changes didn&rsquo;t stick.</summary><div class=\"faq-a\"><p>You likely closed the dialog without saving. Reopen <strong>Sidebar Settings</strong>, set your switches, and click the orange <strong>Save</strong> button at the bottom.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "toggles",
+            "name": "Show &amp; hide items",
+            "icon": "gear",
+            "body": "\n<p class=\"lead\">The dialog mirrors your sidebar&rsquo;s structure &mdash; top-level groups, their sub-items, and any items nested below those &mdash; so you can hide as much or as little as you like.</p>\n\n<h2 id=\"groups\">Group switches &amp; expanding</h2>\n<p>Top-level menu groups (the ones that contain several items) appear as <strong>expandable rows</strong>. Each has a switch on the right and an arrow to open it:</p>\n<ul class=\"bul\">\n<li><strong>The group switch</strong> &mdash; turning a whole group off hides the group and everything inside it from your sidebar in one move.</li>\n<li><strong>Click the row to expand</strong> &mdash; this reveals the individual items (and any sub-items beneath them), each with its own switch, so you can hide just part of a group.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Switches stay in sync</div><p>If you switch off <strong>every</strong> item inside a group, the group switch turns off automatically. Switch any item back on and the group switch comes back on &mdash; so a group is &ldquo;on&rdquo; whenever at least one of its items is visible.</p></div>\n\n<h2 id=\"items\">Single items &amp; nested items</h2>\n<p>A menu entry that isn&rsquo;t a group (a single destination) shows as one row with a switch &mdash; flip it to show or hide just that page. Some items have their own sub-items nested a level deeper; expand the parent to reach them, and toggle each independently. Turning a parent off hides all of its children with it.</p>\n\n<h2 id=\"restore\">Bring an item back</h2>\n<ol class=\"steps\">\n<li>Open <strong>Sidebar Settings</strong> from your profile avatar.</li>\n<li>Find the group or item (expand the group if needed) and switch it back <strong>on</strong>.</li>\n<li>Click <strong>Save</strong>. It reappears in your sidebar.</li>\n</ol>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>How do I hide a whole section at once?</summary><div class=\"faq-a\"><p>Turn off the <strong>group&rsquo;s switch</strong> at the top level &mdash; the entire group and its items disappear from your sidebar after you Save.</p></div></details>\n<details><summary>I only want to hide one page in a group.</summary><div class=\"faq-a\"><p>Click the group row to <strong>expand</strong> it, switch off just that one item, leave the rest on, and click <strong>Save</strong>.</p></div></details>\n<details><summary>Why did a group turn off by itself?</summary><div class=\"faq-a\"><p>Because you switched off every item inside it. A group is only &ldquo;on&rdquo; while at least one item under it is visible &mdash; switch any item back on to re-enable the group.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "scope",
+            "name": "Scope &amp; permissions",
+            "icon": "users",
+            "body": "\n<p class=\"lead\">Sidebar Settings is a <strong>personal preference</strong>, not an access control. Knowing the difference avoids two common surprises.</p>\n\n<h2 id=\"personal\">It only changes your own sidebar</h2>\n<p>Your sidebar layout is saved to <strong>your own user profile</strong> and follows you across devices and sessions. It does <strong>not</strong> affect what your colleagues see &mdash; each person tailors their own menu, and hiding an item for yourself leaves everyone else&rsquo;s sidebar untouched.</p>\n\n<h2 id=\"permissions\">Hiding is not the same as removing access</h2>\n<div class=\"callout warn\"><div class=\"co-h\">A hidden item is still accessible</div><p>Switching an item off only takes it out of <strong>your menu</strong> &mdash; it doesn&rsquo;t revoke any permission. You (or anyone) can still reach the feature by other routes, and the data is unchanged. To genuinely restrict who can <em>access</em> a module, use roles and permissions in User Management &mdash; not Sidebar Settings.</p></div>\n\n<h2 id=\"whatappears\">What appears in the list</h2>\n<p>The dialog only lists the modules <strong>you already have access to</strong> &mdash; it&rsquo;s built from your current permissions. If a feature you expect isn&rsquo;t in the list at all, it&rsquo;s a <strong>permissions</strong> matter rather than a Sidebar Settings one: ask your administrator to grant access. Section headings and links that open external sites aren&rsquo;t toggleable and won&rsquo;t appear as switches.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Does hiding a module stop other users seeing it?</summary><div class=\"faq-a\"><p>No. Sidebar Settings is per-user &mdash; it changes only your menu. Other people keep their own layout.</p></div></details>\n<details><summary>I hid a module &mdash; is it now &ldquo;turned off&rdquo; or restricted?</summary><div class=\"faq-a\"><p>Neither. The feature still works and your access is unchanged; it&rsquo;s simply not shown in your sidebar. Switch it back on and Save to see it again.</p></div></details>\n<details><summary>A module I need isn&rsquo;t even listed in Sidebar Settings.</summary><div class=\"faq-a\"><p>That means you don&rsquo;t currently have permission for it &mdash; the list is built from your access rights. Ask your administrator to grant the relevant role or permission.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

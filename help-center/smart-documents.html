@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Smart Documents &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Smart Documents help: build forms in the Editor, manage Templates, and track completed Documents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Smart Documents</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Smart Documents <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Build reusable form templates, fill them out to create completed documents, and track every submission through its lifecycle. Smart Documents has three areas: <strong>Editor</strong> (build the form), <strong>Templates</strong> (manage reusable forms), and <strong>Documents</strong> (completed submissions).</p>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open from <strong>Company &rarr; Smart Documents</strong>, then pick <strong>Editor</strong>, <strong>Templates</strong> or <strong>Documents</strong> from the <strong>SMART DOCUMENTS</strong> group in the sidebar.</p>\n\n<h2 id=\"flow\">How the three areas fit together</h2>\n<p>Smart Documents has three stages, and most confusion comes from mixing them up:</p>\n<ul class=\"bul\">\n<li><strong>Editor</strong> &mdash; the drag-and-drop form builder. You design the layout: what fields appear and how they validate.</li>\n<li><strong>Templates</strong> &mdash; every saved form as a reusable master. A template on its own is the <em>blank</em> form.</li>\n<li><strong>Documents</strong> &mdash; completed submissions. Filling a template and clicking <strong>Submit</strong> turns that copy into a Document.</li>\n</ul>\n<div class=\"callout tip\"><div class=\"co-h\">The flow</div><p>Build in <strong>Editor</strong> &rarr; save as a <strong>Template</strong> &rarr; <strong>Fill Form</strong> on the template &rarr; submitted copy lands in <strong>Documents</strong>. Editing a template changes the blank form going forward &mdash; it does <strong>not</strong> change documents already submitted.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>What&rsquo;s the difference between a Template and a Document?</summary><div class=\"faq-a\"><p>A <strong>Template</strong> is the reusable blank form built in the Editor. A <strong>Document</strong> is one completed, submitted copy of that template. One template can produce many documents.</p></div></details>\n<details><summary>Where do my completed forms go after I submit?</summary><div class=\"faq-a\"><p>Into <strong>Company &rarr; Smart Documents &rarr; Documents</strong>, and into the <strong>Export &rarr; Filled Documents Report</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "editor",
+            "name": "Editor",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">The Editor is the drag-and-drop form builder. You design the form layout &mdash; what fields appear and how they validate &mdash; and a saved form becomes a reusable template.</p>\n\n<h2 id=\"build\">Build a form</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>Decide which fields you need. The Editor groups components into <strong>Basic, Advanced, Layout</strong> and <strong>Data</strong>, so know roughly what you&rsquo;re placing.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Company &rarr; Smart Documents &rarr; Editor</strong>.</li>\n<li>From the left panel, open a category and drag a component onto the <strong>Drag and Drop a form component</strong> canvas.</li>\n<li>In the component dialog, set the <strong>Label</strong> under the <strong>Display</strong> tab &mdash; use the <strong>Preview</strong> pane to confirm how it looks.</li>\n<li>To make a field mandatory, open the <strong>Validation</strong> tab and tick <strong>Required</strong>. You can also set <strong>Minimum Length, Maximum Length, Unique</strong> and a custom <strong>Error Label</strong> here.</li>\n<li>Repeat for each field. Use <strong>Layout</strong> components (Panel, Table, Columns) to group fields.</li>\n<li>Click <strong>Save</strong> (bottom-right).</li>\n</ol>\n<p>The form is saved and appears in the <strong>Templates</strong> list, ready to be filled out.</p>\n<div class=\"callout warn\"><div class=\"co-h\">Changes seem lost?</div><p>Closing the component dialog with the <strong>&times;</strong> discards an unsaved new component &mdash; set the Label and confirm in Preview before closing. And <strong>Required</strong> lives on the <strong>Validation</strong> tab, not Display.</p></div>\n\n<h2 id=\"fields\">Field types explained</h2>\n<p>Components fall into four groups:</p>\n<table class=\"ftab\"><thead><tr><th>Group</th><th>What it provides</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Basic</td><td>Everyday inputs &mdash; Text Field, Text Area, Number, Password, Checkbox, Select Boxes (multi-select), Select / Radio (single-select), Button.</td></tr>\n<tr><td class=\"t-name\">Advanced</td><td>Typed inputs that validate their format &mdash; Email, Url, Phone Number, Tags, Address, Date / Time, Day, Time, Currency, Survey, and a <strong>Signature</strong> pad.</td></tr>\n<tr><td class=\"t-name\">Layout</td><td>Organise rather than collect &mdash; Static Text, Columns, Field Set, <strong>Panel</strong> (titled section), <strong>Table</strong> (grid), Tabs, Well.</td></tr>\n<tr><td class=\"t-name\">Data</td><td>Repeating or structured entries &mdash; Hidden (stored, unseen), Container, Data Map, <strong>Data Grid / Edit Grid</strong> (multiple rows of the same fields).</td></tr>\n</tbody></table>\n<div class=\"callout tip\"><div class=\"co-h\">The non-obvious one</div><p>If a form needs an <em>unknown</em> number of rows &mdash; say a temperature log with several readings &mdash; use a <strong>Data Grid / Edit Grid</strong>, not a plain Table. That&rsquo;s what powers an &ldquo;Add Another&rdquo; button when filling the form.</p></div>\n"
+          },
+          {
+            "id": "templates",
+            "name": "Templates",
+            "icon": "contract",
+            "body": "\n<p class=\"lead\">Templates lists every saved form as a reusable blank master. From here you fill a template to create a document, or manage the template itself.</p>\n\n<h2 id=\"fill\">Fill out a template to create a document</h2>\n<div class=\"callout note\"><div class=\"co-h\">Before you start</div><p>The template must already exist in the Templates list. If it isn&rsquo;t there, build and save it in the <strong>Editor</strong> first.</p></div>\n<ol class=\"steps\">\n<li>Go to <strong>Company &rarr; Smart Documents &rarr; Templates</strong>.</li>\n<li>Find the template and click the <strong>&#8942;</strong> menu in the <strong>Actions</strong> column.</li>\n<li>Click <strong>Fill Form</strong> &mdash; the <strong>Submit Form</strong> window opens.</li>\n<li>Complete the fields. Repeating sections have an <strong>Add Another</strong> button; file fields show <strong>Drop files to attach, or browse</strong>; signature fields say <strong>Sign above</strong>.</li>\n<li>Scroll to the bottom and click <strong>Submit</strong>.</li>\n</ol>\n<p>The completed form is saved as a new record in <strong>Documents</strong>, where you can set its Status and Priority; it&rsquo;s also included in the <strong>Filled Documents Report</strong> export.</p>\n<div class=\"callout note\"><div class=\"co-h\">Submit does nothing?</div><p>A <strong>Required</strong> field is empty or fails validation (e.g. a length rule) &mdash; fill the flagged fields and submit again. An <strong>Auto Number</strong> field that&rsquo;s blank and greyed out is expected: it populates automatically on submit.</p></div>\n\n<h2 id=\"manage\">Manage templates</h2>\n<p>Click the <strong>&#8942;</strong> menu in the <strong>Actions</strong> column on a template row. Available actions: <strong>View, Edit, Fill Form, Duplicate, Delete, Revision Control, Download, Copy Link</strong>.</p>\n<ul class=\"bul\">\n<li><strong>Edit</strong> &mdash; reopens the form in the builder.</li>\n<li><strong>Duplicate</strong> &mdash; creates a copy to modify without changing the original.</li>\n<li><strong>Download</strong> &mdash; saves a file copy; <strong>Copy Link</strong> copies a direct link.</li>\n</ul>\n<div class=\"callout warn\"><div class=\"co-h\">Editing only affects new submissions</div><p>Edits update the blank template for all future submissions but do <strong>not</strong> change documents already submitted from it. <strong>Delete</strong> permanently removes the template, and <strong>Share</strong> changes who can access it &mdash; perform deletions and permission changes deliberately.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why is the Auto Number field empty when I fill a form?</summary><div class=\"faq-a\"><p>Auto Number fields are read-only and fill in automatically when you click <strong>Submit</strong>, so they appear blank (and greyed out) while you complete the form.</p></div></details>\n<details><summary>How do I add multiple rows to a section (like a log)?</summary><div class=\"faq-a\"><p>Use the <strong>Add Another</strong> button beneath a repeating section while filling the form. (In the Editor, that comes from a <strong>Data Grid / Edit Grid</strong> component.)</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "documents",
+            "name": "Documents",
+            "icon": "badge",
+            "body": "\n<p class=\"lead\">Documents holds every completed submission. Find and filter them, switch views, and track each one with a Status and Priority.</p>\n\n<h2 id=\"find\">Find, filter and view documents</h2>\n<ol class=\"steps\">\n<li>Go to <strong>Company &rarr; Smart Documents &rarr; Documents</strong>.</li>\n<li>Switch views with the three icons next to the search box: <strong>list/table</strong>, <strong>board</strong>, and <strong>calendar</strong> (Day / Week / WorkWeek / Month / Year / Agenda).</li>\n<li>Click <strong>Filters</strong> to filter by <strong>Users, Category, Created At, Updated At, Status</strong> or <strong>Priority</strong>; use <strong>Clear All</strong> to reset.</li>\n<li>Type in <strong>Search</strong> to find by document text.</li>\n<li>Set a row&rsquo;s <strong>Priority</strong> or <strong>Status</strong> directly from its dropdown in the list.</li>\n<li>To export, click <strong>Export &rarr; Filled Documents Report</strong> and choose the format.</li>\n</ol>\n<div class=\"callout note\"><div class=\"co-h\">Board/calendar shows &ldquo;No data available&rdquo;?</div><p>No documents match the current filter or date range &mdash; clear filters or change the calendar period.</p></div>\n\n<h2 id=\"status\">Document statuses</h2>\n<p>A document&rsquo;s <strong>Status</strong> tracks where it is in its lifecycle. Change it from the Status dropdown directly in the list &mdash; no need to open the document &mdash; and filter by status to see, e.g., everything awaiting approval.</p>\n<table class=\"ftab\"><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody>\n<tr><td><span class=\"chip neutralchip\">Open</span></td><td>Where new submissions typically start.</td></tr>\n<tr><td><span class=\"chip warnchip\">In Progress</span></td><td>Active work.</td></tr>\n<tr><td><span class=\"chip warnchip\">On Hold</span></td><td>Paused.</td></tr>\n<tr><td><span class=\"chip neutralchip\">Done</span></td><td>Completed.</td></tr>\n<tr><td><span class=\"chip okchip\">Approved</span></td><td>Review decision &mdash; accepted.</td></tr>\n<tr><td><span class=\"chip badchip\">Rejected</span></td><td>Review decision &mdash; not accepted.</td></tr>\n<tr><td><span class=\"chip neutralchip\">Archived</span></td><td>Removed from day-to-day views without deleting.</td></tr>\n</tbody></table>\n\n<h2 id=\"priority\">Document priority</h2>\n<p><strong>Priority</strong> flags urgency, separate from status: <strong>None, Low, Medium, High</strong>. Set it from the Priority dropdown in the list, then use <strong>Filters &rarr; Priority</strong> to focus on the most urgent items. Priority is informational &mdash; it doesn&rsquo;t change a document&rsquo;s workflow stage, which is governed by Status.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I edit a document after it&rsquo;s been submitted?</summary><div class=\"faq-a\"><p>Submitted documents offer <strong>View, Download, Copy Link, Delete</strong> and <strong>Revision Control</strong> from the <strong>&#8942;</strong> menu &mdash; there&rsquo;s no direct &ldquo;Edit/Fill Form.&rdquo; To capture corrections, use <strong>Revision Control</strong> for a tracked version, or submit a fresh document from the template. Editing the template won&rsquo;t alter an already-submitted document.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

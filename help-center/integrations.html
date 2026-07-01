@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Third-Party Integrations &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Integrations help: how integrations work, the tools you can connect (Xero, Centtrip, Expensify, Box), how to connect and disconnect, and how to request an integration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Integrations</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Integrations <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "How integrations work",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Integrations connect Aquator to the outside tools you already use &mdash; accounting, expenses, cards and file storage &mdash; so your data flows automatically instead of being keyed in twice.</p>\n\n<h2 id=\"where\">Where to find integrations</h2>\n<ol class=\"steps\">\n<li>Open <strong>Settings</strong> in Aquator.</li>\n<li>Go to the <strong>Integrations</strong> tab.</li>\n<li>You&rsquo;ll see a searchable grid of tools. Anything you&rsquo;ve already connected appears at the top under <strong>Connected</strong> with a green dot; everything else is under <strong>All Integrations</strong>.</li>\n</ol>\n<p>Use the <strong>search box</strong> in the top-right to jump straight to a tool by name or category.</p>\n\n<h2 id=\"access\">Access comes first</h2>\n<p><strong>No integration is switched on by default.</strong> Before any tool will connect, you need to <strong>request access</strong> &mdash; contact your administrator (or the Aquator team) to have it enabled for your account. Until access is granted, clicking a tool shows a <strong>&ldquo;Contact Us&rdquo;</strong> prompt instead of connecting.</p>\n<div class=\"callout warn\"><div class=\"co-h\">The order is: get access, then connect</div><p>This applies to <em>every</em> integration &mdash; including <strong>Xero, Centtrip, Expensify</strong> and <strong>Box</strong>. Once your administrator enables the integration, you can complete the connection yourself from <strong>Settings &rarr; Integrations</strong>. See <strong>Request an Integration</strong> for how to get access, then <strong>Connect &amp; Disconnect</strong> for the steps.</p></div>\n\n<h2 id=\"secure\">Is it secure?</h2>\n<div class=\"callout note\"><div class=\"co-h\">You authorise on the provider&rsquo;s own site</div><p>Connecting an integration sends you to the provider&rsquo;s official sign-in to approve access (Box, Xero and Centtrip), or asks for secure API credentials in a dialog (Expensify). Aquator never sees or stores your provider password &mdash; and you can disconnect at any time.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Do integrations cost extra?</summary><div class=\"faq-a\"><p>Each plan includes a set number of integrations, and you can add more. See <strong>Request an Integration</strong> for how allowances work.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "available",
+            "name": "Available Integrations",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">These four integrations have a ready-made connection flow. Once your administrator has <strong>enabled access</strong> for your account, you can complete the connection yourself from <strong>Settings &rarr; Integrations</strong>.</p>\n\n<h2 id=\"list\">What you can connect once access is granted</h2>\n<table class=\"ftab\"><thead><tr><th>Integration</th><th>Category</th><th>What it does in Aquator</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Xero</td><td>Cloud accounting</td><td>Links your Xero organisation so your chart of accounts, transactions and payments stay in sync with Aquator&rsquo;s accounting.</td></tr>\n<tr><td class=\"t-name\">Centtrip</td><td>Cards &amp; payments</td><td>Brings your Centtrip accounts, cards and card transactions into Aquator for tracking and reconciliation.</td></tr>\n<tr><td class=\"t-name\">Expensify</td><td>Expense management</td><td>Imports your Expensify expense reports into Aquator so spend lands in one place.</td></tr>\n<tr><td class=\"t-name\">Box</td><td>File storage &amp; sharing</td><td>Connects Box so you can store and share documents and files alongside your vessel records.</td></tr>\n</tbody></table>\n<div class=\"callout note\"><div class=\"co-h\">Choosing your Xero organisation</div><p>When you connect <strong>Xero</strong>, you&rsquo;ll also choose which Xero <strong>organisation</strong> to link &mdash; handy if your Xero login has access to more than one.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Don&rsquo;t see the tool I use here?</summary><div class=\"faq-a\"><p>The Integrations page lists many more tools beyond these four. They&rsquo;re available on request &mdash; see <strong>Request an Integration</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "connect",
+            "name": "Connect &amp; Disconnect",
+            "icon": "rocket",
+            "body": "\n<p class=\"lead\">Once access is enabled for your account, connecting takes a couple of clicks &mdash; and you stay in control, disconnecting whenever you like.</p>\n\n<div class=\"callout warn\"><div class=\"co-h\">Before you start: get access</div><p>The integration must be <strong>enabled for your account</strong> first. If it isn&rsquo;t, clicking the tool shows <strong>&ldquo;Contact Us&rdquo;</strong> instead of connecting &mdash; request access from your administrator (see <strong>Request an Integration</strong>), then come back to these steps.</p></div>\n\n<h2 id=\"connect\">Connect an integration</h2>\n<ol class=\"steps\">\n<li>Open <strong>Settings &rarr; Integrations</strong>.</li>\n<li>Find the tool (type its name in the <strong>search box</strong> if it&rsquo;s quicker).</li>\n<li>Click the integration&rsquo;s <strong>card</strong>.</li>\n<li><strong>Authorise the connection:</strong> for <strong>Box, Xero</strong> and <strong>Centtrip</strong> you&rsquo;re taken to the provider&rsquo;s secure sign-in to approve access; for <strong>Expensify</strong> you enter your credentials in a dialog.</li>\n<li>Once approved you return to Aquator. The card shows a <strong>green dot</strong> and moves up to the <strong>Connected</strong> section.</li>\n</ol>\n\n<h2 id=\"disconnect\">Disconnect an integration</h2>\n<ol class=\"steps\">\n<li>In <strong>Settings &rarr; Integrations</strong>, click a <strong>connected</strong> card (the one with the green dot).</li>\n<li>Confirm <strong>Disconnect</strong> in the dialog.</li>\n<li>The connection is removed and the card returns to <strong>All Integrations</strong>.</li>\n</ol>\n<div class=\"callout note\"><div class=\"co-h\">Connections are per company account</div><p>An integration you connect applies to your company account, not just your personal login &mdash; so your team works from the same connected data.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>I clicked connect but nothing synced.</summary><div class=\"faq-a\"><p>Make sure you completed the provider&rsquo;s sign-in and approved access &mdash; the card should show a green dot when it&rsquo;s linked. If it still doesn&rsquo;t sync, disconnect and reconnect, or reach out to Customer Support.</p></div></details>\n<details><summary>Will disconnecting delete my data?</summary><div class=\"faq-a\"><p>Disconnecting stops the link with the provider. Data already brought into Aquator stays; new data simply won&rsquo;t sync until you reconnect.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "request",
+            "name": "Request an Integration",
+            "icon": "help",
+            "body": "\n<p class=\"lead\">Requesting access is the <strong>first step for every integration</strong> &mdash; the four with a ready-made connection flow (Xero, Centtrip, Expensify, Box) <em>and</em> any other tool in the wider catalogue. Nothing is enabled until you ask.</p>\n\n<h2 id=\"catalogue\">What&rsquo;s in the catalogue</h2>\n<p>The Integrations page shows tools across many categories, including:</p>\n<ul class=\"bul\">\n<li><strong>Accounting &amp; ERP</strong> &mdash; QuickBooks, Sage, Oracle, SAP, Bill.com</li>\n<li><strong>Banking, cards &amp; payments</strong> &mdash; Stripe, PayPal, Square, Wise, Revolut, Monzo, N26</li>\n<li><strong>CRM &amp; productivity</strong> &mdash; Salesforce, HubSpot, Pipedrive, Insightly, Zoho, Asana</li>\n<li><strong>Charter</strong> &mdash; Booking Manager, NauSys</li>\n<li><strong>Navigation &amp; marine electronics</strong> &mdash; Admiralty, Garmin, Raymarine, Furuno, Simrad, NMEA, Czone, Polestar</li>\n<li><strong>Weather</strong> &mdash; Windy, Windfinder</li>\n<li><strong>Files, messaging, e-sign &amp; automation</strong> &mdash; Dropbox, Google Suite, Microsoft Suite, Slack, WhatsApp, DocuSign, Zendesk, Zapier, ChatGPT</li>\n</ul>\n\n<h2 id=\"how\">How to request one</h2>\n<ol class=\"steps\">\n<li>In <strong>Settings &rarr; Integrations</strong>, click the tool you want.</li>\n<li>If it isn&rsquo;t self-serve, you&rsquo;ll see a <strong>&ldquo;Contact Us&rdquo;</strong> prompt.</li>\n<li>Let our team know which integration you need &mdash; through <strong>Customer Support</strong> (the support chat) or at <a href=\"mailto:info@aquatormarine.com\">info@aquatormarine.com</a>.</li>\n<li>We&rsquo;ll enable it for your account or scope it with you.</li>\n</ol>\n\n<h2 id=\"allowances\">Plan allowances</h2>\n<p>Integrations are included with your plan in set numbers &mdash; for example, the <strong>Pro</strong> yacht plan includes 1 integration, and Superyacht tiers include between 1 and 4 (with all integrations on the top tier). If you need more than your plan includes, you can add integrations or contact us.</p>\n<div class=\"callout note\"><div class=\"co-h\">Why do I see &ldquo;Contact Us&rdquo; on a tool?</div><p>Either the integration is <strong>request-only</strong> (not self-serve yet), or it isn&rsquo;t enabled on your current plan. In both cases, contact us and we&rsquo;ll sort it out.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can you build an integration that isn&rsquo;t listed at all?</summary><div class=\"faq-a\"><p>Tell us what you use &mdash; many plans include custom integrations and API access, and our team can scope new connections. Reach out at <a href=\"mailto:info@aquatormarine.com\">info@aquatormarine.com</a>.</p></div></details>\n<details><summary>How long does it take to enable a requested integration?</summary><div class=\"faq-a\"><p>It depends on the tool and your plan. Contact us with the integration you need and we&rsquo;ll give you a timeline.</p></div></details>\n</div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

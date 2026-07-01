@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>Theme Customizer &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="Theme Customizer help: theme mode, colors, navbar and footer behavior, layout, transitions, and saving your theme."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">Theme Customizer</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">Theme Customizer <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Personalize the look and feel of Aquator &mdash; theme mode, colours, navbar and footer behaviour, layout, and page transitions &mdash; and make those changes stick.</p>\n\n<h2 id=\"open\">Open the Theme Customizer</h2>\n<ol class=\"steps\">\n<li>In the top-right corner, click your <strong>profile avatar</strong> (shows your name and role).</li>\n<li>In the dropdown, click <strong>Theme Customizer</strong>.</li>\n<li>The panel slides in from the right, headed <strong>&ldquo;Customize &amp; Preview in Real Time.&rdquo;</strong></li>\n</ol>\n<p>You can also click the <strong>customizer icon</strong> in the top navbar to open the same panel. It has seven sections: <strong>Theme Mode, Theme Color, Navbar Type, Navbar Color, Layouts, Footer Type</strong> and <strong>Transitions</strong>. Any option you pick previews immediately on the page behind the panel.</p>\n\n<h2 id=\"save\">Preview vs Save &mdash; the key rule</h2>\n<div class=\"callout warn\"><div class=\"co-h\">A preview is not a save</div><p>Every change previews in real time, but selections are <strong>not persisted</strong> until you click the orange <strong>Save</strong> button at the bottom of the panel (below Transitions). Close the panel, change pages or refresh without saving and your choices roll back to the last saved state.</p></div>\n<p>To save: make your changes, scroll to the bottom of the panel, and click <strong>Save</strong>. Your selections are stored to <strong>your own user profile</strong> &mdash; each person sets their own theme &mdash; and stay applied across devices, page loads and future sessions.</p>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Why did my theme changes disappear?</summary><div class=\"faq-a\"><p>You previewed changes but didn&rsquo;t click <strong>Save</strong>. Reopen the customizer, reapply your choices, and click the orange <strong>Save</strong> button at the bottom to make them permanent.</p></div></details>\n<details><summary>I don&rsquo;t see a Save button.</summary><div class=\"faq-a\"><p>It sits below the <strong>Transitions</strong> section &mdash; scroll the panel down to the bottom.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "mode",
+            "name": "Theme Mode",
+            "icon": "scale",
+            "body": "\n<p class=\"lead\">Theme Mode controls the overall brightness scheme of the interface. There are four options &mdash; the difference between the middle two trips most people up.</p>\n\n<h2 id=\"change\">Change Theme Mode</h2>\n<ol class=\"steps\">\n<li>Open the Theme Customizer.</li>\n<li>Under <strong>Theme Mode</strong>, choose <strong>Light, Dark, Semi Dark</strong> or <strong>Navigation</strong>.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The interface switches modes instantly in the preview; the active mode is outlined in orange.</p>\n\n<h2 id=\"meaning\">What each mode means</h2>\n<table class=\"ftab\"><thead><tr><th>Mode</th><th>What it does</th></tr></thead><tbody>\n<tr><td class=\"t-name\">Light</td><td>Light backgrounds throughout, for bright environments.</td></tr>\n<tr><td class=\"t-name\">Dark</td><td>Dark backgrounds throughout, for low-light comfort.</td></tr>\n<tr><td class=\"t-name\">Semi Dark</td><td>A mix &mdash; the navigation/sidebar uses a dark treatment while the main content area stays light. Choose this for a dark menu without dimming your working area.</td></tr>\n<tr><td class=\"t-name\">Navigation</td><td>Themes the navigation chrome, leaving content presentation otherwise standard. Use it when you mainly want the menus styled rather than the whole canvas.</td></tr>\n</tbody></table>\n<div class=\"callout note\"><div class=\"co-h\">Two things worth knowing</div><p><strong>Semi Dark</strong> darkens only the sidebar/menu &mdash; the content area stays light &mdash; and it isn&rsquo;t offered while you&rsquo;re on the <strong>Horizontal</strong> layout. <strong>Navigation</strong> applies its own navigation styling and <strong>hides the Theme Color and Navbar Color controls</strong>, so custom colours don&rsquo;t apply while it&rsquo;s selected.</p></div>\n\n<h2 id=\"toggle\">The navbar dark Mode toggle</h2>\n<div class=\"callout note\"><div class=\"co-h\">Same setting, one-click shortcut</div><p>The <strong>dark Mode</strong> toggle in the top navbar maps to this same setting &mdash; flipping it moves your Theme Mode selection (e.g. between Light and Dark). Use the customizer when you want the extra modes (<strong>Semi Dark, Navigation</strong>) the simple toggle doesn&rsquo;t expose.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Is the navbar &ldquo;dark Mode&rdquo; toggle different from Theme Mode?</summary><div class=\"faq-a\"><p>No &mdash; they control the same setting. The toggle is a one-click shortcut for the Theme Mode option; opening the customizer afterward reflects the toggle&rsquo;s state.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "colors",
+            "name": "Colors",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">Set the app&rsquo;s accent colour and the top navbar colour independently &mdash; from presets or a custom hex shade.</p>\n\n<h2 id=\"set\">Set Theme Color and Navbar Color</h2>\n<ol class=\"steps\">\n<li>Open the Theme Customizer.</li>\n<li>Under <strong>Theme Color</strong>, click a preset swatch to set the app&rsquo;s accent colour.</li>\n<li>For a custom colour, click the last swatch (the colour-picker tile showing a hex value like <strong>#ffffff</strong>) and choose a shade, or type a hex code.</li>\n<li>Repeat under <strong>Navbar Color</strong> to colour the top navigation bar independently.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>Buttons, highlights and active states update to the Theme Color; the navbar updates to the Navbar Color. Both preview live.</p>\n<div class=\"callout note\"><div class=\"co-h\">Two separate controls</div><p>If your navbar colour didn&rsquo;t change when you picked a Theme Color, set the navbar shade in the <strong>Navbar Color</strong> section &mdash; they&rsquo;re independent. If a light navbar makes text hard to read, pick a darker swatch or pair it with a darker Theme Mode for contrast. In <strong>Navigation</strong> Theme Mode these colour controls are hidden &mdash; switch to another mode (e.g. Light or Dark) to set custom colours.</p></div>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>Can I use a custom brand colour instead of the presets?</summary><div class=\"faq-a\"><p>Yes. In both <strong>Theme Color</strong> and <strong>Navbar Color</strong>, the row of swatches ends with a colour-picker tile (showing a hex value like #ffffff). Click it to open a picker or type a hex code for any custom shade. Remember to click <strong>Save</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "layout",
+            "name": "Layout &amp; Display",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">Control the structural chrome: how the navbar behaves, where the menu sits, the footer, and page transitions. Each option previews live and needs a <strong>Save</strong> to stick.</p>\n\n<h2 id=\"navbar\">Navbar Type (Static, Sticky, Floating)</h2>\n<p>Under <strong>Navbar Type</strong>, choose one (the selected one shows an orange border):</p>\n<ul class=\"bul\">\n<li><strong>Static</strong> &mdash; the navbar scrolls away with the page.</li>\n<li><strong>Sticky</strong> &mdash; the navbar stays pinned to the top as you scroll.</li>\n<li><strong>Floating</strong> &mdash; the navbar detaches slightly from the top edge as a floating bar.</li>\n</ul>\n\n<h2 id=\"layouts\">Layout (Vertical, Horizontal, Collapsed)</h2>\n<p>Under <strong>Layouts</strong>, choose:</p>\n<ul class=\"bul\">\n<li><strong>Vertical</strong> &mdash; the main menu sits in a left sidebar (default).</li>\n<li><strong>Horizontal</strong> &mdash; the menu moves to a top bar across the page.</li>\n<li><strong>Collapsed</strong> &mdash; the left sidebar shrinks to icons only, freeing horizontal space.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Sidebar only shows icons?</div><p>You&rsquo;re on the <strong>Collapsed</strong> layout &mdash; switch to <strong>Vertical</strong> to restore the full sidebar with labels.</p></div>\n\n<h2 id=\"footer\">Footer Type (Hidden, Static, Sticky)</h2>\n<ul class=\"bul\">\n<li><strong>Hidden</strong> &mdash; no footer is shown.</li>\n<li><strong>Static</strong> &mdash; the footer appears at the bottom of page content.</li>\n<li><strong>Sticky</strong> &mdash; the footer stays pinned to the bottom of the viewport.</li>\n</ul>\n\n<h2 id=\"transitions\">Page Transitions</h2>\n<p>Under <strong>Transitions</strong>, open the dropdown (default <strong>Fade</strong>) and pick <strong>Fade, Fade In Left, Zoom In</strong> or <strong>None</strong>. The chosen animation plays each time you move between pages; choose <strong>None</strong> to disable page animations entirely.</p>\n<div class=\"callout note\"><div class=\"co-h\">Don&rsquo;t forget to Save</div><p>All of these preview live but only persist after you click the orange <strong>Save</strong> button at the bottom of the panel.</p></div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>

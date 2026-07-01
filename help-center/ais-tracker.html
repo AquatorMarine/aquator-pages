@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <title>AIS Tracker &mdash; Aquator Marine</title>
+    <meta
+      name="description"
+      content="AIS Tracker help: track vessels on the map, read fleet telemetry, view a yacht's profile, and use chat, calendar and tasks."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="help-center.css" />
+  </head>
+  <body>
+    <script src="site-header.js"></script>
+
+    <div class="shell">
+      <aside class="rail-left">
+        <div class="lh">AIS Tracker</div>
+        <nav id="mods"></nav>
+      </aside>
+      <main class="content">
+        <div class="crumb">AIS Tracker <b id="crumbName"></b></div>
+        <h1 id="title"></h1>
+        <div id="body"></div>
+      </main>
+      <aside class="rail-right">
+        <div class="rh">On this page</div>
+        <nav id="secs"></nav>
+      </aside>
+    </div>
+
+    <script id="kb" type="application/json">
+      {
+        "modules": [
+          {
+            "id": "overview",
+            "name": "Introduction",
+            "icon": "compass",
+            "body": "\n<p class=\"lead\">Live vessel tracking and fleet operations &mdash; track yacht positions on a map, view AIS telemetry, manage per-yacht records, and coordinate work through chat, calendar and tasks.</p>\n\n<div class=\"callout warn\"><div class=\"co-h\">Read first: &ldquo;Location permission required&rdquo;</div><p>If you see a red <strong>&ldquo;Location permission required&rdquo;</strong> toast (bottom-right), the Fleet/Hybrid tables show <strong>&ldquo;No Rows To Show&rdquo;</strong>, the Yacht selector shows <strong>&ldquo;No options,&rdquo;</strong> and markers may not plot. This is your <strong>browser blocking location access</strong>, not missing data. Click the site-permissions icon in your browser&rsquo;s address bar, set location to <strong>Allow</strong> for this site, and reload &mdash; the vessel list and markers then populate.</p></div>\n\n<h2 id=\"where\">Where to find it</h2>\n<p>Open <strong>AIS Tracker</strong> from the left sidebar. Sub-pages: <strong>Map, Hybrid, Fleet, Yacht, Chat, Calendar</strong> and <strong>Task Tracker</strong>.</p>\n\n<h2 id=\"views\">Map vs Hybrid vs Fleet vs Yacht</h2>\n<p>The tracking views show the same fleet data in different shapes:</p>\n<ul class=\"bul\">\n<li><strong>Map</strong> &mdash; geographic only; best for where vessels are, plus historical tracks, pins and zones.</li>\n<li><strong>Fleet</strong> &mdash; tabular only; best for sorting/filtering by telemetry (speed, ETA, length) and paging many vessels.</li>\n<li><strong>Hybrid</strong> &mdash; both stacked: map on top, the same vessel table below, to cross-reference a row with its position.</li>\n<li><strong>Yacht</strong> &mdash; a deep dive into <em>one</em> vessel&rsquo;s full profile, rather than a fleet overview.</li>\n</ul>\n\n<h2 id=\"faqs\">FAQs</h2>\n<div class=\"faq\">\n<details><summary>What does &ldquo;No options&rdquo; in the Yacht selector mean?</summary><div class=\"faq-a\"><p>No vessels have loaded &mdash; almost always a missing browser <strong>location permission</strong>. Grant it and reload.</p></div></details>\n<details><summary>Why are the calendar times not my local time?</summary><div class=\"faq-a\"><p>The Calendar runs in <strong>UTC</strong> (shown in the header bar).</p></div></details>\n<details><summary>Can I track only certain vessels on the map?</summary><div class=\"faq-a\"><p>Yes &mdash; use the <strong>Filter</strong> panel (Yachts, Length, Flag, Class, Status, Category).</p></div></details>\n<details><summary>Where do historical tracks come from?</summary><div class=\"faq-a\"><p>Per-vessel AIS history over the date range you set in the <strong>Historical Track</strong> panel, plotted after you click <strong>Refresh View</strong>.</p></div></details>\n</div>\n"
+          },
+          {
+            "id": "map",
+            "name": "Map",
+            "icon": "tag",
+            "body": "\n<p class=\"lead\">The Map plots vessels geographically, with map styles, historical tracks, saved pins and zones. Grant browser <strong>location permission</strong> first or it won&rsquo;t plot vessels.</p>\n\n<h2 id=\"track\">Track vessels on the map</h2>\n<ol class=\"steps\">\n<li>Go to <strong>AIS Tracker &rarr; Map</strong> &mdash; it opens in <strong>Satellite</strong> style, centred on your fleet&rsquo;s region.</li>\n<li>Use <strong>Zoom in / Zoom out</strong> (top-right) or scroll to navigate; <strong>Fullscreen</strong> (expand-arrows) to enlarge.</li>\n<li>Click the <strong>Filter</strong> icon (top of the left toolbar) to filter by <strong>Yachts, Length, Flag, Class, Status</strong> or <strong>Category</strong>.</li>\n<li>Use the <strong>Search</strong> box (top-right magnifier) to jump to a location or vessel.</li>\n</ol>\n<p>Matching vessels appear as markers. The cursor coordinates show in the lower-right; scale is shown bottom-right (e.g. 100&nbsp;km).</p>\n<div class=\"callout warn\"><div class=\"co-h\">No markers / &ldquo;Location not available&rdquo;?</div><p>Grant browser location permission and reload. If the map looks cluttered, use <strong>Filters</strong> to limit by status or category.</p></div>\n\n<h2 id=\"style\">Change the map style</h2>\n<p>Click the <strong>Layers</strong> icon (stacked squares, right toolbar) and choose from <strong>Street, Street (No Labels), Light, Light (No Labels), Dark, Dark (No Labels), Satellite, Satellite (No Labels)</strong>. The basemap switches immediately; the &ldquo;No Labels&rdquo; variants hide place names for a cleaner view.</p>\n\n<h2 id=\"historical\">View a vessel&rsquo;s historical track</h2>\n<div class=\"callout note\"><div class=\"co-h\">Per-vessel, not fleet-wide</div><p>You must select a specific yacht &mdash; historical track is per-vessel.</p></div>\n<ol class=\"steps\">\n<li>Click the <strong>Historical</strong> icon (third icon down on the left toolbar &mdash; a circle with side lines).</li>\n<li>Choose a vessel from the <strong>Yacht</strong> dropdown.</li>\n<li>Set the <strong>Date Range</strong> (defaults to the last 7 days).</li>\n<li>Click <strong>Refresh View</strong>.</li>\n</ol>\n<p>The vessel&rsquo;s recorded path for that range plots on the map. If no track appears, the vessel may have no AIS records in that window &mdash; widen the date range.</p>\n\n<h2 id=\"pins\">Pins and Zones</h2>\n<p><strong>Pins</strong> &mdash; click the <strong>Pin</strong> icon (map-pin, left toolbar). Use <strong>Search Pin</strong> or review the <strong>Available Pin</strong> list (name + date); click the trash icon to remove one.</p>\n<p><strong>Zones</strong> &mdash; click the <strong>Zone</strong> icon (map icon, left toolbar). Use <strong>Search Zones</strong> or pick from <strong>Available Zones</strong> (e.g. Gibraltar, Monaco, Malta, Palma &mdash; each with a colour and date); click the trash icon to remove one. Zones render as coloured polygons over the relevant sea areas.</p>\n<div class=\"callout warn\"><div class=\"co-h\">No undo</div><p>Deleting a pin or zone is immediate &mdash; there&rsquo;s no undo prompt, so confirm before clicking the trash icon.</p></div>\n"
+          },
+          {
+            "id": "fleet",
+            "name": "Fleet &amp; Hybrid",
+            "icon": "chart",
+            "body": "\n<p class=\"lead\">Fleet is the tabular view of vessels with live AIS telemetry; Hybrid stacks the map and the same table together. Grant <strong>location permission</strong> or the table shows &ldquo;No Rows To Show.&rdquo;</p>\n\n<h2 id=\"fleet\">Read the fleet vessel table</h2>\n<ol class=\"steps\">\n<li>Go to <strong>AIS Tracker &rarr; Fleet</strong>.</li>\n<li>Review vessels across the columns: <strong>Name, Pin, Destination, ETA, Speed, Course, Latitude, Longitude, Length</strong> (scroll right for more).</li>\n<li>Use <strong>Filters</strong> (top-left) to narrow, <strong>Search</strong> to find a vessel, and the page-size selector (default 10) plus pagination to page through results.</li>\n<li>Use the two layout icons beside the search box to switch between table-only and split layouts.</li>\n</ol>\n<p>The filtered, paged vessel list displays with live AIS telemetry per row.</p>\n\n<h2 id=\"hybrid\">Use the Hybrid (map + list) view</h2>\n<p>Go to <strong>AIS Tracker &rarr; Hybrid</strong>. The map (with the full left/right toolbar) sits on top; the vessel table (same columns as Fleet) sits below. Filter, search and page the table while keeping the map in view &mdash; so you can scan the list and see positions at the same time.</p>\n"
+          },
+          {
+            "id": "yacht",
+            "name": "Yacht",
+            "icon": "id",
+            "body": "\n<p class=\"lead\">The Yacht view is a deep dive into one vessel&rsquo;s full profile &mdash; live AIS telemetry plus stored records. Select a vessel first; the page is blank until one is chosen.</p>\n\n<h2 id=\"profile\">View a single yacht&rsquo;s profile</h2>\n<ol class=\"steps\">\n<li>Go to <strong>AIS Tracker &rarr; Yacht</strong>.</li>\n<li>Choose a vessel from the <strong>Select&hellip;</strong> dropdown at the top.</li>\n<li>Review the cards: <strong>AIS Data</strong> (Destination, ETA, Calculated ETA, Speed, Course, Lat/Long, Length, Width, Draught, Flag, Classification Society, IMO, MMSI, Callsign, AIS Class, AIS Status, Signal Age), <strong>Yacht Information, Daily Logs</strong> (Water Maker/Generator Hours, Charter details, Warranty, Last Contact, Next Planned Item), <strong>Custom Data, Address, Social Links, Gallery</strong> and <strong>Documents</strong>.</li>\n</ol>\n<p>Cards with a <strong>pencil</strong> icon (e.g. Yacht Information, Custom Data, Address, Social Links) can be edited.</p>\n<div class=\"callout note\"><div class=\"co-h\">Empty states</div><p><strong>&ldquo;No options&rdquo;</strong> in the dropdown &rarr; grant location permission and reload. <strong>&ldquo;No Yacht Images / Documents&rdquo;</strong> are empty states &mdash; add files via the relevant card. Coordinates showing <strong>&ldquo;NaN&deg; NaN&rsquo; NaN&rdquo;</strong> mean no AIS fix is available yet.</p></div>\n\n<h2 id=\"ais\">How vessel positions and AIS data work</h2>\n<p>The AIS Tracker plots vessels from <strong>AIS</strong> (Automatic Identification System) telemetry. Each vessel exposes a standard set of fields: identity (<strong>MMSI, IMO, Callsign, Flag, Classification Society</strong>), navigation (<strong>Speed, Course, Latitude, Longitude, Destination, ETA, Calculated ETA</strong>) and physical data (<strong>Length, Width, Draught</strong>).</p>\n<p>Two fields explain most &ldquo;why does this look stale/odd?&rdquo; questions:</p>\n<ul class=\"bul\">\n<li><strong>Signal Age</strong> &mdash; how long ago the last AIS fix was received; older signals mean the position is less current.</li>\n<li><strong>AIS Status / AIS Class</strong> &mdash; the transponder&rsquo;s reported state and class.</li>\n</ul>\n<div class=\"callout note\"><div class=\"co-h\">Good to know</div><p>When no fix exists yet, coordinates render as <strong>&ldquo;NaN&deg; NaN&rsquo; NaN&rdquo;</strong> &mdash; an absent signal, not a bug. <strong>Calculated ETA</strong> is derived from current speed and course toward the destination, so it can differ from a manually entered ETA.</p></div>\n"
+          },
+          {
+            "id": "collab",
+            "name": "Chat, Calendar &amp; Tasks",
+            "icon": "phone",
+            "body": "\n<p class=\"lead\">Beyond tracking, AIS Tracker includes collaboration tools: Chat for messaging, Calendar for scheduling, and Task Tracker for assignable work.</p>\n\n<h2 id=\"chat\">Start a chat</h2>\n<p>Go to <strong>AIS Tracker &rarr; Chat</strong>. Use <strong>Search or start a new chat</strong>, pick a contact, or click <strong>Start Conversation</strong>. Existing threads appear under <strong>Chats</strong>; people appear under <strong>Contacts</strong>. Empty states read <strong>&ldquo;No Chats Found.&rdquo;</strong></p>\n\n<h2 id=\"calendar\">Manage events in the Calendar</h2>\n<ol class=\"steps\">\n<li>Go to <strong>AIS Tracker &rarr; Calendar</strong> (times shown in <strong>UTC</strong>).</li>\n<li>Pick a view: Day, Week, WorkWeek, Month, Year, Agenda, Timeline Views or Grid.</li>\n<li>Click <strong>New Event</strong> or <strong>New Recurring Event</strong> to add entries; use the date arrows or <strong>Today</strong> to navigate.</li>\n<li>Use <strong>Print</strong> or <strong>Export</strong> to output the schedule; adjust display via <strong>Settings</strong>.</li>\n</ol>\n\n<h2 id=\"tasks\">Create a task in Task Tracker</h2>\n<ol class=\"steps\">\n<li>Go to <strong>AIS Tracker &rarr; Task Tracker</strong> and click <strong>Add</strong> (top-right).</li>\n<li>Complete the form: <strong>Title</strong>, optional <strong>ID</strong>, <strong>Sub Tasks</strong> (via + Add Sub Task), <strong>Due Date</strong> (date + time), <strong>Assign To User</strong>, <strong>Priority</strong> (None / Low / Medium / High), <strong>Department</strong>, <strong>Assign To Yacht</strong>, <strong>Description</strong> and <strong>Images / Files</strong>.</li>\n<li>Click <strong>Save</strong>.</li>\n</ol>\n<p>The task appears with columns <strong>Title, ID, Assign To Yacht, Due Date, Assign To User</strong> and a colour-coded <strong>Priority</strong> badge.</p>\n<div class=\"callout note\"><div class=\"co-h\">Tips</div><p>Use <strong>Filters</strong> (shows an active-filter count) plus <strong>Save View</strong> to keep a filtered set; <strong>Clear All</strong> resets. Switch between table, split and calendar layouts using the icons left of the search box. <strong>Export</strong> downloads the task list; <strong>Events</strong> shows task events.</p></div>\n"
+          }
+        ]
+      }
+    </script>
+    <script src="help-center.js"></script>
+  </body>
+</html>
