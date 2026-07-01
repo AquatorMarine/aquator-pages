@@ -861,11 +861,11 @@
       <!-- Stats -->
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num">25</div>
+          <div class="hero-stat-num">26</div>
           <div class="hero-stat-label">Modules</div>
         </div>
         <div>
-          <div class="hero-stat-num">122</div>
+          <div class="hero-stat-num">125</div>
           <div class="hero-stat-label">Help articles</div>
         </div>
         <div>
@@ -1035,6 +1035,40 @@
                 <span class="topic-tag">Library</span>
                 <span class="topic-tag">Templates</span>
                 <span class="topic-tag">Populated</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Technical Management -->
+          <a class="card" href="technical-management.html">
+            <div class="card-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"
+                />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">Technical Management</h2>
+              <p class="card-desc">
+                Track defects, maintenance and compliance items as work
+                orders, and pin them to the yacht&rsquo;s GA drawings.
+              </p>
+              <div class="card-topics">
+                <span class="topic-tag">Work List</span>
+                <span class="topic-tag">Editor</span>
+                <span class="topic-tag">Pins</span>
+                <span class="topic-tag">Layers</span>
               </div>
             </div>
           </a>
@@ -2083,7 +2117,7 @@
             "Module guides",
             "Still need a hand"
           ],
-          "text": "With your account, yacht and team set up, you are ready to dive into the tools. Each module has its own step-by-step guide: Accounting, Crew Management, PMS, Yacht Management, In Out Board, AIS Tracker, ISM, SMS, Charter, Smart Documents, File Manager, Warranty, Refits, New Builds, Shipyard and User Management. Use the search box on the Help Center home to find any topic fast, or email info@aquatormarine.com.",
+          "text": "With your account, yacht and team set up, you are ready to dive into the tools. Each module has its own step-by-step guide: Accounting, Crew Management, PMS, Technical Management, Yacht Management, In Out Board, AIS Tracker, ISM, SMS, Charter, Smart Documents, File Manager, Warranty, Refits, New Builds, Shipyard and User Management. Use the search box on the Help Center home to find any topic fast, or email info@aquatormarine.com.",
           "url": "getting-started.html#explore"
         },
         {
@@ -2389,6 +2423,50 @@
           ],
           "text": "Inventory is your parts and spares stock quantities on hand, costs, low-stock thresholds, and where each item is stored. Where to find it: PMS Inventory. Add an inventory item Go to PMS Inventory and click Add . Enter ID , Name and Categories . Set Units in Stock , Unit Cost and Minimum in Stock (your low-stock threshold). Add a Description , Part Number , Serial Number , Manufacturer and Area . Set a QR code / Bar code (or Generate Code ). Set Storage Primary and link a supplier with Add Supplier . Attach files and click Save . What happens next The item appears showing Stock , Available Quantity and Cost . If Stock falls to or below Minimum in Stock , the Stock value is highlighted red as a low-stock warning (a flag only it doesn t send alerts or auto-reorder). How stock vs. available quantity works Each item shows both Stock and Available Quantity , and they aren t always the same: Stock the physical units on hand. Available Quantity what s free to use after the parts on open tasks (any task not yet Completed) are subtracted. Purchase-order lines don t reserve stock only open tasks do. So you may see Stock 8 but Available 7, or even a negative Available when commitments exceed what s on hand. Minimum in Stock is the low-stock threshold when Stock reaches or drops below it, the figure is flagged red so you can reorder. A negative Stock or Available figure signals consumption recorded beyond what was received, and should be reconciled with a restock. What moves stock Stock goes up when you Fulfill a Purchase Order, and down when you Complete a task that has Parts (reopening the task adds them back). See Purchase Orders and Tasks . FAQs What s the difference between Stock and Available Quantity? Stock is the physical units on hand; Available Quantity is what s left after the parts on open tasks are reserved. They differ when stock is committed to a task that hasn t been completed, and Available can go negative if commitments exceed what s on hand. Purchase-order lines don t reserve stock.",
           "url": "pms.html#inventory"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Introduction",
+          "headings": [
+            "What&rsquo;s inside",
+            "How the areas connect",
+            "The same on every screen",
+            "Access &amp; what you can see",
+            "FAQs"
+          ],
+          "text": "Technical Management is where a defect, job or observation on the vessel becomes a tracked work item and where you pin it to the exact spot on the yacht s General Arrangement (GA) drawings. What s inside Two linked areas, both under Technical Management in the sidebar: Work List every defect, compliance item and redline as a trackable work item, with status, priority, deck and dates. Editor the yacht s GA (General Arrangement) drawings, with pins and mark-ups linked back to those work items. A Technical Dashboard also lives under Technical Management, giving an at-a-glance summary of open items this guide covers Work List and the Editor. How the areas connect Dropping a pin in the Editor creates a Work List item tied to that deck and location. A work item s Layer (Defects, Maintenance, Equipment, Compliance, Redlines) sets which coloured layer it lives on in the drawing. Hiding a layer in the Editor hides its pins; a pin s status and priority stay in step with the Work List row, either way you edit them. The same on every screen Top-right controls: Filters , view toggle (List / Board / Gantt Chart / Calendar), Search , Export and Add . Each row s Actions (three-dot) menu: View , Edit , Delete . Selecting rows opens a bulk bar to Mark In Progress , Mark Completed or Defer several items at once. Unlike PMS, ISM and most other modules, the Work List s Add/Edit form does not accept file attachments. Access what you can see Access is granted per area as view , edit or delete . Without full access to the Work List, you only see items assigned to you. FAQs What s the difference between a Type and a Layer? Type classifies the work; Layer is the drawing layer it sits on in the Editor and drives its pin colour.",
+          "url": "technical-management.html#overview"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Work List",
+          "headings": [
+            "Before you start",
+            "Add a work item",
+            "Change status or priority inline",
+            "Bulk actions",
+            "Edit or delete an item",
+            "Switch views",
+            "Find, filter &amp; export",
+            "Comments &amp; history",
+            "Troubleshooting &amp; FAQs"
+          ],
+          "text": "The Work List is the register of every technical work item on the vessel defects, maintenance, compliance items and redlines each with a status, priority, deck and dates. Where to find it: Technical Management Work List. Add a work item Go to Technical Management Work List and click Add . In the Add Work List form, enter a Title (required, up to 100 characters) and, optionally, a Description . Choose the Type (Defect, Maintenance, Equipment, Compliance, Redline) and Layer (Defects, Maintenance, Equipment, Compliance, Redlines). Set the Priority (Critical, High, Medium, Low) and Status (Draft, Open, In Progress, Pending Parts, Pending Inspection, Completed, Deferred, Cancelled). Click Create Item . The Add/Edit form has no file-upload field. Change status or priority inline Click the Status or Priority chevron on a row and pick a new value. Bulk actions Tick the checkbox on rows for a bar with Mark In Progress , Mark Completed , Defer and Clear . Edit or delete an item Actions (three-dot) Edit , then Save Changes , or Delete and confirm on the Delete item dialog this cannot be undone. Switch views List, Board, Gantt Chart or Calendar. Find, filter export Filters by Status, Priority, Type, Layer, Assigned To, Category, Tags, Has GA Pin, Recurring, Due Date and Date Reported. Save View keeps a filtered set. Export Work List Report Choose Report Columns PDF or Excel. Comments history Comments tab (Post) and History tab. Troubleshooting FAQs A row shows a pin icon hover it (View on Editor) or click it to jump to that pin on the GA drawing.",
+          "url": "technical-management.html#worklist"
+        },
+        {
+          "collection": "Technical Management",
+          "title": "Editor",
+          "headings": [
+            "Before you start",
+            "Add a deck &amp; upload a drawing",
+            "Drop a pin (create a work item)",
+            "Mark up the drawing",
+            "Work with layers",
+            "Troubleshooting &amp; FAQs"
+          ],
+          "text": "The Editor holds the yacht s General Arrangement (GA) drawings. Upload a deck plan, drop pins that become work items, and mark it up with shapes, text and coloured layers. Where to find it: Technical Management Editor. Add a deck upload a drawing Click Manage Images this opens the Image Management window. Type a deck name and click Add Deck . Drag drop a file into the deck s upload area, or click browse one file per upload (PNG, JPG, PDF, DOC, XLS max 100 MB). Click Done . Set active switches to an inactive version; Upload new version (replaces active drawing) or Upload drawing depending on whether the deck already has an active drawing. Drop a pin (create a work item) Select the pin tool (tooltip: Place pin (new item)). Click the drawing. Fill the Add Work List form. Click Create Item . Mark up the drawing Select / move, Pan, Pin, Line, Arrow, Rectangle, Ellipse, Text label and Freehand tools, plus an Eraser. Undo (Ctrl+Z) / Redo (Ctrl+Y). Grid and Snap (25px) toggles. Work with layers The Layers panel Defects, Maintenance, Equipment, Compliance, Redlines shows a live item count per layer. The eye icon toggles visibility; the lock icon blocks edits. The Annotations panel lists every pin with search and status filters. Troubleshooting FAQs My pin isn t showing its layer may be hidden or locked.",
+          "url": "technical-management.html#editor"
         },
         {
           "collection": "Yacht Plans & Subscription",
@@ -3649,6 +3727,7 @@
         { name: "Accounting", url: "accounting.html" },
         { name: "Crew Management", url: "crew-management.html" },
         { name: "PMS", url: "pms.html" },
+        { name: "Technical Management", url: "technical-management.html" },
         {
           name: "Yacht Plans & Subscription",
           url: "yacht-plans-subscription.html",
