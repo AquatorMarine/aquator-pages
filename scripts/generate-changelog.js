@@ -179,6 +179,9 @@ async function createGitHubPR(changelogContent, monthName, year) {
       "User-Agent": "changelog-bot",
     },
   });
+  if (!mainRef.data.object) {
+    throw new Error(`GitHub API error getting main branch: ${JSON.stringify(mainRef.data)}`);
+  }
   const mainSha = mainRef.data.object.sha;
 
   // 2. Create a new branch
